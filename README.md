@@ -6,7 +6,7 @@ Next.js 14 개발환경 템플릿 테스트
 # 의존성 NPM 모듈 설치 및 모노레포 세팅
 $ yarn
 # 트랜스파일링 및 빌드
-$ turbo:build
+$ yarn turbo:build
 # 서버 실행
 $ yarn nextjs14 start
 ```
