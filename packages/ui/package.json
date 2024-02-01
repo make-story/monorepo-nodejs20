@@ -1,0 +1,23 @@
+{
+  "name": "@ysm/ui",
+  "version": "1.0.0",
+  "description": "디자인시스템 UI 컴포넌트",
+  "type": "module",
+  "files": [
+    "src/*",
+    "index.ts",
+    "tsconfig.json",
+    "*.d.ts"
+  ],
+  "main": "./index.ts",
+  "types": "./index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": ""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {},
+  "peerDependencies": {}
+}

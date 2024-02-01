@@ -1,0 +1,46 @@
+{
+  "name": "@ysm/fetch-manager",
+  "version": "1.0.0",
+  "description": "fetch 관리",
+  "type": "module",
+  "files": [
+    "dist/*",
+    "src/*",
+    "index.ts",
+    "tsconfig.json",
+    "*.d.ts"
+  ],
+  "main": "./dist/index.umd.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "vite build"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@reduxjs/toolkit": "1.9.5",
+    "@types/react": "18.2.8",
+    "@vitejs/plugin-react": "^4.2.1",
+    "@vitejs/plugin-react-swc": "^3.5.0",
+    "axios": "1.6.5",
+    "query-string": "^8.1.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-redux": "8.1.0",
+    "typescript": "5.1.3",
+    "vite": "^5.0.11",
+    "vite-plugin-dts": "^3.7.2"
+  },
+  "devDependencies": {},
+  "peerDependencies": {
+    "@reduxjs/toolkit": "1.9.5",
+    "@types/react": "18.2.8",
+    "axios": "1.6.5",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-redux": "8.1.0",
+    "typescript": "5.1.3"
+  }
+}

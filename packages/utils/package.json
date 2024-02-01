@@ -1,0 +1,28 @@
+{
+  "name": "@ysm/utils",
+  "version": "1.0.0",
+  "description": "공통 유틸",
+  "type": "module",
+  "files": [
+    "dist/*",
+    "src/*",
+    "index.ts",
+    "tsconfig.json",
+    "*.d.ts"
+  ],
+  "main": "./dist/index.umd.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "vite build"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@ysm/event-manager": "*",
+    "vite": "^5.0.11"
+  },
+  "devDependencies": {},
+  "peerDependencies": {}
+}
