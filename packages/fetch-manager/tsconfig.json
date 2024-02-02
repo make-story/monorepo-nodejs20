@@ -1,5 +1,5 @@
 {
-  "extends": "@lotte/config/tsconfig.base.json",
+  "extends": "@ysm/config/tsconfig.base.json",
   "compilerOptions": {
     "outDir": "dist",
     "alwaysStrict": true,
