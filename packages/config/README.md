@@ -1,4 +1,4 @@
-# TypeScript 설정, ESLint 설정 등 프로젝트별 공통 관리
+# TypeScript 설정, ESLint 설정 등 프로젝트별 공통 Config 관리
 
 Nex.js + Turborepo (Next.js 공식예제) - 24년 01월 기준
 

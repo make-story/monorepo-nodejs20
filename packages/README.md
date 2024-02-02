@@ -45,3 +45,13 @@ dist
 ├─ index.d.ts
 └─ ...
 ```
+
+아래 설정이 각 모듈의 tsconfig.json 에 설정되어야 한다!!
+
+https://github.com/vercel/turbo/blob/main/examples/basic/packages/ui/tsconfig.json
+
+```json
+"compilerOptions": {
+    "outDir": "dist"
+}
+```
