@@ -77,6 +77,11 @@ product
 └─ ...
 ```
 
+https://turbo.build/repo  
+https://turbo.build/repo/docs/handbook/workspaces  
+https://turbo.build/repo/docs/getting-started/create-new  
+https://github.com/vercel/turbo/tree/main/examples/basic
+
 ## 기능단위 폴더 구조 (Folder / File Structure)
 
 ```
@@ -96,10 +101,53 @@ README.md
 
 ## 계층간 의존성 제어 (Dependency diagram)
 
+https://www.kimcoder.io/blog/clean-frontend-architecture
+
 pages -> components 또는 lib -> core  
 `의존성은 모두 단방향으로만 흘러가고, 역으로 참조해서는 안 된다.`
 
 core 내부의 코드는 외부(components 또는 lib 또는 pages 등) 코드의 의존성이 없어야 한다. (캡슐화)
+
+이러한 관심사의 분리로 인해 각 모듈은 여러 책임에서 벗어나기 쉽고, 테스트하기도 더 쉬워지며, 유지 보수 비용도 줄어들 것이다.
+
+```
+ "rules": {
+     "import/no-restricted-paths": [
+       "error",
+       {
+         "zones": [
+           {
+             "target": "src/core",
+             "from": "src/components"
+           },
+           {
+             "target": "src/core",
+             "from": "src/lib"
+           },
+           {
+             "target": "src/core",
+             "from": "src/pages"
+           },
+           {
+             "target": "src/lib",
+             "from": "src/pages"
+           },
+           {
+             "target": "src/components",
+             "from": "src/pages"
+           }
+         ]
+       }
+     ]
+   },
+   "settings": {
+     "import/resolver": {
+       "typescript": {
+         "project": "."
+       }
+     }
+   }
+```
 
 ## package.json 에서의 NPM 버전관리
 
@@ -115,3 +163,11 @@ core 내부의 코드는 외부(components 또는 lib 또는 pages 등) 코드�
 .env.test.local  
 .env.production.local  
 .env.local
+
+## Node.js TypeScript - tsx
+
+https://www.npmjs.com/package/tsx
+
+Node.js Typescript 코드 변환
+
+`study.git/인프라/서버/NodeJS_NPM/NodeJS_TypeScript.md` 내용 참고

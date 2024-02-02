@@ -1,0 +1,13 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.fixAll.eslint": true
+  },
+  "eslint.enable": true,
+  "eslint.quiet": true,
+  "prettier.enableDebugLogs": true,
+  "prettier.requireConfig": true,
+  "prettier.configPath": ".prettierrc.js"
+}

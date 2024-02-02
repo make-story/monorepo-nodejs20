@@ -1,3 +1,8 @@
+> 특정버전 호환이 필요한 의존성 모듈은 package.json 에 peerDependencies 항목에도 의존성 패키지 및 버전 명시 필수!
+
+`패키지를 사용하는 쪽에 현재 패키지가 의존하는 라이브러리 버전 설치 필수라는 것 명시!`  
+`실제로 패키지에서 직접 require(import) 하지는 않더라도 호환성이 필요한 경우 명시!`
+
 # 재사용 컴포넌트 (디자인시스템)
 
 ## 디자인시스템의 원칙 (By Katie Sylor-Miller, Design Systems Handbook 저자 중 한명)

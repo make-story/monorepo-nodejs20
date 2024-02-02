@@ -1,0 +1,27 @@
+{
+  "name": "@lotte/functional-programming",
+  "version": "1.0.0",
+  "description": "peerDependencies 필수! 패키지를 사용하는 쪽에 현재 패키지가 의존하는 라이브러리 버전 설치 필수라는 것 명시!",
+  "type": "module",
+  "files": [
+    "dist/*",
+    "src/*",
+    "index.ts",
+    "tsconfig.json",
+    "*.d.ts"
+  ],
+  "main": "./dist/index.umd.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "vite build"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "vite": "^5.0.11"
+  },
+  "devDependencies": {},
+  "peerDependencies": {}
+}
