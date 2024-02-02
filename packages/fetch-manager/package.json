@@ -20,6 +20,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@ysm/config": "*",
     "@reduxjs/toolkit": "1.9.5",
     "@types/react": "18.2.8",
     "@vitejs/plugin-react": "^4.2.1",

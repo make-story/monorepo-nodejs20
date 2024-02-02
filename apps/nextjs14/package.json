@@ -10,6 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ysm/config": "*",
     "@ysm/utils": "*",
     "@ysm/fetch-manager": "*",
     "@ysm/event-manager": "*",

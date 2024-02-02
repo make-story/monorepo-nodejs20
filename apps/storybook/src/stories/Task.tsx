@@ -1,8 +1,6 @@
 /**
  * https://storybook.js.org/tutorials/intro-to-storybook/react/en/simple-component/
  */
-import React from 'react';
-
 export default function Task({
   task: { id, title, state },
   onArchiveTask,

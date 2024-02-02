@@ -31,6 +31,7 @@ export default defineConfig({
     commonjsOptions: {
       esmExternals: ['react'],
     },
+    sourcemap: true,
   },
   plugins: [
     react(),

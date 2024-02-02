@@ -22,6 +22,7 @@ export default defineConfig({
         format: 'umd', // 기본값: es
       },
     },
+    sourcemap: true,
   },
   //plugins: [dts(), cssInjectedByJsPlugin()],
 });

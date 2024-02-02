@@ -16,8 +16,10 @@ $ yarn nextjs14 start
 ```bash
 # Next.js 일반 개발환경 실행
 $ yarn nextjs14 dev
-# Next.js 일반 개발환경 터보팩으로 실행
+# 또는 Next.js 일반 개발환경 터보팩으로 실행
 $ yarn nextjs14 dev:turbo
+# 또는 Next.js + Stroybook 등 로컬환경 애플리케이션 모두 실행
+$ yarn dev
 ```
 
 스토리북(로컬환경) 실행
@@ -30,6 +32,25 @@ $ yarn storybook dev
 
 - Node.js 20 이상 (20.10.0)
 - Next.js 14.0.3
+- TypeScript 5.x
+
+## 주요 도구
+
+- 전역 상태관리
+  - Context API
+  - Redux Toolkit
+  - Redux-persist
+- API 상태관리
+  - RTK Query(Redux Toolkit)
+- UI
+  - Storybook
+  - Styled Component
+  - Tailwind CSS
+- 트랜스파일링, 빌드
+  - SWC (Babel 대체)
+  - Turbo Pack (Webpack 대체)
+  - Turbo Repo
+  - Vite
 
 ## 모노레포 구조
 

@@ -17,7 +17,9 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "@ysm/config": "*"
+  },
   "devDependencies": {},
   "peerDependencies": {}
 }

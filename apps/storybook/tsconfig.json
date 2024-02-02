@@ -1,0 +1,6 @@
+{
+  "extends": "@ysm/config/tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": "."
+  }
+}
