@@ -25,3 +25,23 @@
 
 Vite 에 영향을 주는 tsconfig.js 설정  
 https://ko.vitejs.dev/guide/features.html
+
+## Vite tsconfig 이슈
+
+루트 디렉토리에서 터보레포로 빌드할 경우,  
+각각의 NPM 패키지(예: fetch-manager) tsconfig.json 의 extends 가 아래와 같이 설정되면  
+빌드 파일이 dist/src 뿐만아니라 비정상적으로 모든 패키지 빌드파일이 들어감
+
+```json
+{
+  "extends": "@ysm/config/tsconfig.base.json"
+}
+```
+
+```
+dist
+├─ apps
+├─ packages
+├─ index.d.ts
+└─ ...
+```
