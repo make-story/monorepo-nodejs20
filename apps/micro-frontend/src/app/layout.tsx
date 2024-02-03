@@ -40,7 +40,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         {/* Provider */}
         {/* https://nextjs.org/docs/app/building-your-application/rendering/composition-patterns#using-context-providers */}
         <Providers>{children}</Providers>
-        <script src='//localhost:3000/_next/static/chunks/remoteEntry.js' />
+        {/*<script src='/index.js'></script>*/}
       </body>
     </html>
   );

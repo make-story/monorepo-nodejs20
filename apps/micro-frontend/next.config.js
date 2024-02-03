@@ -38,49 +38,39 @@ const nextConfig = {
   webpack: (config, options) => {
     const { buildId, dev, isServer, defaultLoaders, nextRuntime, webpack } =
       options;
-    //if (!isServer) {
-    //config.cache = false;
-    /*config.plugins.push(
-      new NextFederationPlugin({
-        name: 'microfrontend',
-        library: {
-          type: config.output.libraryTarget || 'var',
+
+    /*if (!isServer && !dev) {
+      //config.cache = false;
+      config.plugins.push(
+        new NextFederationPlugin({
           name: 'microfrontend',
-        },
-        //remotes: remotes(isServer),
-        remotes: {},
-        filename: 'static/chunks/remoteEntry.js',
-        exposes: {
-          './home': path.resolve(
-            __dirname,
-            './src/service/components/test/Test.tsx',
-          ),
-          './pages-map': './pages-map.js',
-        },
-        shared: {
-          react: {
-            singleton: true,
-            requiredVersion: false,
-            eager: false,
-            import: false,
+          library: {
+            type: config.output.libraryTarget || 'var',
+            name: 'microfrontend',
           },
-          'react-dom': {
-            singleton: true,
-            requiredVersion: false,
-            eager: false,
-            import: false,
+          //remotes: remotes(isServer),
+          remotes: {},
+          filename: 'static/chunks/remoteEntry.js',
+          exposes: {
+            './home': path.resolve(
+              __dirname,
+              './src/service/components/test/Test.tsx',
+            ),
+            './pages-map': './pages-map.js',
           },
-        },
-        extraOptions: {
-          debug: true, // `false` by default
-          exposePages: true, // `false` by default
-          enableImageLoaderFix: false, // `false` by default
-          enableUrlLoaderFix: false, // `false` by default
-          skipSharingNextInternals: false, // `false` by default
-        },
-      }),
-    );*/
-    //}
+          // shared 를 설정하면, 호스트나 여러 원격 모듈에서 사용되는 공통된 패키지를 중복으로 불러오는 걸 방지
+          shared: {},
+          extraOptions: {
+            debug: true, // `false` by default
+            exposePages: true, // `false` by default
+            enableImageLoaderFix: true, // `false` by default
+            enableUrlLoaderFix: true, // `false` by default
+            automaticAsyncBoundary: true, // `false` by default
+            skipSharingNextInternals: false, // `false` by default
+          },
+        }),
+      );
+    }*/
 
     return config;
   },
