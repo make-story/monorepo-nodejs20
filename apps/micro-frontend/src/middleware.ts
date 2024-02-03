@@ -1,10 +1,11 @@
 /**
  * Next.js 미들웨어
- * 13 버전 기준으로 최상위 루트에 파일 위치해야 함 (app 또는 pages 또는 src 디렉토리와 동일한 위치)
+ * https://nextjs.org/docs/app/building-your-application/routing/middleware
  */
 import { NextFetchEvent, NextRequest, NextResponse } from 'next/server';
 
 export function middleware(request: NextRequest, event: NextFetchEvent) {
+  console.log('middleware', request.url);
   //return NextResponse.redirect(new URL('/home', request.url));
   return NextResponse.next();
 }

@@ -10,11 +10,6 @@ import { cookies } from 'next/headers';
 
 import './globals.css';
 import { Providers } from '@/providers';
-import { initMocks } from '@/mocks/index';
-
-/*if (process.env.NEXT_PUBLIC_MOCK_APIS === 'enabled') {
-  initMocks();
-}*/
 
 //const inter = Inter({ subsets: ['latin'] });
 

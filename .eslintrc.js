@@ -1,5 +1,6 @@
 module.exports = {
-  extends: ['next/core-web-vitals', 'prettier'],
+  root: true,
+  extends: ['next/babel', 'next/core-web-vitals', 'prettier'],
   rules: {
     'import/order': [
       'error',
