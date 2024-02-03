@@ -4,8 +4,17 @@
  * https://nextjs.org/docs/app/api-reference/next-config-js/turbo
  * https://nextjs.org/docs/app/api-reference/next-config-js/webpack
  */
+const path = require('node:path');
 // @module-federation/nextjs-mf 활용하여 마이크로프론트 제공
 const NextFederationPlugin = require('@module-federation/nextjs-mf');
+
+const remotes = isServer => {
+  const location = isServer ? 'ssr' : 'chunks';
+  return {
+    // specify remotes
+    remote: `remote@http://localhost:3001/_next/static/${location}/remoteEntry.js`,
+  };
+};
 
 const nextConfig = {
   reactStrictMode: false,
@@ -30,9 +39,9 @@ const nextConfig = {
     config,
     { buildId, dev, isServer, defaultLoaders, nextRuntime, webpack },
   ) => {
-    if (!options.isServer) {
-      //config.cache=false
-      config.plugins.push(
+    if (!isServer) {
+      config.cache = false;
+      /*config.plugins.push(
         new NextFederationPlugin({
           name: 'nextjs14',
           remotes: {},
@@ -41,7 +50,7 @@ const nextConfig = {
           shared: {},
           extraOptions: {},
         }),
-      );
+      );*/
     }
     return config;
   },

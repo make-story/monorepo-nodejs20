@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "NODE_OPTIONS='--inspect' next dev",
+    "dev": "NEXT_PRIVATE_LOCAL_WEBPACK=true NODE_OPTIONS='--inspect' next dev",
     "dev:turbo": "NODE_OPTIONS='--inspect' next dev --turbo",
     "build": "next build",
     "start": "next start",
