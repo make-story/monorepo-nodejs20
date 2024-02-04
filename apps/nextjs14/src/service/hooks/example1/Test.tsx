@@ -1,4 +1,4 @@
-import useHook from './useHook';
+import useIntersectionObserver from './useIntersectionObserver';
 
 const TestHook = () => {
   return <></>;

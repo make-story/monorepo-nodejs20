@@ -41,6 +41,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         {/* https://nextjs.org/docs/app/building-your-application/rendering/composition-patterns#using-context-providers */}
         <Providers>{children}</Providers>
         {/*<script src='/index.js'></script>*/}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: '',
+          }}
+        ></script>
       </body>
     </html>
   );

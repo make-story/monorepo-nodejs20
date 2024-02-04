@@ -3,8 +3,9 @@
  */
 'use client';
 
-import { importRemote } from '@/micro';
 import { useEffect } from 'react';
+
+import { importRemote } from '@/micro';
 
 function TestContainer() {
   /*useEffect(() => {

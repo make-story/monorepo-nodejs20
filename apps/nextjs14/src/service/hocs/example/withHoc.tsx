@@ -7,7 +7,7 @@ import {
 } from 'react';
 import { NextComponentType } from 'next';
 
-import useHook1 from '@/service/hooks/example1/useHook';
+import useHook1 from '@/service/hooks/example1/useIntersectionObserver';
 import useHook2 from '@/service/hooks/example2/useScrollPersist';
 
 /**
