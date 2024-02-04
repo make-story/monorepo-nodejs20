@@ -3,10 +3,7 @@
  */
 'use client';
 
-import { useEffect, useState } from 'react';
-
 import { useContextAuth } from '@/common/store/auth';
-import TestContainer from '@/common/containers/test/TestContainer';
 
 const Auth = () => {
   const { user, setUser } = useContextAuth();
