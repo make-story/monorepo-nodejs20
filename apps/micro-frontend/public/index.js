@@ -8,7 +8,7 @@ const getModuleFederation = async ({
   container?.init();
   return container.get(module).then(factory => ({ default: factory() }));
 };
-(async () => {
+/*(async () => {
   const component = await getModuleFederation();
   console.log(component?.default);
-})();
+})();*/

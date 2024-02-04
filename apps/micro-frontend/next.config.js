@@ -7,6 +7,7 @@
 const path = require('node:path');
 // @module-federation/nextjs-mf 활용하여 마이크로프론트 제공
 const NextFederationPlugin = require('@module-federation/nextjs-mf');
+const packageJson = require('./package.json');
 
 const remotes = isServer => {
   const location = isServer ? 'ssr' : 'chunks';
@@ -40,8 +41,9 @@ const nextConfig = {
       options;
 
     /*if (!isServer && !dev) {
-      //config.cache = false;
+      config.cache = false;
       config.plugins.push(
+        // https://github.com/module-federation/universe/pull/2002
         new NextFederationPlugin({
           name: 'microfrontend',
           library: {
@@ -59,14 +61,16 @@ const nextConfig = {
             './pages-map': './pages-map.js',
           },
           // shared 를 설정하면, 호스트나 여러 원격 모듈에서 사용되는 공통된 패키지를 중복으로 불러오는 걸 방지
-          shared: {},
+          shared: {
+            //...packageJson.dependencies,
+          },
           extraOptions: {
-            debug: true, // `false` by default
-            exposePages: true, // `false` by default
-            enableImageLoaderFix: true, // `false` by default
-            enableUrlLoaderFix: true, // `false` by default
-            automaticAsyncBoundary: true, // `false` by default
-            skipSharingNextInternals: false, // `false` by default
+            //debug: true, // `false` by default
+            //exposePages: true, // `false` by default
+            //enableImageLoaderFix: true, // `false` by default
+            //enableUrlLoaderFix: true, // `false` by default
+            //automaticAsyncBoundary: true, // `false` by default
+            //skipSharingNextInternals: false, // `false` by default
           },
         }),
       );

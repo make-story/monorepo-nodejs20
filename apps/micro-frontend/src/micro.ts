@@ -1,3 +1,7 @@
+/**
+ * https://medium.com/@randombitsdev/advanced-guide-to-module-federation-8f25431cbf3c
+ * https://randombits.dev/articles/module-federation-advanced
+ */
 declare global {
   const __webpack_init_sharing__: (parameter: string) => Promise<void>;
   const __webpack_share_scopes__: { default: any };
@@ -61,3 +65,48 @@ export const importRemote = async <T>(
     return moduleFactory();
   }
 };
+
+const REMOTE_URLS: { [key: string | number | symbol]: any } = {};
+export const importRemoteByName = (
+  remoteName: string,
+  module = 'bootstrap',
+) => {
+  const url = REMOTE_URLS[remoteName] + '/remoteEntry.js';
+  return importRemote(url, remoteName, module);
+};
+/*
+importRemote('http://localhost:3001/remoteEntry.js', 'app1', 'metadata').then((metadata) => {
+    console.log(metadata.name);
+});
+*/
+
+/*
+if (!window.customElements.get('app1')) {
+    class App1 extends HTMLElement {
+        private reactRoot: Root = null;
+        connectedCallback() {
+            this.reactRoot = createRoot(this);
+            this.reactRoot.render(<App/>);
+        }
+        disconnectedCallback() {
+            setTimeout(() => {
+                this.reactRoot.unmount();
+                this.reactRoot = null;
+            })
+        }
+    }
+    window.customElements.define('app1', App1);
+}
+*/
+
+/*
+const RemoteApp = ({appName, params}: Params) => {
+    useEffect(() => {
+        importRemoteByName(appName).catch((e) => {
+            // handle error if needed
+        });
+    }, []);
+    const CustomElement = `remote-${appName}`;
+    return <CustomElement {...params}/>;
+};
+*/
