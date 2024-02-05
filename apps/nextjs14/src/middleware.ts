@@ -17,8 +17,8 @@ export function middleware(request: NextRequest, event: NextFetchEvent) {
 
   let cookie = request.cookies.get('nextjs');
   const allCookies = request.cookies.getAll();
-  console.log(cookie);
-  console.log(allCookies);
+  //console.log('Next.js middleware', cookie);
+  //console.log('Next.js middleware', allCookies);
 
   request.cookies.has('nextjs');
   request.cookies.delete('nextjs');
@@ -33,7 +33,7 @@ export function middleware(request: NextRequest, event: NextFetchEvent) {
     path: '/',
   });
   cookie = response.cookies.get('vercel');
-  console.log(cookie); // => { name: 'vercel', value: 'fast', Path: '/' }
+  console.log('Next.js middleware', cookie); // => { name: 'vercel', value: 'fast', Path: '/' }
 
   return response;
 }
