@@ -1,17 +1,4 @@
-# NPM 패키지 개발
-
-- Fetch 관리
-  - fetch-manager
-- Event 관리
-  - event-manager
-- Logging 관리
-  - logging-manager
-- 공통 유틸
-  - util
-- 공통 UI 컴포넌트
-  - ui
-- 공통 설정 코드관리
-  - config
+# NPM 패키지
 
 ## Next.js 13 이상, 서버 컴포넌트에 대응할 수 있어야 함
 

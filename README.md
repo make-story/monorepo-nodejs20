@@ -28,9 +28,10 @@ $ yarn dev
 $ yarn storybook dev
 ```
 
-## 버전
+## 기초환경 및 버전
 
 - Node.js 20 이상 (20.10.0)
+- Yarn 안정화버전
 - Next.js 14.0.3
 - TypeScript 5.x
 
@@ -46,11 +47,27 @@ $ yarn storybook dev
   - Storybook
   - Styled Component
   - Tailwind CSS
+  - Module CSS
 - 트랜스파일링, 빌드
   - SWC (Babel 대체)
   - Turbo Pack (Webpack 대체)
   - Turbo Repo
   - Vite
+
+## 주요 내부 패키지
+
+- 공통 설정 코드관리
+  - config
+- Fetch 관리
+  - fetch-manager
+- Event 관리
+  - event-manager
+- Logging 관리
+  - logging-manager
+- 공통 유틸
+  - util
+- 공통 UI 컴포넌트
+  - ui
 
 ## 모노레포 구조
 
@@ -103,10 +120,10 @@ README.md
 
 https://www.kimcoder.io/blog/clean-frontend-architecture
 
-pages -> components 또는 lib -> core  
+layout -> pages -> containers 또는 components -> core  
 `의존성은 모두 단방향으로만 흘러가고, 역으로 참조해서는 안 된다.`
 
-core 내부의 코드는 외부(components 또는 lib 또는 pages 등) 코드의 의존성이 없어야 한다. (캡슐화)
+core 내부의 코드는 외부(components 또는 pages 등) 코드의 의존성이 없어야 한다.
 
 이러한 관심사의 분리로 인해 각 모듈은 여러 책임에서 벗어나기 쉽고, 테스트하기도 더 쉬워지며, 유지 보수 비용도 줄어들 것이다.
 
@@ -157,6 +174,11 @@ core 내부의 코드는 외부(components 또는 lib 또는 pages 등) 코드�
 (개발한 패키지가 의존하는 패키지의 명확한 버전을 기입하여, 하용하는 곳에서 동일 의존 패키지의 버전이 다를 경우에 대응)
 
 ## ENV
+
+Node.js 기본 환경 구분 'NODE_ENV' 사용 (Next.js 도 동일)
+
+https://nodejs.org/en/learn/getting-started/nodejs-the-difference-between-development-and-production  
+https://nextjs.org/docs/pages/building-your-application/configuring/environment-variables#environment-variable-load-order
 
 .env  
 .env.development.local  
