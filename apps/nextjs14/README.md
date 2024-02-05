@@ -225,3 +225,7 @@ tsconfig 확인
   }
 }
 ```
+
+# Server Side Redux Dispatch
+
+https://stackoverflow.com/questions/75582084/how-can-i-get-redux-state-in-a-next-13-server-component
