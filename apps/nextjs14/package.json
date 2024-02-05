@@ -9,9 +9,11 @@
     "dev:server": "NODE_ENV=${NODE_ENV:=development} PORT=9040 PORT_SSL=443 node --loader ts-node/esm --inspect server.ts",
     "build": "next build",
     "build:server": "tsc --project tsconfig.server.json",
-    "start": "next start",
+    "start": "NODE_ENV=${NODE_ENV:=development}  next start",
+    "start:dev": "NODE_ENV=development next start",
+    "start:prd": "NODE_ENV=production next start",
     "start:server:dev": "NODE_ENV=development node _dist/server.js",
-    "start:server:prod": "NODE_ENV=production node _dist/server.js",
+    "start:server:prd": "NODE_ENV=production node _dist/server.js",
     "lint": "next lint"
   },
   "dependencies": {
