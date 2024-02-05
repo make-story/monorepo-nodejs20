@@ -6,10 +6,12 @@
 import { useEffect } from 'react';
 import { useFetchManager } from '@ysm/fetch-manager';
 
+import { useAppDispatch } from '@/store';
 import { getTestDataList } from '@/common/api/test/fetch';
 import { testApi, useGetTodosQuery } from '@/common/api/test/hook';
 
 export default function DataList() {
+  const dispatch = useAppDispatch();
   const fetchManager = useFetchManager();
   const { data, isLoading, isFetching, isSuccess, isError } =
     useGetTodosQuery();
@@ -18,6 +20,8 @@ export default function DataList() {
     const fetchData = async () => {
       const data = await getTestDataList({}, fetchManager); // fetchManager 또는 axios 등 fetch 인스턴스 주입가능
       console.debug('DataList > useEffect > data', data);
+      // 전역 상태에 데이터 일부 주입
+      // ...
     };
     fetchData();
   }, []);

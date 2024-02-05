@@ -15,6 +15,7 @@ import next from 'next';
 import dotenv from 'dotenv-flow'; // Node.js 20 이상 내장됨 ($ node --env-file .env)
 import { json, text, urlencoded } from 'body-parser';
 import cookieParser from 'cookie-parser'; // req.cookies 객체
+//import { createProxyServer } = from 'http-proxy';
 //import { createProxyMiddleware } from 'http-proxy-middleware';
 import cors from 'cors';
 //import helmet from 'helmet'; // 웹 취약성으로부터 서버를 보호해주는 보안 모듈
@@ -69,6 +70,19 @@ if (cluster.isPrimary) {
     // https://expressjs.com/ko/guide/behind-proxies.html
     // https://velog.io/@mochafreddo/Express-%EC%95%B1%EC%97%90%EC%84%9C-%ED%94%84%EB%A1%9D%EC%8B%9C-%EC%84%9C%EB%B2%84%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%A0-%EB%95%8C%EC%9D%98-%EB%AC%B8%EC%A0%9C%EC%99%80-%ED%95%B4%EA%B2%B0-%EB%B0%A9%EB%B2%95
     server.set('trust proxy', 1);
+    /*server.use(
+      createProxyMiddleware(['/api/v1'], {
+        target: process.env.PROXY_API_URI,
+        changeOrigin: true,
+        logLevel: 'debug',
+        //pathRewrite: {},
+        onProxyReq(proxyReq: any) {
+          Object.keys(proxyReq.getHeaders()).forEach(key => {
+            console.log('HTTP Header key', key);
+          });
+        },
+      }),
+    );*/
 
     // middleware - 기능요소
     // https://expressjs.com/ko/resources/middleware.html
