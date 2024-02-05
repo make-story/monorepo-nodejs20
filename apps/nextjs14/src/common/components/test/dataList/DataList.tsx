@@ -16,7 +16,7 @@ export default function DataList() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await getTestDataList({}, fetchManager);
+      const data = await getTestDataList({}, fetchManager); // fetchManager 또는 axios 등 fetch 인스턴스 주입가능
       console.debug('DataList > useEffect > data', data);
     };
     fetchData();

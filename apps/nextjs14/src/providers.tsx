@@ -13,7 +13,7 @@ import { FetchProvider } from '@ysm/fetch-manager';
 
 import { AuthProvider } from '@/common/store/auth/index';
 import { makeStore, AppStore } from '@/store';
-import { initializeCounter } from '@/service/store/counter';
+//import { initializeCounter } from '@/service/store/counter';
 
 export const Providers = ({
   count,
@@ -34,8 +34,8 @@ export const Providers = ({
         <PersistGate persistor={storeRef.current.__persistor!} loading={null}>
           {() => (
             <>
-              {/* [example] */}
               <FetchProvider<AppStore> store={storeRef.current!}>
+                {/* [example] */}
                 <AuthProvider>{children}</AuthProvider>
               </FetchProvider>
             </>
