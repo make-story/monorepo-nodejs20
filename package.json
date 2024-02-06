@@ -15,6 +15,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "preinstall": "node -e \"if(process.env.npm_execpath.indexOf('yarn') === -1) throw new Error('use Yarn, no NPM')\"",
     "lint": "yarn workspaces run lint --color",
     "typecheck": "yarn workspaces run typecheck",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
