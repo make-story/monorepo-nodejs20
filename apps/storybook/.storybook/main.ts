@@ -1,13 +1,14 @@
 /**
  * .main.ts 파일에서 스토리북에 대한 전반적인 설정을 할 수 있습니다.
  */
-// .storybook/main.ts
-
+//import path from 'node:path';
 import type { StorybookConfig } from '@storybook/nextjs';
 
 const config: StorybookConfig = {
   // 스토리북에 사용할 .mdx, .stories 파일의 위치
   stories: [
+    '../../../packages/ui/**/*.mdx',
+    '../../../packages/ui/**/*.stories.@(js|jsx|ts|tsx)',
     '../src/stories/**/*.mdx',
     '../src/stories/**/*.stories.@(js|jsx|ts|tsx)',
   ],

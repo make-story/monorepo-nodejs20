@@ -2,9 +2,14 @@
 
 ## 사전 확인 할 것 (설계)
 
-- ESLint 계층간 의존성 제어
 - webview 유틸 (event-manager 활용)
 - 마이크로 프론트 기초 환경
+
+- Redux Toolkit Thunk 사용 예
+
+  - https://redux-toolkit.js.org/usage/usage-guide#async-requests-with-createasyncthunk
+
+- 스토리북, 디자인시스템 분리 기준!
 
 - MSW
   - https://github.com/vercel/next.js/tree/canary/examples/with-msw
@@ -13,8 +18,8 @@
   - https://velog.io/@minsang9735/NextJS%EC%97%90%EC%84%9C-MSW%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%B4%EB%B3%B4%EC%9E%90
   - https://velog.io/@shinhw371/Nextjs-13-MSW-Failure-Record
 - 페이지 레이아웃 정도
-- 스토리북, 디자인시스템 분리 기준!
 
+- ESLint 계층간 의존성 제어 - 완료
 - Fetch 매니저 - 완료
 - RTK Query - 완료
 - event-bus 매니저 - 완료

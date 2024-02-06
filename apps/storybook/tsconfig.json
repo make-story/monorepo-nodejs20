@@ -1,4 +1,6 @@
 {
   "extends": "@ysm/config/tsconfig.base.json",
-  "compilerOptions": {}
+  "compilerOptions": {},
+  "exclude": ["node_modules", "public"],
+  "include": ["**/*.ts", "**/*.tsx", "**/*.d.ts", "**/*.js"]
 }

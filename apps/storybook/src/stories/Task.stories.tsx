@@ -1,5 +1,3 @@
-// Task.stories.tsx
-
 import type { Meta, StoryObj } from '@storybook/react';
 
 import Task from './Task';
