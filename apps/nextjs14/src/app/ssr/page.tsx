@@ -1,28 +1,24 @@
 /**
  * [example] 서버사이드 렌더링 (SSR)
+ * Next.js 13 이상 기본 서버사이드 컴포넌트
+ * 서버단에서 호출(Fetch)된 데이터 클라이언트에서 사용하능하도록 주입
  */
-const fetchTodo = async (todoId: string = '1') => {
-  const res = await fetch(
+import TestContainer from '@/common/containers/test/TestContainer';
+
+const fetchServerSideData = async (todoId: number = 1) => {
+  'use server';
+  const response = await fetch(
     `https://jsonplaceholder.typicode.com/todos/${todoId}`,
-    { cache: 'force-cache' },
+    { cache: 'no-store' },
   );
-  const todo: any = await res.json();
-  return todo;
+  return await response.json();
 };
 
-async function TodoId() {
-  const todoId = '1';
-  const todo = await fetchTodo(todoId);
+async function Page() {
+  const todo = await fetchServerSideData(1);
+  //console.log('todo', todo);
 
-  return (
-    <div className='space-y-2 border-4 border-blue-400 bg-slate-300 p-2'>
-      <div>Todo Id : {todoId}</div>
-      <div>Todo Title : {todo.title}</div>
-      <div className='border-t border-black py-2'>
-        Completed :{todo.completed ? <span> Yes</span> : <span> No</span>}
-      </div>
-    </div>
-  );
+  return <TestContainer serverData={todo} />;
 }
 
-export default TodoId;
+export default Page;

@@ -7,6 +7,12 @@ import { InitialSliceState } from './type';
 
 const initialState: InitialSliceState = {
   status: 'idle',
+  serverData: {
+    userId: null,
+    id: null,
+    title: null,
+    completed: false,
+  },
 };
 
 export const slice = createSlice({
@@ -24,6 +30,15 @@ export const slice = createSlice({
       { payload }: PayloadAction<InitialSliceState['status']>,
     ) => {
       state.status = payload;
+    },
+    setServerData: (
+      state,
+      { payload }: PayloadAction<InitialSliceState['serverData']>,
+    ) => {
+      state.serverData = {
+        ...state.serverData,
+        ...payload,
+      };
     },
   },
   // 비동기 액션 (Thunk 활용)
@@ -48,5 +63,6 @@ export const slice = createSlice({
   },*/
 });
 
-export const { initializeProduct, setProductStatus } = slice.actions;
+export const { initializeProduct, setProductStatus, setServerData } =
+  slice.actions;
 export default slice.reducer;
