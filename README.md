@@ -2,6 +2,8 @@
 
 Next.js 14 개발환경 템플릿 테스트
 
+## 설치 > 빌드 > 실행
+
 ```bash
 # 의존성 NPM 모듈 설치 및 모노레포 세팅
 $ yarn
@@ -11,7 +13,7 @@ $ yarn turbo:build
 $ yarn nextjs14 start
 ```
 
-로컬환경 실행
+## 로컬환경 실행
 
 ```bash
 # Next.js 일반 개발환경 실행
@@ -22,7 +24,7 @@ $ yarn nextjs14 dev:turbo
 $ yarn dev
 ```
 
-스토리북(로컬환경) 실행
+## 스토리북(로컬환경) 실행
 
 ```bash
 $ yarn storybook dev
@@ -51,8 +53,8 @@ $ yarn storybook dev
 - 트랜스파일링, 빌드
   - SWC (Babel 대체)
   - Turbo Pack (Webpack 대체)
-  - Turbo Repo
-  - Vite
+  - Turbo Repo (Monorepo 빌드)
+  - Vite (NPM package 빌드)
 
 ## 주요 내부 패키지
 
@@ -83,7 +85,7 @@ $ yarn storybook dev
 ```
 
 ```
-product
+monorepo
 ├─ documents
 ├─ apps
 │  ├─ 애플리케이션1
@@ -102,7 +104,7 @@ https://github.com/vercel/turbo/tree/main/examples/basic
 ## 기능단위 폴더 구조 (Folder / File Structure)
 
 ```
-service
+[service] (기능단위/서비스단위)
 ├─ api
 ├─ components
 ├─ constant
