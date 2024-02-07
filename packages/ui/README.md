@@ -44,6 +44,6 @@ https://fe-developers.kakaoent.com/2022/220505-how-page-part-use-atomic-design-s
 'Dennis Reiman' 의 'Atomic Design is messy, here’s what I prefer' 글 내용 참고하여 재정의
 
 - elements (atom)
-- modules (containers)
-- templates (Next.js page)
-- layouts (Next.js layout)
+- modules (molecules, organism)
+- templates
+- layouts (page)
