@@ -22,11 +22,13 @@
     "turbo:build": "turbo build",
     "turbo:dev": "turbo dev",
     "turbo:lint": "turbo lint",
+    "publish-packages": "changeset version && changeset publish",
     "storybook": "yarn workspace @ysm/storybook",
     "nextjs14": "yarn workspace @ysm/nextjs14",
     "dev": "concurrently \"yarn storybook dev\" \"yarn nextjs14 dev\""
   },
   "dependencies": {
+    "@changesets/cli": "^2.27.1",
     "autoprefixer": "^10.0.1",
     "concurrently": "^8.2.2",
     "eslint": "8.55.0",
