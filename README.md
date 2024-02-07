@@ -33,9 +33,9 @@ $ yarn storybook dev
 ## 기초환경 및 버전
 
 - Node.js 20 이상 (20.10.0)
-- Yarn 안정화버전
 - Next.js 14.0.3
 - TypeScript 5.x
+- Yarn 안정화버전
 
 ## 주요 도구
 
@@ -104,7 +104,7 @@ https://github.com/vercel/turbo/tree/main/examples/basic
 ## 기능단위 폴더 구조 (Folder / File Structure)
 
 ```
-[service] (기능단위/서비스단위)
+[feature or service]
 ├─ api
 ├─ components
 ├─ constant
@@ -121,6 +121,8 @@ README.md
 ## 계층간 의존성 제어 (Dependency diagram)
 
 https://www.kimcoder.io/blog/clean-frontend-architecture
+
+도구(ESLint)를 통해, 계층간 의존성 제어를 강제합니다.
 
 layout -> pages -> containers 또는 components -> core  
 `의존성은 모두 단방향으로만 흘러가고, 역으로 참조해서는 안 된다.`
