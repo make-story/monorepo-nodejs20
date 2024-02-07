@@ -123,6 +123,7 @@ README.md
 https://www.kimcoder.io/blog/clean-frontend-architecture
 
 도구(ESLint)를 통해, 계층간 의존성 제어를 강제합니다.
+(eslint-plugin-import 라는 플러그인을 사용하여 계층 간의 의존성 제어)
 
 layout -> pages -> containers 또는 components -> core  
 `의존성은 모두 단방향으로만 흘러가고, 역으로 참조해서는 안 된다.`
