@@ -11,7 +11,7 @@ export const axiosDefaults = {
     'Accept-Language': 'ko',
   },
   //withCredentials: true, // 쿠키포함 (origin 다른 통신) - 서버단 'Access-Control-Allow-Credentials : true' 설정 필요, 'Access-Control-Allow-Origin : "*"' 경우 에러발생
-  timeout: typeof window === 'undefined' ? 10000 : 60000, // Server Side: 10초, Client Side 60초
+  timeout: typeof window === 'undefined' ? 10000 : 60000, // Server Side: 10초, Client Side 60초 - Axios default is `0` (no timeout)
 };
 
 // 각 영역별 설정 값 반환

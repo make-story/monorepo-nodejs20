@@ -55,6 +55,10 @@ $ yarn storybook dev
   - Turbo Pack (Webpack 대체)
   - Turbo Repo (Monorepo 빌드)
   - Vite (NPM package 빌드)
+- 코드 품질
+  - ESLint
+- 코드 스타일
+  - Prettier
 
 ## 주요 내부 패키지
 
