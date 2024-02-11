@@ -59,6 +59,9 @@ $ yarn storybook dev
   - ESLint
 - 코드 스타일
   - Prettier
+- 크로스 브라우징
+  - postcss
+    - autoprefixer
 
 ## 주요 내부 패키지
 
