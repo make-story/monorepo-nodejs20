@@ -10,6 +10,59 @@ https://ko.vitejs.dev/guide/why.html#why-bundle-for-production
 개발중인 파일을 바로 바라 보고 싶을 떄에는 빌드된 결과물을 지우면 바로 참조가 가능!  
 또는 개발(또는 수정) 후 다시 빌드하고 import 하는 곳에서 테스트
 
+# CommonJS, ESM, TypeScript 지원설정 및 NPM publish 전 빌드실행
+
+```json
+{
+  "name": "test",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "prepack": "yarn build:tsc",
+    "build:tsc": "yarn tsc"
+  },
+  // CommonJS, ESM, TypeScript 지원
+  "exports": {
+    ".": {
+      // 라이브러리의 subpath
+      "types": "./dist/index.d.ts", // typescript를 사용하는 경우 사용될 파일을 명시한 conditional 필드 (types 필드는 항상 맨 위에 위치해야 한다.)
+      "import": "./dist/index.js", // esm 환경에서 사용될 파일을 명시한 conditional 필드
+      "require": "./dist/index.cjs", // cjs 환경에서 사용될 파일을 명시한 conditional 필드
+      "default": "./dist/index.js" // default 환경에서 사용될 파일을 명시한 conditional 필드
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.0",
+    "typescript": "^4.9.5"
+  }
+}
+```
+
+## tsconfig
+
+타입스크립트는 해당 라이브러리가 타입스크립트를 지원해 주는지 하지 않는지를 타입정의(d.ts) 파일을 찾아서 결정하기 때문에 declaration 을 true 로 설정해 준다.
+
+```json
+{
+  "compilerOptions": {
+    "target": "es6" /* 최신 브라우저는 es6을 대부분 지원한다. */,
+    "module": "ES6" /* 모듈 시스템을 지정한다. */,
+    "lib": [
+      "es5",
+      "es6",
+      "dom"
+    ] /* 타입스크립트가 어떤 버전의 JS의 빌트인 API를 사용할 건지에 대한 것을 명시해 준다. */,
+    "declaration": true /* 타입스크립트가 자동으로 타입정의 (d.ts) 파일을 생성해 준다. */,
+    "outDir": "dist" /* 컴파일된 결과물을 어디에 저장할지에 대한 것을 명시해 준다. */,
+    "strict": true /* 타입스크립트의 엄격한 모드를 활성화한다. */
+  },
+  "include": ["src/index.ts"] /* 컴파일할 대상을 명시해 준다. */
+}
+```
+
+# Next.js
+
 ## Next.js 13 이상, 서버 컴포넌트에 대응할 수 있어야 함
 
 "use client"
@@ -17,6 +70,8 @@ https://ko.vitejs.dev/guide/why.html#why-bundle-for-production
 코드 상단에 명시하거나, 사용하는 쪽에서의 가이드 필요!
 
 `vite 빌드 도구 사용의 경우, build.rollupOptions.output.banner = '"use client";' 값 설정!`
+
+# Vite
 
 ## Vite 빌드
 
@@ -69,7 +124,7 @@ https://github.com/vercel/turbo/blob/main/examples/basic/packages/ui/tsconfig.js
 }
 ```
 
-## Changeset - 모노레포 구성에서 NPM 패키지 배포
+# Changeset - 모노레포 구성에서 NPM 패키지 배포
 
 Changeset 은 멀티 패키지 환경(monorepo)에서 상호 의존하는 패키지들의 일관성을 유지하기 위한 라이브러리
 
@@ -89,13 +144,13 @@ https://jinyisland.kr/post/changeset/
 }
 ```
 
-### 설치
+## 설치
 
 ```
 $ yarn add @changesets/cli && yarn changeset init
 ```
 
-### 환경설정
+## 환경설정
 
 .changeset/config.json
 
@@ -118,7 +173,7 @@ $ yarn add @changesets/cli && yarn changeset init
 - updateInternalDependencies: 종속된 패키지가 변경될 때 같이 업데이트 patch
 - commit: false를 통해 사용자가 직접 커밋
 
-### changeset command
+## changeset command
 
 changeset 커맨드를 입력하면 패키지들의 변경 사항을 감지  
 그런 다음 semver 규칙에 따라 메이저 버전으로 업데이트할지, 아니면 마이너 버전으로 업데이트할지 질의
@@ -136,7 +191,7 @@ $ yarn changeset
 # 🦋  Please enter a summary for this change (this will be in the changelogs). Submit empty line to open external
 ```
 
-### version
+## version
 
 배포하기로 결정한 후, 다음과 같이 버전 업데이트를 진행  
 설정된 업데이트 규칙에 따라 메이저 또는 마이너 버전이 증가하고, 의존하고있는 패키지들도 같이 업데이트  
@@ -149,7 +204,7 @@ $ yarn changeset version
 이 단계 이후 changeset publish 명령어를 사용해 내부적으로 .npmrc 파일을 참조해 레지스트리에 배포  
 자동 배포를 원하시면 publish를 GitHub Actions에 스크립트를 작성하고 push를 수행
 
-### publish
+## publish
 
 changeset publish를 실행하면 이전 단계에서 수행한 자동으로 업데이트 예정인 패키지들을 레지스트리에 배포
 

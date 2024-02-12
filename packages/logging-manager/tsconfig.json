@@ -2,6 +2,7 @@
   "extends": "@ysm/config/tsconfig.base.json",
   "compilerOptions": {
     "outDir": "dist",
+    "declaration": true,
     "alwaysStrict": true,
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,

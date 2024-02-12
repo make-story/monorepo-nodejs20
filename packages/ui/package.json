@@ -13,7 +13,8 @@
   "types": "./index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": ""
+    "prepack": "yarn build",
+    "build": "vite build"
   },
   "author": "",
   "license": "ISC",
