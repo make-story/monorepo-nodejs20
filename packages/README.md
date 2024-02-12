@@ -19,7 +19,7 @@ https://ko.vitejs.dev/guide/why.html#why-bundle-for-production
   "type": "module",
   "main": "dist/index.js",
   "scripts": {
-    "prepack": "yarn build:tsc",
+    "prepack": "yarn build:tsc", // prepack 은 NPM publish 전 실행
     "build:tsc": "yarn tsc"
   },
   // CommonJS, ESM, TypeScript 지원
