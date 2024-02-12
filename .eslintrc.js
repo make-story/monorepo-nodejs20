@@ -19,11 +19,12 @@ module.exports = {
       {
         paths: [
           {
-            name: 'react',
+            name: 'react', // import React from 'react'; 방지 - React 17 이상에서는 기본적으로 JSX 에서 React 를 import하지 않아도 됩니다.
             importNames: ['default'],
             message: "import React from 'react' makes bundle size larger.",
           },
         ],
+        //patterns: ['.*'], // 상대경로 방지
       },
     ],
     'import/no-restricted-paths': [
