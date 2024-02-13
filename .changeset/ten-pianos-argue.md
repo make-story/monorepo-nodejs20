@@ -1,5 +1,0 @@
----
-"@ysm/config": major
----
-
-test

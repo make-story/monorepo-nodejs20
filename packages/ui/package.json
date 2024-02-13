@@ -1,5 +1,5 @@
 {
-  "name": "@ysm/ui",
+  "name": "@makeapi/ui",
   "version": "1.0.0",
   "description": "디자인시스템 UI 컴포넌트",
   "type": "module",
@@ -12,14 +12,12 @@
   "main": "./index.ts",
   "types": "./index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prepack": "yarn build",
-    "build": "vite build"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@ysm/config": "*"
+    "@makeapi/config": "*"
   },
   "devDependencies": {},
   "peerDependencies": {}

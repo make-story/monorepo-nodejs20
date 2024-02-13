@@ -1,5 +1,5 @@
 {
-  "name": "@ysm/event-manager",
+  "name": "@makeapi/event-manager",
   "version": "1.0.0",
   "description": "이벤트버스",
   "type": "module",
@@ -21,7 +21,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@ysm/config": "*",
+    "@makeapi/config": "*",
     "@vitejs/plugin-react": "^4.2.1",
     "@vitejs/plugin-react-swc": "^3.5.0",
     "typescript": "5.1.3",

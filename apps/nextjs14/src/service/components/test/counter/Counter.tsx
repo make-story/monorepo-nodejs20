@@ -4,7 +4,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { LOG_LEVEL, LOG_GROUP_KEY, logger } from '@ysm/logging-manager';
+import { LOG_LEVEL, LOG_GROUP_KEY, logger } from '@makeapi/logging-manager';
 
 import { useAppSelector, useAppDispatch } from '@/store';
 import {

@@ -4,7 +4,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import { useFetchManager } from '@ysm/fetch-manager';
+import { useFetchManager } from '@makeapi/fetch-manager';
 
 import { useAppDispatch } from '@/store';
 import { getTestDataList } from '@/common/api/test/fetch';

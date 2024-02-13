@@ -105,7 +105,7 @@ https://ko.vitejs.dev/guide/features.html
 
 ```json
 {
-  "extends": "@ysm/config/tsconfig.base.json"
+  "extends": "@makeapi/config/tsconfig.base.json"
 }
 ```
 

@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { fetchManagerBaseQuery } from '@ysm/fetch-manager';
+import { fetchManagerBaseQuery } from '@makeapi/fetch-manager';
 
 interface Post {
   id: number;

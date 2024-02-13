@@ -3,7 +3,7 @@ import {
   API_TYPE,
   URL_PATH,
   FetchConfig,
-} from '@ysm/fetch-manager';
+} from '@makeapi/fetch-manager';
 
 import { getPromiseData } from '@/common/utils/fetch';
 

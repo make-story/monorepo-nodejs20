@@ -1,5 +1,5 @@
 {
-  "name": "@ysm/logging-manager",
+  "name": "@makeapi/logging-manager",
   "version": "1.0.0",
   "description": "로그 관리",
   "type": "module",
@@ -21,7 +21,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@ysm/config": "*",
+    "@makeapi/config": "*",
     "@vitejs/plugin-react": "^4.2.1",
     "@vitejs/plugin-react-swc": "^3.5.0",
     "typescript": "5.1.3",

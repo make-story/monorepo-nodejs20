@@ -9,7 +9,7 @@
 import { useRef, PropsWithChildren } from 'react';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
-import { FetchProvider } from '@ysm/fetch-manager';
+import { FetchProvider } from '@makeapi/fetch-manager';
 
 import { makeStore, AppStore } from '@/store';
 

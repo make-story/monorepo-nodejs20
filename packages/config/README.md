@@ -14,7 +14,7 @@ https://github.com/vercel/turbo/tree/main/examples/basic
   "version": "1.0.0",
   "private": true,
   "devDependencies": {
-    "@ysm/config": "workspace:*"
+    "@makeapi/config": "workspace:*"
   }
 }
 ```
@@ -23,7 +23,7 @@ https://github.com/vercel/turbo/tree/main/examples/basic
 
 ```json
 {
-  "extends": "@ysm/config/tsconfig.base.json",
+  "extends": "@makeapi/config/tsconfig.base.json",
   "compilerOptions": {},
   "include": [
     "next-env.d.ts",
@@ -42,7 +42,7 @@ https://github.com/vercel/turbo/tree/main/examples/basic
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
   root: true,
-  extends: ['@ysm/config/eslint.nextjs.js'],
+  extends: ['@makeapi/config/eslint.nextjs.js'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: true,

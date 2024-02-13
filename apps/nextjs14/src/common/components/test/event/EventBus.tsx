@@ -8,7 +8,7 @@ import {
   eventBusOn,
   eventBusOff,
   eventBusDispatch,
-} from '@ysm/event-manager';
+} from '@makeapi/event-manager';
 
 import { EVENT_BUS } from '@/common/constant/event';
 

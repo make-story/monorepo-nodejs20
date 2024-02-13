@@ -18,7 +18,6 @@ const appEventDispatch = (type: TypedAppEvent) => {
 if (typeof window !== 'undefined') {
   // test
   //appEventDispatch(APP_EVENT_TYPE.TEST);
-
   // ...
 }
 
@@ -26,7 +25,7 @@ if (typeof window !== 'undefined') {
  * 앱 -> 웹뷰 : 이벤트 on / 이벤트 off
  */
 /*
-import { APP_EVENT_TYPE, eventBusOn, eventBusOff } from '@ysm/event-manager';
+import { APP_EVENT_TYPE, eventBusOn, eventBusOff } from '@makeapi/event-manager';
 
 // 이벤트 리스너
 const listener = ({ detail }: any) => {

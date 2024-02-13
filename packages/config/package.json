@@ -1,5 +1,5 @@
 {
-  "name": "@ysm/config",
+  "name": "@makeapi/config",
   "version": "1.0.0",
   "description": "공통 설정파일 모듈",
   "type": "module",

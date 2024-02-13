@@ -1,5 +1,5 @@
 {
-  "name": "@ysm/fetch-manager",
+  "name": "@makeapi/fetch-manager",
   "version": "1.0.0",
   "description": "fetch 관리",
   "type": "module",
@@ -21,7 +21,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@ysm/config": "*",
+    "@makeapi/config": "*",
     "@reduxjs/toolkit": "1.9.5",
     "@types/react": "18.2.8",
     "@vitejs/plugin-react": "^4.2.1",

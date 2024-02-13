@@ -1,5 +1,5 @@
 {
-  "name": "@ysm/utils",
+  "name": "@makeapi/utils",
   "version": "1.0.0",
   "description": "공통 유틸",
   "type": "module",
@@ -21,8 +21,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@ysm/config": "*",
-    "@ysm/event-manager": "*",
+    "@makeapi/config": "*",
+    "@makeapi/event-manager": "*",
     "vite": "^5.0.11"
   },
   "devDependencies": {},

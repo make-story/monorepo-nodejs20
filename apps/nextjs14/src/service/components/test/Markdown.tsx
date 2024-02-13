@@ -23,6 +23,7 @@ const Styled = {
 };
 
 function Markdown({ children, ...props }: MarkdownProps): ReactElement {
+  // 에러가 발생하는 경우, tsconfig 에 "jsx": "react-jsx", 설정
   return (
     <Styled.MarkdownWrap>
       <ReactMarkdown {...props} remarkPlugins={[remarkGfm]}>

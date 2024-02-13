@@ -1,11 +1,11 @@
 {
-  "name": "@ysm/e2e-test",
+  "name": "@makeapi/e2e-test",
   "version": "1.0.0",
   "private": true,
   "license": "MIT",
   "scripts": {},
   "dependencies": {
-    "@ysm/config": "*",
+    "@makeapi/config": "*",
     "@playwright/test": "^1.41.2",
     "@types/node": "^20.11.16",
     "typescript": "5.1.3"

@@ -1,5 +1,5 @@
 {
-  "extends": "@ysm/config/tsconfig.base.json",
+  "extends": "@makeapi/config/tsconfig.base.json",
   "compilerOptions": {
     "outDir": "dist",
     "declaration": true,
