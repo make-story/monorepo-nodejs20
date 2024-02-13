@@ -8,7 +8,7 @@ import {
   eventBusOn,
   eventBusOff,
   eventBusDispatch,
-} from '@makeapi/event-manager';
+} from '@makestory/event-manager';
 
 import { EVENT_BUS } from '@/common/constant/event';
 

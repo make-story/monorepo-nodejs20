@@ -1,5 +1,5 @@
 {
-  "name": "@makeapi/functional-programming",
+  "name": "@makestory/functional-programming",
   "version": "1.0.0",
   "description": "peerDependencies 필수! 패키지를 사용하는 쪽에 현재 패키지가 의존하는 라이브러리 버전 설치 필수라는 것 명시!",
   "type": "module",
@@ -21,7 +21,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@makeapi/config": "*",
+    "@makestory/config": "*",
     "vite": "^5.0.11"
   },
   "devDependencies": {},

@@ -1,5 +1,5 @@
 {
-  "name": "@makeapi/monorepo-node20",
+  "name": "@makestory/monorepo-node20",
   "private": true,
   "packageManager": "yarn@1.22.19",
   "version": "1.0.0",
@@ -23,8 +23,8 @@
     "turbo:dev": "turbo dev",
     "turbo:lint": "turbo lint",
     "publish-packages": "changeset version --snapshot && changeset publish",
-    "storybook": "yarn workspace @makeapi/storybook",
-    "nextjs14": "yarn workspace @makeapi/nextjs14",
+    "storybook": "yarn workspace @makestory/storybook",
+    "nextjs14": "yarn workspace @makestory/nextjs14",
     "dev": "concurrently \"yarn storybook dev\" \"yarn nextjs14 dev\""
   },
   "dependencies": {

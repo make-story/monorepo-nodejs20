@@ -1,4 +1,4 @@
-# @makeapi/config
+# @makestory/config
 
 ## 2.0.0
 

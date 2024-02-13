@@ -1,5 +1,5 @@
 {
-  "extends": "@makeapi/config/tsconfig.base.json",
+  "extends": "@makestory/config/tsconfig.base.json",
   "compilerOptions": {
     "baseUrl": ".",
     "typeRoots": ["./node_modules/@types", "./@types"],

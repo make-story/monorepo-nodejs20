@@ -11,7 +11,7 @@ import {
   Persistor,
 } from 'redux-persist';
 import { createLogger } from 'redux-logger';
-//import { injectFetchManagerMiddleware } from '@makeapi/fetch-manager';
+//import { injectFetchManagerMiddleware } from '@makestory/fetch-manager';
 //import { CurriedGetDefaultMiddleware } from '@reduxjs/toolkit/dist/getDefaultMiddleware';
 
 export const middleware = (getDefaultMiddleware: any) => {

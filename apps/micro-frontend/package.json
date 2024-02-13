@@ -1,5 +1,5 @@
 {
-  "name": "@makeapi/micro-frontend",
+  "name": "@makestory/micro-frontend",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -16,11 +16,11 @@
     "@types/react": "18.2.8",
     "@types/react-dom": "18.2.5",
     "@types/redux-logger": "3.0.9",
-    "@makeapi/config": "*",
-    "@makeapi/event-manager": "*",
-    "@makeapi/fetch-manager": "*",
-    "@makeapi/logging-manager": "*",
-    "@makeapi/utils": "*",
+    "@makestory/config": "*",
+    "@makestory/event-manager": "*",
+    "@makestory/fetch-manager": "*",
+    "@makestory/logging-manager": "*",
+    "@makestory/utils": "*",
     "axios": "1.6.5",
     "cross-env": "^7.0.3",
     "next": "14.0.3",

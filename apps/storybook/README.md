@@ -2,7 +2,7 @@
 
 ```json
 {
-  "name": "@makeapi/storybook",
+  "name": "@makestory/storybook",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -11,7 +11,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@makeapi/ui": "*",
+    "@makestory/ui": "*",
     "@types/node": "20.3.1",
     "@types/react": "18.2.8",
     "@types/react-dom": "18.2.5",

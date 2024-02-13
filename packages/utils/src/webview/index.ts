@@ -25,7 +25,7 @@ if (typeof window !== 'undefined') {
  * 앱 -> 웹뷰 : 이벤트 on / 이벤트 off
  */
 /*
-import { APP_EVENT_TYPE, eventBusOn, eventBusOff } from '@makeapi/event-manager';
+import { APP_EVENT_TYPE, eventBusOn, eventBusOff } from '@makestory/event-manager';
 
 // 이벤트 리스너
 const listener = ({ detail }: any) => {

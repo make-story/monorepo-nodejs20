@@ -21,10 +21,10 @@ const nextConfig = {
   reactStrictMode: false,
   swcMinify: true, // https://nextjs.org/docs/architecture/nextjs-compiler
   transpilePackages: [
-    '@makeapi/event-manager',
-    '@makeapi/fetch-manager',
-    '@makeapi/logging-manager',
-    '@makeapi/utils',
+    '@makestory/event-manager',
+    '@makestory/fetch-manager',
+    '@makestory/logging-manager',
+    '@makestory/utils',
   ],
   experimental: {
     modularizelmports: {

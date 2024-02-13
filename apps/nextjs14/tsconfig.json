@@ -1,12 +1,9 @@
 {
-  "extends": "@makeapi/config/tsconfig.base.json",
+  "extends": "@makestory/config/tsconfig.base.json",
   "compilerOptions": {
     "jsx": "preserve",
     "baseUrl": ".",
-    "typeRoots": [
-      "./node_modules/@types",
-      "./@types"
-    ],
+    "typeRoots": ["./node_modules/@types", "./@types"],
     "plugins": [
       {
         "name": "next"
@@ -14,18 +11,9 @@
     ],
     "paths": {
       //"#/*": ["./src/*"]
-      "@/*": [
-        "./src/*"
-      ]
+      "@/*": ["./src/*"]
     }
   },
-  "include": [
-    "**/*.ts",
-    "**/*.tsx",
-    "**/*.d.ts",
-    ".next/types/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["**/*.ts", "**/*.tsx", "**/*.d.ts", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
 }
