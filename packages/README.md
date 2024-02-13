@@ -1,5 +1,8 @@
 # NPM 패키지
 
+유성민  
+https://www.npmjs.com/settings/yusungmin/packages
+
 ## 배포 시 번들링 과정이 필요한 이유
 
 https://ko.vitejs.dev/guide/why.html#why-bundle-for-production
