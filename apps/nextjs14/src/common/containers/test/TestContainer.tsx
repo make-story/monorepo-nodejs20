@@ -13,7 +13,7 @@ import DataList from '@/common/components/test/dataList/DataList';
 
 export default function TestContainer({
   serverData,
-}: PropsWithChildren<{ serverData: any }>) {
+}: PropsWithChildren<{ serverData?: any }>) {
   const dispatch = useAppDispatch();
 
   useEffect(() => {

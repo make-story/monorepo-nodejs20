@@ -48,7 +48,7 @@ async function TodoId({ params: { todoId } }: Props) {
 export async function generateStaticParams() {
   const res = await fetch(`https://jsonplaceholder.typicode.com/todos/`);
   const todos: TodoType[] = await res.json();
-  console.log('todos', todos);
+  //console.log('app/ssg/[todoId]/page.tsx > generateStaticParams', todos);
 
   // splice first 10
   const trimmedTodos = todos.splice(0, 10);
