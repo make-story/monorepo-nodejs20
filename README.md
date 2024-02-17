@@ -63,6 +63,14 @@ $ yarn storybook dev
   - postcss
     - autoprefixer
 
+## 선택적 도구
+
+- GraphQL
+  - Apollo (API 상태관리 활용 가능)
+- Oauth
+  - JWT
+  - next-auth
+
 ## 주요 내부 패키지
 
 - 공통 설정 코드관리
