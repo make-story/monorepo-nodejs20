@@ -20,6 +20,7 @@ export const changeDateToSec = (date: string) => {
  * @returns
  */
 export const changeMsToTime = (milliseconds: number) => {
+  // '0' -> '00' 변환
   function padTo2Digits(num: number) {
     return num.toString().padStart(2, '0');
   }
