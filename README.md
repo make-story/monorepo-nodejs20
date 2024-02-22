@@ -50,6 +50,7 @@ $ yarn storybook dev
   - Styled Component
   - Tailwind CSS
   - Module CSS
+  - shadcn UI
 - 트랜스파일링, 빌드
   - SWC (Babel 대체)
   - Turbo Pack (Webpack 대체)
