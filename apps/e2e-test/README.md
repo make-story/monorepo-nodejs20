@@ -16,3 +16,9 @@ https://shorttrack.tistory.com/7
 ## GitHub Actions CI
 
 https://playwright.dev/docs/ci-intro
+
+## 용어
+
+- 테스트 시나리오(Test Scenario)는 테스트 실행을 위한 일련의 활동을 구체적으로 기술해둔 문서
+- 테스트 케이스(Test Case)는 특정 목적 또는 테스트 조건의 확인을 위해 개발된 입력 값, 실행 사전 조건, 예상 결과 및 실행 사후 조건 등을 포함은 내용의 집합
+- 테스트(Test)란 한 개 이상의 테스트 케이스의 집합

@@ -22,10 +22,13 @@
     "turbo:build": "turbo build",
     "turbo:dev": "turbo dev",
     "turbo:lint": "turbo lint",
-    "publish-packages": "changeset version --snapshot && changeset publish",
-    "storybook": "yarn workspace @makestory/storybook",
+    "e2e-test": "yarn workspace @makestory/e2e-test",
+    "micro-frontend": "yarn workspace @makestory/micro-frontend",
+    "nestjs10": "yarn workspace @makestory/nestjs10",
     "nextjs14": "yarn workspace @makestory/nextjs14",
-    "dev": "concurrently \"yarn storybook dev\" \"yarn nextjs14 dev\""
+    "storybook": "yarn workspace @makestory/storybook",
+    "dev": "concurrently \"yarn storybook dev\" \"yarn nextjs14 dev\"",
+    "publish-packages": "changeset version --snapshot && changeset publish"
   },
   "dependencies": {
     "@changesets/cli": "^2.27.1",
