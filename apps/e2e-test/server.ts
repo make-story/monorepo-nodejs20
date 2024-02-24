@@ -1,5 +1,6 @@
 /**
- * 서버 실행 파일
+ * https://levelup.gitconnected.com/set-up-next-js-with-a-custom-express-server-typescript-9096d819da1c
+ * https://github.com/troysandal/nextjs-typescript-express-boilerplate
  */
 // 'node:' Node.js 기본 내장 모듈
 import path from 'node:path';
@@ -12,6 +13,7 @@ import { json, text, urlencoded } from 'body-parser';
 import cookieParser from 'cookie-parser';
 //import { createProxyMiddleware } from 'http-proxy-middleware';
 import cors from 'cors';
+import WebSocket from 'ws';
 
 /**
  * node 예외처리
@@ -39,12 +41,12 @@ const port = isProd && process.env.PORT ? process.env.PORT : 9030;
  */
 const app = express();
 
-// express 프록시 환경
+// 프록시 환경에서 Express 사용
 // https://expressjs.com/ko/guide/behind-proxies.html
 // https://velog.io/@mochafreddo/Express-%EC%95%B1%EC%97%90%EC%84%9C-%ED%94%84%EB%A1%9D%EC%8B%9C-%EC%84%9C%EB%B2%84%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%A0-%EB%95%8C%EC%9D%98-%EB%AC%B8%EC%A0%9C%EC%99%80-%ED%95%B4%EA%B2%B0-%EB%B0%A9%EB%B2%95
 app.set('trust proxy', 1);
 
-// 미들웨어 설정
+// Express 미들웨어
 // https://expressjs.com/ko/resources/middleware.html
 app.use([json(), urlencoded({ extended: false }), text(), cookieParser()]);
 app.use(
@@ -60,7 +62,8 @@ app.use((request: Request, response: Response, next: NextFunction) => {
   return next();
 });
 
-// 라우팅
+// Express 라우팅
+// https://expressjs.com/ko/guide/routing.html
 app.use(
   '/api/v1',
   async (request: Request, response: Response, next: NextFunction) => {
@@ -96,4 +99,26 @@ app.once('error', error => {
 });
 
 // 서버 실행
-app.listen(port, () => console.log(`[server] Server running on port ${port}`));
+const server = app.listen(port, () =>
+  console.log(`[server] Server running on port ${port}`),
+);
+//const wss = new WebSocket.Server({ port: 8080 });
+const wss = new WebSocket.Server({ server });
+wss.on('open', () => {
+  console.log('Connected to server');
+});
+wss.on('message', (message: string) => {
+  console.log(`Received message from server: ${message}`);
+});
+wss.on('connection', (ws: WebSocket) => {
+  ws.on('message', (message: string) => {
+    console.log(`Received message from client: ${message}`);
+
+    // Broadcast the message to all connected clients
+    wss.clients.forEach((client: WebSocket) => {
+      if (client != ws) {
+        client.send(message);
+      }
+    });
+  });
+});

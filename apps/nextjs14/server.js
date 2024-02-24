@@ -1,3 +1,6 @@
+/**
+ * Express + Next.js 연동 참고용
+ */
 const { createServer } = require('http');
 const { parse } = require('url');
 const next = require('next');

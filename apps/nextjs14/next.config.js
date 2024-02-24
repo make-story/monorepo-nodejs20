@@ -19,6 +19,7 @@ const remotes = isServer => {
 const nextConfig = {
   reactStrictMode: false,
   swcMinify: true, // https://nextjs.org/docs/architecture/nextjs-compiler
+  //output: 'standalone', // 운영환경 빌드 결과물만 별도 폴더로 모아둘 경우 standalone 설정
   transpilePackages: [
     '@makestory/event-manager',
     '@makestory/fetch-manager',

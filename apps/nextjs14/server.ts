@@ -13,7 +13,7 @@ import cluster from 'node:cluster';
 import express from 'express';
 import next from 'next';
 import dotenv from 'dotenv-flow'; // Node.js 20 이상 내장됨 ($ node --env-file .env)
-import { json, text, urlencoded } from 'body-parser';
+//import { json, text, urlencoded } from 'body-parser';
 import cookieParser from 'cookie-parser'; // req.cookies 객체
 //import { createProxyServer } = from 'http-proxy';
 //import { createProxyMiddleware } from 'http-proxy-middleware';
@@ -39,7 +39,7 @@ dotenv.config();
 console.log('NODE_ENV', process.env.NODE_ENV);
 console.log('APP_ENV', process.env.APP_ENV);
 const isDev = process.env.NODE_ENV !== 'production';
-const hostname = process.env.NEXT_PUBLIC_SERVICE_HOSTNAME;
+const hostname = process.env.NEXT_PUBLIC_SERVICE_HOSTNAME || 'http://localhost';
 const port = Number(process.env.PORT) || 9040;
 
 /**
@@ -49,8 +49,9 @@ const port = Number(process.env.PORT) || 9040;
  * cluster.isMaster 는 Node.js v16.0.0 이후 사용 중단
  * cluster.isPrimary 사용 권장
  */
+const isCluster = process.env.IS_CLUSTER ?? false;
 const numCPUs = os.cpus().length;
-if (cluster.isPrimary) {
+if (isCluster && cluster.isPrimary) {
   for (let i = 0; i < numCPUs; i++) {
     cluster.fork();
   }
@@ -67,6 +68,7 @@ if (cluster.isPrimary) {
     // express
     const server = express();
 
+    // 프록시 환경에서 Express 사용
     // https://expressjs.com/ko/guide/behind-proxies.html
     // https://velog.io/@mochafreddo/Express-%EC%95%B1%EC%97%90%EC%84%9C-%ED%94%84%EB%A1%9D%EC%8B%9C-%EC%84%9C%EB%B2%84%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%A0-%EB%95%8C%EC%9D%98-%EB%AC%B8%EC%A0%9C%EC%99%80-%ED%95%B4%EA%B2%B0-%EB%B0%A9%EB%B2%95
     server.set('trust proxy', 1);
@@ -84,7 +86,7 @@ if (cluster.isPrimary) {
       }),
     );*/
 
-    // middleware - 기능요소
+    // Express 미들웨어
     // https://expressjs.com/ko/resources/middleware.html
     //server.use(helmet());
     server.use(express.json()); // json request body 파싱
@@ -99,7 +101,8 @@ if (cluster.isPrimary) {
     );
     server.use(express.static(path.join(__dirname, 'public'))); // public 정적 경로
 
-    // middleware - route
+    // Express 라우팅
+    // https://expressjs.com/ko/guide/routing.html
     // server.use('/', function (req, res, next) {
     //   return next();
     // });
