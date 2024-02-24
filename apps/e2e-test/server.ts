@@ -122,12 +122,11 @@ process.on('SIGTERM', () => {
 process.on('exit', () => {
   webSocketMiddleware.close();
 });
-
-webSocketMiddleware.on(WEBSOCKET_EVENT_TYPE.OPEN, () => {
-  console.log('OPEN');
+webSocketMiddleware.on(WEBSOCKET_EVENT_TYPE.CLOSE_SOCKET, () => {
+  console.log('CLOSE_SOCKET');
 });
-webSocketMiddleware.on(WEBSOCKET_EVENT_TYPE.CLOSE, () => {
-  console.log('CLOSE');
+webSocketMiddleware.on(WEBSOCKET_EVENT_TYPE.CLOSE_CLIENT, () => {
+  console.log('CLOSE_CLIENT');
 });
 webSocketMiddleware.on(
   WEBSOCKET_EVENT_TYPE.CONNECTION,
@@ -161,3 +160,4 @@ webSocketMiddleware.on(
     console.log('MESSAGE', message);
   },
 );
+webSocketMiddleware.use('/aaa/bbb', (ws: any, request: any) => {});
