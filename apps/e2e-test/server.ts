@@ -13,7 +13,11 @@ import { json, text, urlencoded } from 'body-parser';
 import cookieParser from 'cookie-parser';
 //import { createProxyMiddleware } from 'http-proxy-middleware';
 import cors from 'cors';
-import WebSocket from 'ws';
+
+import WebSocketMiddleware, {
+  EVENT_TYPE as WEBSOCKET_EVENT_TYPE,
+} from './websocket/index';
+import testcaseRouter from './routes/testcase';
 
 /**
  * node 예외처리
@@ -72,9 +76,11 @@ app.use(
     // axios
     // ...
 
-    return next();
+    //return next();
+    return response.json({});
   },
 );
+app.use('/api/v1/testcase', testcaseRouter);
 app.use('*', (request: Request, response: Response) => response.send('TEST'));
 
 // 프록시
@@ -102,23 +108,56 @@ app.once('error', error => {
 const server = app.listen(port, () =>
   console.log(`[server] Server running on port ${port}`),
 );
-//const wss = new WebSocket.Server({ port: 8080 });
-const wss = new WebSocket.Server({ server });
-wss.on('open', () => {
-  console.log('Connected to server');
+const webSocketMiddleware: WebSocketMiddleware = new WebSocketMiddleware(
+  server,
+);
+process.on('SIGINT', () => {
+  webSocketMiddleware.close();
+  process.exit(0);
 });
-wss.on('message', (message: string) => {
-  console.log(`Received message from server: ${message}`);
+process.on('SIGTERM', () => {
+  webSocketMiddleware.close();
+  process.exit(0);
 });
-wss.on('connection', (ws: WebSocket) => {
-  ws.on('message', (message: string) => {
-    console.log(`Received message from client: ${message}`);
+process.on('exit', () => {
+  webSocketMiddleware.close();
+});
 
-    // Broadcast the message to all connected clients
-    wss.clients.forEach((client: WebSocket) => {
-      if (client != ws) {
-        client.send(message);
-      }
-    });
-  });
+webSocketMiddleware.on(WEBSOCKET_EVENT_TYPE.OPEN, () => {
+  console.log('OPEN');
 });
+webSocketMiddleware.on(WEBSOCKET_EVENT_TYPE.CLOSE, () => {
+  console.log('CLOSE');
+});
+webSocketMiddleware.on(
+  WEBSOCKET_EVENT_TYPE.CONNECTION,
+  ({ ws, request }: any = {}) => {
+    console.log('CONNECTION');
+    const {
+      aborted,
+      complete,
+      connection, // Socket
+      socket, // Socket
+      headers, // IncomingHttpHeaders
+      method, // HTTP Method
+      url, // 예: /testcase/home?test=true
+      statusCode,
+      statusMessage,
+    } = request;
+    //console.log('aborted', aborted);
+    //console.log('complete', complete);
+    //console.log('connection', connection);
+    //console.log('socket', socket);
+    console.log('headers', headers);
+    console.log('method', method);
+    console.log('url', url);
+    console.log('socket.remoteAddress', socket.remoteAddress);
+    // 연결별로 테스트클래스 인스턴스 생성
+  },
+);
+webSocketMiddleware.on(
+  WEBSOCKET_EVENT_TYPE.MESSAGE,
+  ({ message, ws }: any = {}) => {
+    console.log('MESSAGE', message);
+  },
+);
