@@ -4,15 +4,21 @@
  */
 import WebSocket, { WebSocketType, WebSocketServer } from 'ws'; // https://www.npmjs.com/package/ws#external-https-server
 import * as http from 'http';
+import createPathMatch from 'path-match';
 import { MiddlewareOptions, CallbackMap, KeysOf, ValuesOf } from './type';
 
 export { type WebSocketType };
+
+const pathMatch = createPathMatch({
+  sensitive: false,
+  strict: false,
+  end: false,
+});
 
 // 전역 이벤트
 export const EVENT_TYPE: { [key: string]: KeysOf<CallbackMap> } = {
   LISTENING: 'listening',
   CONNECTION: 'connection',
-  OPEN: 'open',
   MESSAGE: 'message',
   CLOSE_SOCKET: 'closeSocket',
   CLOSE_CLIENT: 'closeClient',
@@ -35,12 +41,6 @@ class WebSocketMiddleware {
   private setupClient(ws: WebSocketType, request: http.IncomingMessage) {
     //console.log('WebSocketMiddleware > setupClient');
 
-    // https://github.com/websockets/ws/blob/HEAD/doc/ws.md#event-open
-    ws.on('open', () => {
-      this.triggerUse(ws, request);
-      this.triggerEvent(EVENT_TYPE.OPEN, { ws, request });
-    });
-
     // https://github.com/websockets/ws/blob/HEAD/doc/ws.md#event-message
     ws.on('message', (message: WebSocket.RawData, isBinary: boolean) => {
       // TEST: Broadcast - 자신은 제외하고 발송
@@ -59,6 +59,7 @@ class WebSocketMiddleware {
 
     // https://github.com/websockets/ws/blob/HEAD/doc/ws.md#event-close-1
     ws.on('close', (code: number, reason: Buffer) => {
+      console.log(EVENT_TYPE.CLOSE_CLIENT, code);
       this.close(ws);
       this.triggerEvent(EVENT_TYPE.CLOSE_CLIENT, { ws, request });
     });
@@ -118,6 +119,7 @@ class WebSocketMiddleware {
       (ws: WebSocketType, request: http.IncomingMessage) => {
         ws.isAlive = true;
         this.setupClient(ws, request);
+        this.triggerUse(ws, request);
         this.triggerEvent(EVENT_TYPE.CONNECTION, { ws, request });
       },
     );
@@ -125,6 +127,7 @@ class WebSocketMiddleware {
     // 연결 종료
     // https://github.com/websockets/ws/blob/HEAD/doc/ws.md#event-close
     this.wss.on('close', (code: number, reason: Buffer) => {
+      console.log(EVENT_TYPE.CLOSE_SOCKET, code);
       this.interval && clearInterval(this.interval);
       this.close();
       this.triggerEvent(EVENT_TYPE.CLOSE_SOCKET, { code, reason });
@@ -149,8 +152,6 @@ class WebSocketMiddleware {
   }
 
   public close(ws?: WebSocket) {
-    console.log('WebSocketMiddleware > close', ws);
-
     // 소켓 전체 또는 부분(ws) 연결 종료
     this.wss.clients.forEach((client: WebSocket) => {
       if (!ws || (!!ws && client === ws)) {
@@ -193,7 +194,7 @@ class WebSocketMiddleware {
   }
 
   public use(routePath: string, handler: Function) {
-    // 라우팅 감지 -> 해당 라우트에 해당할 경우 handler 실행
+    // 라우팅 설정 추가
     if (!this.routes.has(routePath)) {
       this.routes.set(routePath, new Set());
     }
@@ -204,14 +205,27 @@ class WebSocketMiddleware {
     const {
       complete,
       socket, // Socket
+      rawHeaders,
       headers, // IncomingHttpHeaders
       method, // HTTP Method
       url, // 예: /testcase/home?test=true
       statusCode,
       statusMessage,
     } = request;
+
     // request 경로에 해당하는 handler 실행
-    // handler(ws, request);
+    this.routes.forEach((set, routePath, map) => {
+      const match = pathMatch(routePath);
+      const params: boolean | { [key: string]: string | string[] | undefined } =
+        match(url);
+
+      if (!params) {
+        return;
+      }
+      set.forEach(handler => {
+        handler?.(ws, request);
+      });
+    });
   }
 }
 

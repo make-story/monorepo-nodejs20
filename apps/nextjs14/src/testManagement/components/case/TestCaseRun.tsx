@@ -99,7 +99,9 @@ const TestCaseRun = (props: PropsWithChildren) => {
 
   useEffect(() => {
     // WebSocket 서버 주소
-    const socket = new WebSocket('ws://localhost:9030/testcase/home?test=true');
+    const socket = new WebSocket(
+      'ws://localhost:9030/uitest/mobile/home?test=true',
+    );
 
     // 연결이 열렸을 때의 이벤트 핸들러
     socket.addEventListener('open', event => {

@@ -68,18 +68,6 @@ app.use((request: Request, response: Response, next: NextFunction) => {
 
 // Express 라우팅
 // https://expressjs.com/ko/guide/routing.html
-app.use(
-  '/api/v1',
-  async (request: Request, response: Response, next: NextFunction) => {
-    console.log('request!!!!', request.baseUrl);
-
-    // axios
-    // ...
-
-    //return next();
-    return response.json({});
-  },
-);
 app.use('/api/v1/testcase', testcaseRouter);
 app.use('*', (request: Request, response: Response) => response.send('TEST'));
 
@@ -93,11 +81,6 @@ app.use('*', (request: Request, response: Response) => response.send('TEST'));
   }),
 );*/
 
-// 개발/운영환경 SPA HTML (빌드된 HTML 로드)
-/*app.use('/*', (request: Request, response: Response) =>
-  response.sendFile(resolve(process.cwd(), '../client/build/index.html')),
-);*/
-
 // error 처리
 app.once('error', error => {
   console.error('[server]', error);
@@ -108,6 +91,10 @@ app.once('error', error => {
 const server = app.listen(port, () =>
   console.log(`[server] Server running on port ${port}`),
 );
+
+/**
+ * websocket
+ */
 const webSocketMiddleware: WebSocketMiddleware = new WebSocketMiddleware(
   server,
 );
@@ -122,42 +109,15 @@ process.on('SIGTERM', () => {
 process.on('exit', () => {
   webSocketMiddleware.close();
 });
-webSocketMiddleware.on(WEBSOCKET_EVENT_TYPE.CLOSE_SOCKET, () => {
-  console.log('CLOSE_SOCKET');
-});
-webSocketMiddleware.on(WEBSOCKET_EVENT_TYPE.CLOSE_CLIENT, () => {
-  console.log('CLOSE_CLIENT');
-});
-webSocketMiddleware.on(
-  WEBSOCKET_EVENT_TYPE.CONNECTION,
-  ({ ws, request }: any = {}) => {
-    console.log('CONNECTION');
-    const {
-      aborted,
-      complete,
-      connection, // Socket
-      socket, // Socket
-      headers, // IncomingHttpHeaders
-      method, // HTTP Method
-      url, // 예: /testcase/home?test=true
-      statusCode,
-      statusMessage,
-    } = request;
-    //console.log('aborted', aborted);
-    //console.log('complete', complete);
-    //console.log('connection', connection);
-    //console.log('socket', socket);
-    console.log('headers', headers);
-    console.log('method', method);
-    console.log('url', url);
-    console.log('socket.remoteAddress', socket.remoteAddress);
-    // 연결별로 테스트클래스 인스턴스 생성
-  },
-);
 webSocketMiddleware.on(
   WEBSOCKET_EVENT_TYPE.MESSAGE,
   ({ message, ws }: any = {}) => {
     console.log('MESSAGE', message);
   },
 );
-webSocketMiddleware.use('/aaa/bbb', (ws: any, request: any) => {});
+webSocketMiddleware.use(
+  '/uitest/:device/:testcase',
+  (ws: any, request: any) => {
+    console.log('라우팅 실행!');
+  },
+);

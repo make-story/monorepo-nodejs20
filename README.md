@@ -1,6 +1,10 @@
 # 모노레포
 
-Next.js 14 개발환경 템플릿 테스트
+- Next.js 14
+- E2E Test
+- NestJS 10
+- Micro FrontEnd
+- Design System (StoryBook)
 
 ## 설치 > 빌드 > 실행
 
@@ -63,6 +67,8 @@ $ yarn storybook dev
 - 크로스 브라우징
   - postcss
     - autoprefixer
+- E2E Test
+  - playwright
 
 ## 선택적 도구
 

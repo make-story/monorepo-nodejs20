@@ -1,4 +1,12 @@
-# E2E 테스트 - Playwright
+# E2E 테스트
+
+Playwright 기반의 E2E 테스트
+
+- 웹페이시에서 웹소켓을 통해 테스트 케이스 실행 가능
+- 웹훅을 통해 테스트 수행간 이슈 메시지 전달
+- 배포간 실행가능한 CLI 실행 가능
+
+## Playwright
 
 https://www.npmjs.com/package/@playwright/test
 
