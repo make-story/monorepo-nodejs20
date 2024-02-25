@@ -7,7 +7,10 @@
     "esModuleInterop": true,
     "outDir": "_dist",
     "sourceMap": true,
-    "noEmit": false
+    "noEmit": false,
+    "paths": {
+      "@/*": ["./*"]
+    }
   },
   "include": ["server.ts"],
   "ts-node": {

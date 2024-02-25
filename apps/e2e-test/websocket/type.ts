@@ -1,3 +1,7 @@
+import WebSocket, { WebSocketType, WebSocketServer } from 'ws';
+
+export { type WebSocketType };
+
 export interface MiddlewareOptions {}
 export type ListeningCallback = () => void;
 export type MessageCallback = () => void;

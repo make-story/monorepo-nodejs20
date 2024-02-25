@@ -2,8 +2,8 @@
  * Express Server <-> WebSocket
  * https://github.com/websockets/ws/blob/HEAD/doc/ws.md
  */
+import * as http from 'node:http';
 import WebSocket, { WebSocketType, WebSocketServer } from 'ws'; // https://www.npmjs.com/package/ws#external-https-server
-import * as http from 'http';
 import createPathMatch from 'path-match';
 import { MiddlewareOptions, CallbackMap, KeysOf, ValuesOf } from './type';
 

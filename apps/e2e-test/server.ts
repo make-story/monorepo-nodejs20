@@ -18,6 +18,7 @@ import WebSocketMiddleware, {
   EVENT_TYPE as WEBSOCKET_EVENT_TYPE,
 } from './websocket/index';
 import testcaseRouter from './routes/testcase';
+import { running } from './headlessbrowser/uitest';
 
 /**
  * node 예외처리
@@ -115,9 +116,4 @@ webSocketMiddleware.on(
     console.log('MESSAGE', message);
   },
 );
-webSocketMiddleware.use(
-  '/uitest/:device/:testcase',
-  (ws: any, request: any) => {
-    console.log('라우팅 실행!');
-  },
-);
+webSocketMiddleware.use('/uitest/:device/:testcase', running);
