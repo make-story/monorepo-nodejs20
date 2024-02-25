@@ -1,38 +1,43 @@
 # 해야할 것
 
-## 사전 확인 할 것 (설계)
+## 진행
 
+- React 모범사레 (React Best Practices)
+  - https://github.com/codica2/react-app-best-practice/tree/master/src/views/components
+  - https://github.com/PacktPublishing/React-18-Design-Patterns-and-Best-Practices-Fourth-Edition
+  - https://github.com/garbalau-github/react-best-practices
+  - https://usehooks-ts.com/
+  - https://reactpatterns.js.org/docs/
 - Redux Toolkit Thunk 사용 예
   - https://redux-toolkit.js.org/usage/usage-guide#async-requests-with-createasyncthunk
+- 유연한 컴포넌트 설계 방법론 예제
 - 사용자훅, HOC 실무활용 예제
 - webview 유틸 (event-manager 활용)
-- 마이크로 프론트 기초 환경
 
-- ESLint 계층간 의존성 제어 - 완료
-- Fetch 매니저 - 완료
-- RTK Query - 완료
-- event-bus 매니저 - 완료
+## 완료
+
+- ESLint 계층간 의존성 제어
+- Fetch 매니저
+- RTK Query
+- Event-Bus 매니저
   - 이벤트 proxy 기능? 또는 인터셉터 기능?
-- log 매니저 - 완료
+- Log 매니저
   - URL 파라미터에 logGroup=값 으로 해당 로그만 보이기/숨기기 제어
   - NEXT_PUBLIC_LOG_GROUP 환경변수 값으로 서버에서는 구분
-- ui 패키지 - 완료
-  - 스토리북, 디자인시스템 분리 기준!
+- 디자인시스템
+  - 스토리북 구축
+  - 아토믹디자인 분리 기준 재정의!
     - element, module, template
+- 마이크로 프론트 기초 환경 구성
 
-## 페이지 개발간 할 것 (예제)
+## 중기/장기 계획
 
-- redux toolkit thunk
-- 사용자 훅 예제
-- HOC 예제
-- 디자인시스템 > 아토믹 디자인 > 컴포넌트 예제
-- 유연한 컴포넌트 설계 기법 예제 (props 증가가 아닌, 합성컴포넌트 방식!)
+- 마이크로 프론트 구축 안정화
 
-## 장기 계획
+  - 웹팩 활용
+  - Next.js 연동
 
-- 마이크로프론트엔드 적용 (웹팩 활용)
-
-- MSW
+- MSW (API 목업 개발환경 구축)
 
   - https://github.com/vercel/next.js/tree/canary/examples/with-msw
   - https://github.com/mswjs/msw/issues/1644
