@@ -1,9 +1,17 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
+    "target": "ESNext",
     "module": "commonjs",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
     "outDir": "_dist",
+    "sourceMap": true,
     "noEmit": false
   },
-  "include": ["server.ts"]
+  "include": ["server.ts"],
+  "ts-node": {
+    "swc": true,
+    "require": ["tsconfig-paths/register"]
+  }
 }

@@ -49,3 +49,44 @@ module.exports = {
   },
 };
 ```
+
+## tsconfig.\*
+
+### tsconfig.cli.json
+
+ts 파일 실행
+
+package.json
+
+```json
+{
+  "scripts": {
+    "ts-node": "ts-node --project tsconfig.cli.json"
+  }
+}
+```
+
+test.ts 파일 실행
+
+```bash
+$ yarn ts-node test.ts
+```
+
+### tsconfig.server.json
+
+ts 파일로 작업된 서버실행 파일 컴파일 또는 실행
+
+참고  
+https://playwright.dev/docs/test-typescript#manually-compile-tests-with-typescript
+
+package.json
+
+```json
+{
+  "scripts": {
+    "dev:server": "NODE_OPTIONS='--inspect' NODE_ENV=${NODE_ENV:=development} PORT=9040 PORT_SSL=443 ts-node --project tsconfig.server.json server.ts",
+    "build:server": "tsc --project tsconfig.server.json",
+    "start:server:dev": "NODE_ENV=development node _dist/server.js"
+  }
+}
+```

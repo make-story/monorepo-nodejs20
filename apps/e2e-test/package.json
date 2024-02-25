@@ -2,12 +2,17 @@
   "name": "@makestory/e2e-test",
   "version": "1.0.0",
   "private": true,
+  "bin": {
+    "clitest": "./cli.js"
+  },
   "scripts": {
     "preinstall": "node -e \"if(process.env.npm_execpath.indexOf('yarn') === -1) throw new Error('use Yarn, no NPM')\"",
     "dev:server": "NODE_OPTIONS='--inspect' NODE_ENV=${NODE_ENV:=development} PORT=9040 PORT_SSL=443 ts-node --project tsconfig.server.json server.ts",
     "build:server": "tsc --project tsconfig.server.json",
     "start:server:dev": "NODE_ENV=development node _dist/server.js",
-    "start:server:prd": "NODE_ENV=production node _dist/server.js"
+    "start:server:prd": "NODE_ENV=production node _dist/server.js",
+    "ts-node": "ts-node --project tsconfig.cli.json",
+    "playwright": "playwright"
   },
   "dependencies": {
     "@makestory/config": "*",
