@@ -192,7 +192,9 @@ const loggingEvent = (page: Page, ws: WebSocketType) => {
 
 const running = async (ws: WebSocketType, request: http.IncomingMessage) => {
   /**
-   * 소켓이 종료 또는 이슈가 발생하면, 테스트도 중단되어야 한다.
+   * TODO:
+   * - 각각의 테스트는 new TestCase 처럼, 여러 소켓에 대응가능하도록 인스턴스 생성하여 실행 한다.
+   * - 소켓이 종료 또는 이슈가 발생하면, 테스트도 중단되어야 한다.
    */
 
   // 브라우저 셋업
