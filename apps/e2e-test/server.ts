@@ -17,6 +17,7 @@ import cors from 'cors';
 import WebSocketMiddleware, {
   EVENT_TYPE as WEBSOCKET_EVENT_TYPE,
 } from './websocket/index';
+import { ROUTE_PATH_API, ROUTE_PATH_WEB_SOCKET } from './constant/route';
 import testcaseRouter from './routes/testcase';
 import { running } from './headlessbrowser/uitest';
 
@@ -69,7 +70,7 @@ app.use((request: Request, response: Response, next: NextFunction) => {
 
 // Express 라우팅
 // https://expressjs.com/ko/guide/routing.html
-app.use('/api/v1/testcase', testcaseRouter);
+app.use(ROUTE_PATH_API.TEST_CASE, testcaseRouter);
 app.use('*', (request: Request, response: Response) => response.send('TEST'));
 
 // 프록시
@@ -116,4 +117,4 @@ webSocketMiddleware.on(
     console.log('MESSAGE', message);
   },
 );
-webSocketMiddleware.use('/uitest/:device/:testcase', running);
+webSocketMiddleware.use(ROUTE_PATH_WEB_SOCKET.UI_TEST, running);
