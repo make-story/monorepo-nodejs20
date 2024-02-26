@@ -190,7 +190,7 @@ const loggingEvent = (page: Page, ws: WebSocketType) => {
   page.on('console', consoleMessage);
 };
 
-const running = async (ws: WebSocketType, request: http.IncomingMessage) => {
+const running = async (request: http.IncomingMessage, ws: WebSocketType) => {
   /**
    * TODO:
    * - 각각의 테스트는 new TestCase 처럼, 여러 소켓에 대응가능하도록 인스턴스 생성하여 실행 한다.

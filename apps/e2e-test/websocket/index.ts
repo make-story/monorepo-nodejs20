@@ -223,7 +223,7 @@ class WebSocketMiddleware {
         return;
       }
       set.forEach(handler => {
-        handler?.(ws, request);
+        handler?.(request, ws); // Express Route 파라미터 순서와 비슷하게 함 (학습효과 최소화)
       });
     });
   }

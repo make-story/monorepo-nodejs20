@@ -1,18 +1,17 @@
 {
   "extends": "@makestory/config/tsconfig.base.json",
   "compilerOptions": {
-    "jsx": "preserve",
     "baseUrl": ".",
-    "typeRoots": ["./node_modules/@types", "./@types"],
+    "paths": {
+      "#/*": ["./*"],
+      "@/*": ["./src/*"]
+    },
+    "jsx": "preserve",
     "plugins": [
       {
         "name": "next"
       }
-    ],
-    "paths": {
-      //"#/*": ["./src/*"]
-      "@/*": ["./src/*"]
-    }
+    ]
   },
   "include": ["**/*.ts", "**/*.tsx", "**/*.d.ts", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]

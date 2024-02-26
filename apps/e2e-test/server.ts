@@ -16,10 +16,10 @@ import cors from 'cors';
 
 import WebSocketMiddleware, {
   EVENT_TYPE as WEBSOCKET_EVENT_TYPE,
-} from './websocket/index';
-import { ROUTE_PATH_API, ROUTE_PATH_WEB_SOCKET } from './constant/route';
-import testcaseRouter from './routes/testcase';
-import { running } from './headlessbrowser/uitest';
+} from '#/websocket/index';
+import { ROUTE_PATH_API, ROUTE_PATH_WEB_SOCKET } from '#/constant/route';
+import testcaseRouter from '#/routes/testcase';
+import { running } from '#/headlessbrowser/uitest';
 
 /**
  * node 예외처리

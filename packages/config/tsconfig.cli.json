@@ -1,12 +1,11 @@
 {
-  "extends": "./tsconfig.json",
+  "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "module": "commonjs",
     "moduleResolution": "node",
     "esModuleInterop": true,
     "noEmit": false
   },
-  "include": ["**/*.ts"],
   "ts-node": {
     "swc": true,
     "require": ["tsconfig-paths/register"]
