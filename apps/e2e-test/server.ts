@@ -62,14 +62,14 @@ app.use(
     optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
   }),
 );
+
+// Express 라우팅
+// https://expressjs.com/ko/guide/routing.html
 app.use(express.static(path.join(__dirname, 'public'))); // public 정적 경로
 app.use((request: Request, response: Response, next: NextFunction) => {
   // 쿠키 세팅 또는 헤더값 인코딩/디코딩
   return next();
 });
-
-// Express 라우팅
-// https://expressjs.com/ko/guide/routing.html
 app.use(ROUTE_PATH_API.TEST_CASE, testcaseRouter);
 app.use('*', (request: Request, response: Response) => response.send('TEST'));
 

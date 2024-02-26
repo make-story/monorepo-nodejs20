@@ -99,7 +99,6 @@ if (isCluster && cluster.isPrimary) {
         optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
       }),
     );
-    server.use(express.static(path.join(__dirname, 'public'))); // public 정적 경로
 
     // Express 라우팅
     // https://expressjs.com/ko/guide/routing.html
@@ -112,6 +111,7 @@ if (isCluster && cluster.isPrimary) {
     // server.post('*', (req, res) => {
     //   return handle(req, res);
     // });
+    server.use(express.static(path.join(__dirname, 'public'))); // public 정적 경로
     server.get('/', function (req, res, next) {
       const { page = '' }: any = req.params || {};
       const { host = '' }: any = req.headers || {};
