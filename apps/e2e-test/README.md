@@ -2,10 +2,21 @@
 
 Playwright 기반 E2E 테스트
 
-- Playwright 제공하는 codegen 통해, 테스트코드 손쉽게 생성
+핵심 요건
+
+- 지속가능한 테스트환경 - Playwright 제공하는 codegen 통해, 테스트코드 손쉽게 생성
 - 웹페이시에서 웹소켓을 통해 테스트 케이스 실행 가능
 - 배포간 실행가능한 CLI 실행 가능
 - 웹훅을 통해 테스트 수행간 이슈 메시지 전달
+
+개발 요건
+
+- Node.js + Express 기반환경 구축
+- TypeScript 기반 서버 구축 (로컬개발환경, 컴파일)
+- WebSocket 서버 + 클라이언트 개발
+- 테스트케이스 리스트 반환 등 Node.js API 개발
+- WebHook 연동 (슬랙)
+- Playwright 도구 Helper 개발
 
 ## Playwright
 
@@ -61,7 +72,11 @@ Webkit 17.4 (playwright build v1967) downloaded to /Users/sung-minyu/Library/Cac
 
 ## 테스트 코드 생성
 
-https://playwright.dev/docs/codegen-intro
+- Playwright 제공
+  https://playwright.dev/docs/codegen-intro
+
+- 크롬 확장프로그램
+  https://chromewebstore.google.com/detail/deploysentinel-recorder/geggbdbnidkhbnbjoganapfhkpgkndfo
 
 ## GitHub Actions CI
 
