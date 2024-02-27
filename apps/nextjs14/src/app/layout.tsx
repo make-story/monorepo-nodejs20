@@ -11,6 +11,7 @@ import { cookies } from 'next/headers';
 import './globals.css';
 import { Providers } from '@/providers';
 import { initMocks } from '@/mocks/index';
+import BaseLayout from '@/common/components/layouts/BaseLayout';
 
 /*if (process.env.NEXT_PUBLIC_MOCK_APIS === 'enabled') {
   initMocks();
@@ -39,12 +40,16 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       {/* body 에 다크모드가 적용되어 있을 경우, 서버 렌더링의 경우 다크모드 결과 값을 알 수 없고, 클라이언트 렌더링에서 다크모드 값이 적용되기 때문에, 서버렌더링과 클리아언트 렌더링 결과가 다르기 때문에 경고가 발생! */}
       {/* 이를 해결하고자 suppressHydrationWarning 속성값 설정 */}
       <body suppressHydrationWarning={true}>
-        <div>
-          <strong>Root Lauout</strong>
-        </div>
         {/* Provider */}
         {/* https://nextjs.org/docs/app/building-your-application/rendering/composition-patterns#using-context-providers */}
-        <Providers>{children}</Providers>
+        <Providers>
+          {/* 기본 레이아웃 구성 */}
+          <BaseLayout>
+            <BaseLayout.Header>Header</BaseLayout.Header>
+            <BaseLayout.Container>{children}</BaseLayout.Container>
+            <BaseLayout.Footer>Footer</BaseLayout.Footer>
+          </BaseLayout>
+        </Providers>
       </body>
     </html>
   );
