@@ -46,8 +46,12 @@ https://fe-developers.kakaoent.com/2022/220505-how-page-part-use-atomic-design-s
 - elements (atom)
   - 예: TestButton, TestIcon
 - modules (molecules, organism)
-  - 예: TestSection, TestAside, TestArticle
+  - 예: TestHeader, TestSection, TestAside, TestArticle, TestFooter
+  - Render Props 패턴 추천
+  - 제어 컴포넌트 패턴 (Controlled Props Pattern) 추천
 - templates
-  - 예: TestPage
-- layouts (page)
-  - 예: BaseLayout
+  - 예: TestPage (Next.js page 단위)
+  - 합성 컴포넌트 패턴 (Compound Component Pattern) 추천
+- layouts
+  - 예: BaseLayout (Next.js layout 단위)
+  - 합성 컴포넌트 패턴 (Compound Component Pattern) 추천
