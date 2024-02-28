@@ -9,14 +9,20 @@ Playwright 기반 E2E 테스트
 - 서비스 배포간 실행가능한 CLI 실행 가능 (CI/CD)
 - 웹훅을 통해 테스트 수행간 이슈 메시지 전파
 
-개발 요건
+환경(서버) 구축
 
 - Node.js + Express 기반환경 구축
-- TypeScript 기반 서버 구축 (로컬개발환경, 컴파일)
-- WebSocket 서버 + 클라이언트 개발
-- 테스트케이스 리스트 반환 등 Node.js API 개발
+- TypeScript 서버 구축 (로컬개발환경, 컴파일)
+- WebSocket 서버 + 클라이언트 개발 (웹소켓으로 테스트 케이스 실행 및 응답)
+- 테스트케이스 리스트 반환 등 API 기초 개발 (라우트)
+- CLI 명령으로 테스트케이스 실행 가능하도록 개발 (CD 연동 또는 스케줄러 연동)
 - WebHook 연동 (슬랙)
 - Playwright 도구 Helper 개발
+
+클라이언트 개발
+
+- 화면설계
+- 컴포넌트 개발
 
 ## Playwright
 
