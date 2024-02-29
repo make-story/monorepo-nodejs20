@@ -7,6 +7,7 @@ import { InitialSliceState } from './type';
 
 const initialState: InitialSliceState = {};
 
+// https://redux-toolkit.js.org/api/createSlice
 export const slice = createSlice({
   name: 'loading',
   initialState,
