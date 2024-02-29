@@ -11,8 +11,17 @@
 - Redux Toolkit Thunk 사용 예
   - https://redux-toolkit.js.org/usage/usage-guide#async-requests-with-createasyncthunk
 - 유연한 컴포넌트 설계 방법론 예제
+  - Render Props 패턴
+  - 합성 컴포넌트 패턴 (Compound Component Pattern)
 - 사용자훅, HOC 실무활용 예제
 - webview 유틸 (event-manager 활용)
+- UI
+  - shadcn-ui 기반 레이아웃
+- GraphQL
+  - Apollo (API 상태관리 활용 가능)
+- Oauth
+  - JWT
+  - next-auth
 
 ## 완료
 

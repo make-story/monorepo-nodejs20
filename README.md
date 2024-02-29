@@ -55,6 +55,7 @@ $ yarn storybook dev
   - Tailwind CSS
   - Module CSS
   - shadcn UI
+    - Radix UI 및 Tailwind CSS 를 사용하여 구축된 재사용 가능한 컴포넌트
 - 트랜스파일링, 빌드
   - SWC (Babel 대체)
   - Turbo Pack (Webpack 대체)
