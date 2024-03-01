@@ -2115,14 +2115,6 @@
   resolved "https://registry.yarnpkg.com/@microsoft/tsdoc/-/tsdoc-0.14.2.tgz#c3ec604a0b54b9a9b87e9735dfc59e1a5da6a5fb"
   integrity sha512-9b8mPpKrfeGRuhFH5iO1iwCLeIIsV6+H1sRfxbkoGXIyQE2BTsPd9zqSqQJ+pv5sJ/hT5M1zvOFL02MnEezFug==
 
-"@module-federation/enhanced@0.0.10":
-  version "0.0.10"
-  resolved "https://registry.yarnpkg.com/@module-federation/enhanced/-/enhanced-0.0.10.tgz#ec47de68e72ead784de520000ebc3bb636bf9499"
-  integrity sha512-yP8LCH3moQN7Z9I0wpeFVfwahjVZNbL2LYoemj4rF66rIioap31D4knkml0LdRkmzNH97/SEl/FSRVM7a1hMLg==
-  dependencies:
-    "@module-federation/runtime-tools" "0.0.10"
-    "@module-federation/sdk" "0.0.10"
-
 "@module-federation/enhanced@0.0.13":
   version "0.0.13"
   resolved "https://registry.yarnpkg.com/@module-federation/enhanced/-/enhanced-0.0.13.tgz#df3b9d5ba830b9af2d00d760b7b05f9c0e4cf788"
@@ -2147,21 +2139,6 @@
     fast-glob "^3.2.11"
     webpack-sources "^3.2.3"
 
-"@module-federation/nextjs-mf@^8.1.7":
-  version "8.1.7"
-  resolved "https://registry.yarnpkg.com/@module-federation/nextjs-mf/-/nextjs-mf-8.1.7.tgz#dab9e40ea66d9dbf98a7063446409bc805f3394e"
-  integrity sha512-7c33XA5rXfuSoTKAsqXdNehNHXXLcO6zjWulrxQE2DTym2Gp0xSL2OMRf0/ucyxp1kRUvh97XCB4i0wrlN0zfQ==
-  dependencies:
-    "@module-federation/enhanced" "0.0.10"
-    "@module-federation/node" "2.0.8"
-    "@module-federation/runtime" "0.0.10"
-    "@module-federation/sdk" "0.0.10"
-    "@module-federation/utilities" "3.0.5"
-    "@module-federation/webpack-type" "0.0.1"
-    eventemitter3 "^5.0.0"
-    fast-glob "^3.2.11"
-    webpack-sources "^3.2.3"
-
 "@module-federation/node@2.0.11":
   version "2.0.11"
   resolved "https://registry.yarnpkg.com/@module-federation/node/-/node-2.0.11.tgz#5bc84814b7d758da37f0121a1833f0aa7da89b84"
@@ -2173,25 +2150,6 @@
     "@module-federation/utilities" "3.0.5"
     node-fetch "2.7.0"
 
-"@module-federation/node@2.0.8":
-  version "2.0.8"
-  resolved "https://registry.yarnpkg.com/@module-federation/node/-/node-2.0.8.tgz#d1a9822e03a991c1241b3051705696872784af78"
-  integrity sha512-pCqXJQ29AwJAV0Qh2Sw6D9oP/3IEuFsL7NN1UHfP6CNzUEa7Qr6ecT/7MnP6G4pJnu26KzHNnRBf1J8FtB5K3A==
-  dependencies:
-    "@module-federation/enhanced" "0.0.10"
-    "@module-federation/runtime" "0.0.10"
-    "@module-federation/sdk" "0.0.10"
-    "@module-federation/utilities" "3.0.5"
-    node-fetch "2.7.0"
-
-"@module-federation/runtime-tools@0.0.10":
-  version "0.0.10"
-  resolved "https://registry.yarnpkg.com/@module-federation/runtime-tools/-/runtime-tools-0.0.10.tgz#1d9b92e28fe325fe5594a050ee71b70a5ed6144f"
-  integrity sha512-2u2v7oRSn6JaCwj7jFU90MCwwRY+iONHPW3sPjaMr6DJ1wa10eHAv07qmHvQUipJ/Jm6AGaS2oep3c0gA2HEzg==
-  dependencies:
-    "@module-federation/runtime" "0.0.10"
-    "@module-federation/webpack-bundler-runtime" "0.0.10"
-
 "@module-federation/runtime-tools@0.0.13":
   version "0.0.13"
   resolved "https://registry.yarnpkg.com/@module-federation/runtime-tools/-/runtime-tools-0.0.13.tgz#952ec8b69c7beb0f37ea9646629a33a8a5af70b5"
@@ -2200,24 +2158,12 @@
     "@module-federation/runtime" "0.0.13"
     "@module-federation/webpack-bundler-runtime" "0.0.13"
 
-"@module-federation/runtime@0.0.10":
-  version "0.0.10"
-  resolved "https://registry.yarnpkg.com/@module-federation/runtime/-/runtime-0.0.10.tgz#86ae1539e988c7a79228d416bbff804ecde13f06"
-  integrity sha512-M57xoGcN64JDyNwerOoAlUyyplA1fGKlGWWc6sw5A+eRb+mt/Nj2Yh5g3+C3iZ0b3eoLtDe3qlX12UuddmySPg==
-  dependencies:
-    "@module-federation/sdk" "0.0.10"
-
 "@module-federation/runtime@0.0.13":
   version "0.0.13"
   resolved "https://registry.yarnpkg.com/@module-federation/runtime/-/runtime-0.0.13.tgz#040af7a98ed2cdbad0fb1b5b75c159823d22e215"
   integrity sha512-c7TCfNQZvNV4ITCLQyDC7AG7AN3uPxFvBW7xNZ38EOIjuQjBm0JoAr8pxIoK6cdNf5VToIbVHaEJ1D+9DaJZmA==
   dependencies:
     "@module-federation/sdk" "0.0.13"
-
-"@module-federation/sdk@0.0.10":
-  version "0.0.10"
-  resolved "https://registry.yarnpkg.com/@module-federation/sdk/-/sdk-0.0.10.tgz#e609c5a926b3af7c104d93ac82dbb3525b827d38"
-  integrity sha512-qHK7FoOSd8HCBal0bSBCn/BB1e5XXwdfwzPt4ACP/o4YyHTnIIavX9qyA9bufvHltVgP/JL5jpBOpK7sdZ1bYQ==
 
 "@module-federation/sdk@0.0.13":
   version "0.0.13"
@@ -2228,14 +2174,6 @@
   version "3.0.5"
   resolved "https://registry.yarnpkg.com/@module-federation/utilities/-/utilities-3.0.5.tgz#cf65e7c1185f882fc7b33a5ae734817b741b6d72"
   integrity sha512-0D1dSWmZBUjkIloUzspcUjT3pbhHBSJ49Dn2RKWeqxN4Layx+7p5y9VkIckBRcgSawXktjGYHb5FA7vfaKh9nA==
-
-"@module-federation/webpack-bundler-runtime@0.0.10":
-  version "0.0.10"
-  resolved "https://registry.yarnpkg.com/@module-federation/webpack-bundler-runtime/-/webpack-bundler-runtime-0.0.10.tgz#5c4330d5251426fe6c19a1b77458bb6c1ffef660"
-  integrity sha512-D7hHTP/SIYGzUa9Jz6gVX3p2F3tAyChjtB4Yhi1BgoNiZVQvwXsWi+KXPccT5sL/Br6g5EVupYQTnR0OGR8P2A==
-  dependencies:
-    "@module-federation/runtime" "0.0.10"
-    "@module-federation/sdk" "0.0.10"
 
 "@module-federation/webpack-bundler-runtime@0.0.13":
   version "0.0.13"

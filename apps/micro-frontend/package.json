@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "rm -rf .next; NEXT_PRIVATE_LOCAL_WEBPACK=true NODE_OPTIONS='--inspect' next dev",
+    "dev": "rm -rf .next; NEXT_PRIVATE_LOCAL_WEBPACK=true NODE_OPTIONS='--inspect' next dev -p 8080",
     "dev:turbo": "NODE_OPTIONS='--inspect' next dev --turbo",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 8080",
     "lint": "next lint"
   },
   "dependencies": {

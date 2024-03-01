@@ -1,4 +1,4 @@
-# NextAuth.js
+# OAuth(Open Authorization) - NextAuth.js
 
 https://velog.io/@s_soo100/Next.js-13-Next-auth-%EC%BB%A4%EC%8A%A4%ED%85%80-%EB%A1%9C%EA%B7%B8%EC%9D%B8-%ED%8E%98%EC%9D%B4%EC%A7%80-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0
 

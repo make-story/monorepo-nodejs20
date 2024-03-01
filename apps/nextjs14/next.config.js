@@ -11,8 +11,8 @@ const NextFederationPlugin = require('@module-federation/nextjs-mf');
 const remotes = isServer => {
   const location = isServer ? 'ssr' : 'chunks';
   return {
-    // specify remotes
-    remote: `remote@http://localhost:3001/_next/static/${location}/remoteEntry.js`,
+    // monorepo-nodejs20.git/apps/micro-frontend
+    remote: `remote@http://localhost:8080/_next/static/${location}/remoteEntry.js`, // React.lazy(() => import("remote/<내보내기 exposes 모듈명>"));
   };
 };
 
@@ -42,16 +42,21 @@ const nextConfig = {
   ) => {
     if (!isServer) {
       config.cache = false;
-      /*config.plugins.push(
+      config.plugins.push(
         new NextFederationPlugin({
           name: 'nextjs14',
-          remotes: {},
           filename: 'static/chunks/remoteEntry.js',
+          // 원격 모듈 가져오기
+          //remotes: remotes(isServer),
+          remotes: {},
+          // 내보낼 모듈
           exposes: {},
+          // shared 를 설정하면, 호스트나 여러 원격 모듈에서 사용되는 공통된 패키지를 중복으로 불러오는 걸 방지
           shared: {},
+          // 옵션
           extraOptions: {},
         }),
-      );*/
+      );
     }
     return config;
   },

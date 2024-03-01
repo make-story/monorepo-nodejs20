@@ -23,7 +23,7 @@
     "@makestory/fetch-manager": "*",
     "@makestory/logging-manager": "*",
     "@makestory/utils": "*",
-    "@module-federation/nextjs-mf": "^8.1.7",
+    "@module-federation/nextjs-mf": "^8.1.10",
     "@reduxjs/toolkit": "1.9.5",
     "@types/cookie-parser": "^1.4.6",
     "@types/cors": "^2.8.17",

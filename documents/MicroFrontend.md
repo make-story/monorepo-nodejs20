@@ -1,4 +1,37 @@
-# 마이크로 프론트엔드
+# 마이크로 프론트엔드 (Micro Frontend)
+
+`monorepo-nodejs20.git/apps/micro-frontend` 마이크로프론트 제공 (빌드)
+`monorepo-nodejs20.git/apps/nextjs14` 마이크로프론트 사용 (import)
+
+`monorepo-nodejs20.git/apps/micro-frontend-purejs` 순수 JavaScript 방식
+
+## Module Federation
+
+https://github.com/module-federation/module-federation-examples/tree/master/nextjs-v13
+
+https://www.npmjs.com/package/@module-federation/nextjs-mf
+
+- checkout - port 3000
+- home - port 3001
+- shop - port 3002
+
+### @module-federation/nextjs-mf/lib/utils
+
+```javascript
+import { injectScript } from '@module-federation/nextjs-mf/lib/utils';
+// if i have remotes in my federation plugin, i can pass the name of the remote
+injectScript('home').then(remoteContainer => {
+  remoteContainer.get('./exposedModule');
+});
+// if i want to load a custom remote not known at build time.
+
+injectScript({
+  global: 'home',
+  url: 'http://somthing.com/remoteEntry.js',
+}).then(remoteContainer => {
+  remoteContainer.get('./exposedModule');
+});
+```
 
 ## 커스텀엘리먼트 + 쉐도우돔 (+ 특점 컴포넌트 빌드 결과물)
 
