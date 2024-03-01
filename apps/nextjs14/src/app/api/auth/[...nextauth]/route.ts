@@ -1,5 +1,8 @@
 /**
+ * /api/auth/*
  * https://medium.com/ascentic-technology/authentication-with-next-js-13-and-next-auth-9c69d55d6bfd
+ *
+ * 기본 설정으로 '/api/auth/signin' 접근시 로그인 페이지 출력
  *
  * [...nextauth] '...' 특수문자 입력 주의!
  * https://github.com/nextauthjs/next-auth/issues/7632#issuecomment-1559415021
@@ -10,10 +13,15 @@ import NextAuth from 'next-auth';
 import type { AuthOptions } from 'next-auth';
 import { JWT } from 'next-auth/jwt';
 import CredentialsProvider from 'next-auth/providers/credentials';
+import NaverProvider from 'next-auth/providers/naver';
 
 // credentials 를 통해 개발자가 어떤 정보를 로그인 시 받을지 정할 수 있다.
 export const authOptions: AuthOptions = {
   providers: [
+    /*NaverProvider({
+      clientId: process.env.NAVER_CLIENT_ID || "",
+      clientSecret: process.env.NAVER_CLIENT_SECRET || "",
+    }),*/
     CredentialsProvider({
       name: 'Credentials',
       credentials: {
@@ -85,6 +93,17 @@ export const authOptions: AuthOptions = {
     },
   },
   secret: process.env.JWT_SECRET || 'test',
+  // https://next-auth.js.org/configuration/pages
+  pages: {
+    //signIn: '/auth/signin',
+    /*
+    signIn: '/auth/signin',
+    signOut: '/auth/signout',
+    error: '/auth/error', // Error code passed in query string as ?error=
+    verifyRequest: '/auth/verify-request', // (used for check email message)
+    newUser: '/auth/new-user', // New users will be directed here on first sign in
+    */
+  },
 };
 
 const handler = NextAuth(authOptions);

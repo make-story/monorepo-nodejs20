@@ -35,6 +35,8 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+// 컴포넌트 async/await 비동기는 서버컴포넌트에서만 지원 (클라이언트에서의 경우는 useEffect 로 감싸고 async/await 실행)
+// https://stackoverflow.com/questions/77078222/error-async-await-is-not-yet-supported-in-client-components-in-next-js
 export default async function RootLayout({
   children,
 }: {
