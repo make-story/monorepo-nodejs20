@@ -9,6 +9,20 @@
  * https://velog.io/@pds0309/nextjs-%EB%AF%B8%EB%93%A4%EC%9B%A8%EC%96%B4%EB%9E%80
  */
 import { NextFetchEvent, NextRequest, NextResponse } from 'next/server';
+import { withAuth } from 'next-auth/middleware';
+
+// https://next-auth.js.org/configuration/nextjs#middleware
+// https://medium.com/ascentic-technology/authentication-with-next-js-13-and-next-auth-9c69d55d6bfd
+export default withAuth(function middleware(req) {}, {
+  callbacks: {
+    authorized: ({ req, token }) => {
+      if (req.nextUrl.pathname.startsWith('/protected') && token === null) {
+        return false;
+      }
+      return true;
+    },
+  },
+});
 
 export function middleware(request: NextRequest, event: NextFetchEvent) {
   console.log('middleware', request.url);

@@ -9,6 +9,7 @@
 import { useRef, PropsWithChildren } from 'react';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
+import { SessionProvider } from 'next-auth/react';
 import { FetchProvider } from '@makestory/fetch-manager';
 
 import { AuthProvider } from '@/common/store/auth/index';
@@ -16,9 +17,9 @@ import { makeStore, AppStore } from '@/store';
 //import { initializeCounter } from '@/service/store/counter';
 
 export const Providers = ({
-  count,
   children,
-}: PropsWithChildren<{ count?: number }>) => {
+  session,
+}: PropsWithChildren<{ session?: any }>) => {
   const storeRef = useRef<AppStore | null>(null);
   if (!storeRef.current) {
     storeRef.current = makeStore();
@@ -28,20 +29,23 @@ export const Providers = ({
 
   return (
     <>
-      {/* redux */}
-      <Provider store={storeRef.current}>
-        {/* redux-persist - https://github.com/vercel/next.js/issues/8240 */}
-        <PersistGate persistor={storeRef.current.__persistor!} loading={null}>
-          {() => (
-            <>
-              <FetchProvider<AppStore> store={storeRef.current!}>
-                {/* [example] */}
-                <AuthProvider>{children}</AuthProvider>
-              </FetchProvider>
-            </>
-          )}
-        </PersistGate>
-      </Provider>
+      {/* next-auth */}
+      <SessionProvider session={session}>
+        {/* redux */}
+        <Provider store={storeRef.current}>
+          {/* redux-persist - https://github.com/vercel/next.js/issues/8240 */}
+          <PersistGate persistor={storeRef.current.__persistor!} loading={null}>
+            {() => (
+              <>
+                <FetchProvider<AppStore> store={storeRef.current!}>
+                  {/* [example] */}
+                  <AuthProvider>{children}</AuthProvider>
+                </FetchProvider>
+              </>
+            )}
+          </PersistGate>
+        </Provider>
+      </SessionProvider>
     </>
   );
 };

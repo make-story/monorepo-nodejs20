@@ -1,3 +1,5 @@
+'use client';
+
 import {
   PropsWithChildren,
   ReactNode,
@@ -35,7 +37,7 @@ export const Header: React.FC<PropsWithChildren> = function ({
 
   return <header>{children}</header>;
 };
-BaseLayout.Header = Header;
+//BaseLayout.Header = Header;
 
 // BaseLayout.Container
 export const Container: React.FC<PropsWithChildren> = function ({
@@ -49,7 +51,7 @@ export const Container: React.FC<PropsWithChildren> = function ({
 
   return <div>{children}</div>;
 };
-BaseLayout.Container = Container;
+//BaseLayout.Container = Container;
 
 // BaseLayout.Footer
 export const Footer: React.FC<PropsWithChildren> = function ({
@@ -63,6 +65,12 @@ export const Footer: React.FC<PropsWithChildren> = function ({
 
   return <footer>{children}</footer>;
 };
-BaseLayout.Footer = Footer;
+//BaseLayout.Footer = Footer;
 
-export default BaseLayout;
+const BaseLayoutRoot = Object.assign(BaseLayout, {
+  Header,
+  Container,
+  Footer,
+});
+
+export default BaseLayoutRoot;

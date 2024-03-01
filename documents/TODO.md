@@ -17,6 +17,15 @@
 - webview 유틸 (event-manager 활용)
 - UI
   - shadcn-ui 기반 레이아웃
+    - https://ui.shadcn.com/docs/dark-mode/next
+    - `https://github.com/shadcn-ui/ui/tree/main/apps/www/registry`
+  - cva (Class Variance Authority)
+    - https://github.com/joe-bell/cva
+    - https://velog.io/@woohobi/%EC%9E%AC%EC%82%AC%EC%9A%A9%EC%84%B1%EC%9D%84-%EA%B3%A0%EB%A0%A4%ED%95%9C-UI-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8
+  - classnames 또는 clx
+    - https://npmtrends.com/classnames-vs-clsx
+    - clsx 는 React 에서 클래스 이름을 조건부로 적용하는 데 매우 유용한 라이브러리
+  - tailwind-merge
 - GraphQL
   - Apollo (API 상태관리 활용 가능)
 - Oauth
@@ -45,12 +54,9 @@
 ## 중기/장기 계획
 
 - 마이크로 프론트 구축 안정화
-
   - 웹팩 활용
   - Next.js 연동
-
 - MSW (API 목업 개발환경 구축)
-
   - https://github.com/vercel/next.js/tree/canary/examples/with-msw
   - https://github.com/mswjs/msw/issues/1644
   - https://jaypedia.tistory.com/382
