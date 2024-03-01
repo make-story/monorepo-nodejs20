@@ -35,13 +35,15 @@
 ## 완료
 
 - ESLint 계층간 의존성 제어
-- Fetch 매니저
 - RTK Query
+- 공통 설정 패키지
+- Fetch 매니저
 - Event-Bus 매니저
-  - 이벤트 proxy 기능? 또는 인터셉터 기능?
+  - 옵션으로 이벤트 proxy 기능 (인터셉터 기능)
 - Log 매니저
   - URL 파라미터에 logGroup=값 으로 해당 로그만 보이기/숨기기 제어
   - NEXT_PUBLIC_LOG_GROUP 환경변수 값으로 서버에서는 구분
+- changeset 도구 활용 내부 NPM 배포 환경
 - 디자인시스템
   - 스토리북 구축
   - 아토믹디자인 분리 기준 재정의!
@@ -49,7 +51,8 @@
 - Express 커스텀 서버 구성 (TypeScript)
 - 마이크로 프론트 기초 환경 구성
 - E2E 테스트 기초 환경 구성
-- React Native 기초 API 서버 구성 (NestJS 기반)
+- React Native 기초 API 서버 구성
+  - NestJS 기반 환경
 
 ## 중기/장기 계획
 
@@ -62,3 +65,5 @@
   - https://jaypedia.tistory.com/382
   - https://velog.io/@minsang9735/NextJS%EC%97%90%EC%84%9C-MSW%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%B4%EB%B3%B4%EC%9E%90
   - https://velog.io/@shinhw371/Nextjs-13-MSW-Failure-Record
+- 디자인시스템 고도화
+  - 아토믹디자인 분리 기준 경험적 학습 (시행착오)
