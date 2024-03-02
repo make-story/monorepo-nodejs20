@@ -1,6 +1,7 @@
 /**
  * Vite 공통 기본 설정
  * https://vitejs.dev/config/
+ * https://ko.vitejs.dev/config/build-options.html#build-options
  * https://ko.vitejs.dev/plugins/
  */
 import * as path from 'node:path';
@@ -29,8 +30,9 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, 'index.ts'),
-      name: packageJson.name.split('/').pop() ?? '',
-      fileName: 'index',
+      name: packageJson.name.split('/').pop() ?? '', // 전역 변수 (예: window[name설정값])
+      //fileName: 'index', // 기본값: package.json 파일의 name 옵션
+      formats: ['es', 'umd'], // 기본값: ['es', 'umd'], 여러 entry 가 존재할 경우 기본값: ['es', 'cjs']
     },
     // 빌드 커스터마이즈하기
     // https://rollupjs.org/configuration-options/

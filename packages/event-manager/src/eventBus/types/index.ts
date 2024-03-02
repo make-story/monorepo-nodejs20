@@ -1,5 +1,5 @@
-export type EventListener = (event: Event) => void;
-
+//export type EventListener = (event: Event) => void; // EventListener 기본 존재 (/node_modules/typescript/lib/lib.dom.d.ts)
+export type EventOptions = boolean | AddEventListenerOptions | undefined;
 /**
  * EventTarget
  * https://developer.mozilla.org/ko/docs/Web/API/EventTarget
@@ -8,12 +8,12 @@ export interface EventDispatcher extends EventTarget {
   addEventListener(
     type: string,
     listener: EventListener,
-    options?: boolean | AddEventListenerOptions,
+    options?: EventOptions,
   ): void;
   removeEventListener(
     type: string,
     listener: EventListener,
-    options?: boolean | AddEventListenerOptions,
+    options?: EventOptions,
   ): void;
   dispatchEvent(event: Event): boolean;
 }
@@ -31,12 +31,8 @@ export interface CustomEventType<T = any> extends Event {
 /**
  * Proxy 동작간 인터셉터
  */
-export interface Interceptor {
-  type: string;
-  interceptor: (...payload: any) => boolean;
-}
 export interface EventDispatcherInterceptors {
-  addEventListener?: Interceptor[];
-  removeEventListener?: Interceptor[];
-  dispatchEvent?: Interceptor[];
+  on: { [type: string]: Function[] };
+  off: { [type: string]: Function[] };
+  dispatch: { [type: string]: Function[] };
 }

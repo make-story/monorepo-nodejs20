@@ -3,6 +3,7 @@
  * https://developer.mozilla.org/ko/docs/Web/API/Event
  */
 import { createEventDispatcher } from './proxy/index';
+import { EventOptions } from './types/index';
 
 // 이벤트 Proxy
 const {
@@ -11,11 +12,17 @@ const {
   ejectDispatcherInterceptor,
   clearDispatcherInterceptor,
 } = createEventDispatcher();
+export {
+  applyDispatcherInterceptor as eventBusApplyInterceptor,
+  ejectDispatcherInterceptor as eventBusEjectInterceptor,
+  clearDispatcherInterceptor as eventBusClearInterceptor,
+};
 
+// 이벤트 추가
 export const eventBusOn = (
   type: string,
   listener: EventListener,
-  options?: EventListenerOptions,
+  options?: EventOptions,
 ): void => {
   try {
     //document.addEventListener(type, listener, options);
@@ -25,10 +32,11 @@ export const eventBusOn = (
   }
 };
 
+// 이벤트 제거
 export const eventBusOff = (
   type: string,
   listener: EventListener,
-  options?: EventListenerOptions,
+  options?: EventOptions,
 ): void => {
   try {
     //document.removeEventListener(type, listener, options);
@@ -38,6 +46,7 @@ export const eventBusOff = (
   }
 };
 
+// 이벤트 실행
 export const eventBusDispatch = (type: string, payload: any = null) => {
   try {
     //return document.dispatchEvent(new CustomEvent(type, { detail: payload }));
