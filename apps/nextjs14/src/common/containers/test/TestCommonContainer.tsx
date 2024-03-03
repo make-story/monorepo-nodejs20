@@ -11,7 +11,7 @@ import Auth from '@/common/components/test/auth/Auth';
 import EventBus from '@/common/components/test/event/EventBus';
 import DataList from '@/common/components/test/dataList/DataList';
 
-export default function TestContainer({
+export default function TestCommonContainer({
   serverData,
 }: PropsWithChildren<{ serverData?: any }>) {
   const dispatch = useAppDispatch();

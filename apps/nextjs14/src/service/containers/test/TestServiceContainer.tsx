@@ -7,7 +7,7 @@ import Card from '@/service/components/test/card/index';
 import Counter from '@/service/components/test/counter/index';
 import Webview from '@/service/components/test/webview/index';
 
-function TestContainer() {
+function TestServiceContainer() {
   return (
     <>
       <Counter />
@@ -17,4 +17,4 @@ function TestContainer() {
   );
 }
 
-export default TestContainer;
+export default TestServiceContainer;

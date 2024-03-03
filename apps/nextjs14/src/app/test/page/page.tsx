@@ -1,15 +1,15 @@
 'use client';
 
-import TestContainerCommon from '@/common/containers/test/TestContainer';
-import TestContainerService from '@/service/containers/test/TestContainer';
+import TestCommonContainer from '@/common/containers/test/TestCommonContainer';
+import TestServiceContainer from '@/service/containers/test/TestServiceContainer';
 import TestCaseContainer from '@/testManagement/containers/case/TestCaseContainer';
 
 function Page() {
   return (
     <>
       <h2>TEST PAGE</h2>
-      {/* <TestContainerCommon /> *}
-      {/* <TestContainerService /> */}
+      {/* <TestCommonContainer /> */}
+      {/* <TestServiceContainer /> */}
       <TestCaseContainer />
     </>
   );
