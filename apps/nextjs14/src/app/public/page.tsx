@@ -7,7 +7,8 @@ import { useState } from 'react';
 import { getServerSession } from 'next-auth/next';
 import { useSession } from 'next-auth/react';
 import type { NextRequest } from 'next/server';
-import { authOptions } from '#/src/app/api/auth/[...nextauth]/route';
+
+import { authOptions } from '@/auth';
 
 /*export default async function Protected(req: NextRequest): Promise<any> {
   const session = await getServerSession(authOptions);

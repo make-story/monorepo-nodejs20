@@ -48,13 +48,12 @@ const nextConfig = {
         filename: 'static/chunks/remoteEntry.js',
         // 원격 모듈 가져오기
         remotes: remotes(isServer),
-        //remotes: {},
         // 내보낼 모듈
-        exposes: {},
+        //exposes: {},
         // shared 를 설정하면, 호스트나 여러 원격 모듈에서 사용되는 공통된 패키지를 중복으로 불러오는 걸 방지
-        shared: {},
+        //shared: {},
         // 옵션
-        extraOptions: {},
+        //extraOptions: {},
       }),
     );*/
     //}

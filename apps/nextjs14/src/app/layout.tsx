@@ -11,8 +11,8 @@ import { getServerSession } from 'next-auth/next';
 
 import './globals.css';
 import { Providers } from '@/providers';
+import { authOptions } from '@/auth';
 import { initMocks } from '@/mocks/index';
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 import BaseLayout from '@/common/components/layouts/BaseLayout';
 
 /*if (process.env.NEXT_PUBLIC_MOCK_APIS === 'enabled') {
