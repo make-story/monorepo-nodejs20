@@ -16,6 +16,7 @@
   - cva (Class Variance Authority)
     - https://github.com/joe-bell/cva
     - https://velog.io/@woohobi/%EC%9E%AC%EC%82%AC%EC%9A%A9%EC%84%B1%EC%9D%84-%EA%B3%A0%EB%A0%A4%ED%95%9C-UI-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8
+    - props 증가, props 증가에 따른 조건분기 증가 대응
   - classnames 또는 clx
     - https://npmtrends.com/classnames-vs-clsx
     - clsx 는 React 에서 클래스 이름을 조건부로 적용하는 데 매우 유용한 라이브러리
