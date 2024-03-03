@@ -1,7 +1,7 @@
 /**
  * 개발에 참고한 자료
  * 서버의 캐시를 클라이언트로 전달하여 이를 클라이언트 캐시에 통합할 수 있도록 설정
- * (Next js에서 권장하는 방법과 Apollo에서 권장하는 방법이 각각 다름, 아래 코드는 Next.js 에서 권장하는 방법과 비슷함)
+ * (Next js에서 권장하는 방법과 Apollo에서 권장하는 방법이 각각 다름, 아래 코드는 Next.js 에서 권장하는 방법과 비슷함) - 23.12 기준
  * https://velog.io/@2ast/Next-Next%EC%97%90%EC%84%9C-Apollo-Client-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0
  * https://wpengine.com/builders/apollo-client-cache-rehydration-in-next-js
  * https://www.apollographql.com/blog/apollo-client/next-js/building-a-next-js-app-with-slash-graphql/
