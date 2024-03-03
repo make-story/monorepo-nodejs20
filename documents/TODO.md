@@ -1,19 +1,14 @@
 # TODO
 
-## 진행
-
 - React 모범사레 (React Best Practices)
   - https://github.com/codica2/react-app-best-practice/tree/master/src/views/components
   - https://github.com/PacktPublishing/React-18-Design-Patterns-and-Best-Practices-Fourth-Edition
   - https://github.com/garbalau-github/react-best-practices
   - https://usehooks-ts.com/
   - https://reactpatterns.js.org/docs/
-- Redux Toolkit Thunk 사용 예
-  - https://redux-toolkit.js.org/usage/usage-guide#async-requests-with-createasyncthunk
-- 유연한 컴포넌트 설계 방법론 예제
-  - Render Props 패턴
-  - 합성 컴포넌트 패턴 (Compound Component Pattern)
-- 사용자훅, HOC 실무활용 예제
+
+## 진행
+
 - UI
   - shadcn-ui 기반 레이아웃
     - https://ui.shadcn.com/docs/dark-mode/next
@@ -25,11 +20,17 @@
     - https://npmtrends.com/classnames-vs-clsx
     - clsx 는 React 에서 클래스 이름을 조건부로 적용하는 데 매우 유용한 라이브러리
   - tailwind-merge
-- GraphQL
+- GraphQL - 기능보완 및 테스트
   - Apollo (API 상태관리 활용 가능)
-- Oauth
+- Oauth - 기능보완 및 테스트
   - JWT
   - next-auth
+- Redux Toolkit Thunk 사용 예
+  - https://redux-toolkit.js.org/usage/usage-guide#async-requests-with-createasyncthunk
+- 유연한 컴포넌트 설계 방법론 예제
+  - Render Props 패턴
+  - 합성 컴포넌트 패턴 (Compound Component Pattern)
+- 사용자훅, HOC 실무활용 예제
 
 ## 완료
 
