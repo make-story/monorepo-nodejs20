@@ -10,8 +10,8 @@ import Webview from '@/service/components/test/webview/index';
 function TestContainer() {
   return (
     <>
-      {/* <Counter /> */}
-      {/* <Card /> */}
+      <Counter />
+      <Card />
       <Webview />
     </>
   );

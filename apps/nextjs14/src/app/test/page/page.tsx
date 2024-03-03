@@ -8,8 +8,8 @@ function Page() {
   return (
     <>
       <h2>TEST PAGE</h2>
-      <TestContainerCommon />
-      <TestContainerService />
+      {/* <TestContainerCommon /> *}
+      {/* <TestContainerService /> */}
       <TestCaseContainer />
     </>
   );
