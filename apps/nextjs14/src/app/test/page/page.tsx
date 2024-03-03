@@ -7,7 +7,9 @@ import TestCaseContainer from '@/testManagement/containers/case/TestCaseContaine
 function Page() {
   return (
     <>
-      TEST PAGE
+      <h2>TEST PAGE</h2>
+      <TestContainerCommon />
+      <TestContainerService />
       <TestCaseContainer />
     </>
   );

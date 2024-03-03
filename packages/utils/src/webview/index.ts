@@ -7,19 +7,15 @@ import {
   eventBusDispatch,
 } from '@makestory/event-manager';
 
-/**
- * 앱 <-> 웹뷰 연동 이벤트 타입
- */
+// 앱 <-> 웹뷰 연동 이벤트 타입
 export const APP_EVENT_TYPE = {
   TEST: 'test',
 };
 export type TypedAppEvent =
   (typeof APP_EVENT_TYPE)[keyof typeof APP_EVENT_TYPE];
 
-/**
- * 앱 -> 웹뷰 : 인터페이스 / 이벤트 on / 이벤트 off
- * 앱쪽과 약속된 window.XXX 함수 추가
- */
+// 앱 -> 웹뷰 : 인터페이스 / 이벤트 on / 이벤트 off
+// 앱쪽과 약속된 window.XXX 함수 추가
 const appEventListener = (type: TypedAppEvent) => {
   try {
     if (
@@ -36,19 +32,16 @@ const appEventListener = (type: TypedAppEvent) => {
   }
 };
 if (typeof window !== 'undefined') {
+  // 앱과 약속된 인터페이스 아래 추가
   appEventListener(APP_EVENT_TYPE.TEST);
   // ...
 }
 export { eventBusOn as appEventOn, eventBusOff as appEventOff };
 
-/**
- * 웹뷰 -> 앱
- * Android : window[bridge][type]
- * IOS : window.webkit.messageHandlers 또는 bridge://type 스키마 방식
- *
- * 호출 예:
- * webviewDispatch('webkit')(APP_EVENT_TYPE.TEST, 'message!!!!');
- */
+// 웹뷰 -> 앱
+// Android: window[bridge][type]
+// IOS: window.webkit.messageHandlers 또는 bridge://type 스키마 방식
+// 호출 예: webviewDispatch('webkit')(APP_EVENT_TYPE.TEST, 'message!!!!');
 export type TypedBridge = string | 'webkit';
 export const webviewDispatch =
   (bridge: TypedBridge) =>
@@ -60,6 +53,7 @@ export const webviewDispatch =
     if (!bridge || typeof window === 'undefined') {
       return result;
     }
+    console.debug('webviewDispatch', bridge, payload);
 
     if (navigator.userAgent.indexOf('Android') !== -1) {
       // 안드로이드
