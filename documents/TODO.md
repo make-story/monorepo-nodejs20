@@ -14,9 +14,6 @@
   - Render Props 패턴
   - 합성 컴포넌트 패턴 (Compound Component Pattern)
 - 사용자훅, HOC 실무활용 예제
-- webview 유틸 (event-manager 활용)
-- 이벤트버스 기능 추가
-  - DOM Element 렌더에 따라 실행되는 이벤트 기능 (자유롭게 화면에 추가되고 제거되는 마이크로 프론트 대응)
 - UI
   - shadcn-ui 기반 레이아웃
     - https://ui.shadcn.com/docs/dark-mode/next
@@ -42,6 +39,7 @@
 - Fetch 매니저
 - Event-Bus 매니저
   - 옵션으로 이벤트 proxy 기능 (인터셉터 기능)
+  - webview 유틸 (event-manager 활용)
 - Log 매니저
   - URL 파라미터에 logGroup=값 으로 해당 로그만 보이기/숨기기 제어
   - NEXT_PUBLIC_LOG_GROUP 환경변수 값으로 서버에서는 구분
