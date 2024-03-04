@@ -84,7 +84,9 @@ Downloading Webkit 17.4 (playwright build v1967) from https://playwright.azureed
 Webkit 17.4 (playwright build v1967) downloaded to /Users/sung-minyu/Library/Caches/ms-playwright/webkit-1967
 ```
 
-## 테스트 코드 생성
+## Code Generator (코드 제너레이팅)
+
+손쉬운 테스트 코드 생성
 
 - Playwright 제공
   https://playwright.dev/docs/codegen-intro

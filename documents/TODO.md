@@ -27,6 +27,10 @@
   - JWT
   - next-auth
   - 토큰 갱신 기준 적용 (서버사이드에서 갱신, 클라이언트사이드에서 갱신)
+- CLI 템플릿
+  - Hygen 도구 활용
+  - packages 생성 템플릿 추가
+  - apps 생성 템플릿 추가
 - Redux Toolkit Thunk 사용 예
   - https://redux-toolkit.js.org/usage/usage-guide#async-requests-with-createasyncthunk
 - 유연한 컴포넌트 설계 방법론 예제
