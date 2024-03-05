@@ -61,7 +61,7 @@ package.json
 
 ### tsconfig.cli.json
 
-ts 파일 실행
+ts 파일 실행 (Node.js 코드)
 
 사용 예
 

@@ -38,6 +38,14 @@ class WebSocketMiddleware {
     this.setupSocket();
   }
 
+  private assignWebSocket(ws: WebSocketType) {
+    Object.assign(ws, {
+      test: () => {
+        console.log('test');
+      },
+    });
+  }
+
   private setupClient(ws: WebSocketType, request: http.IncomingMessage) {
     //console.log('WebSocketMiddleware > setupClient');
 
@@ -118,6 +126,7 @@ class WebSocketMiddleware {
       'connection',
       (ws: WebSocketType, request: http.IncomingMessage) => {
         ws.isAlive = true;
+        this.assignWebSocket(ws);
         this.setupClient(ws, request);
         this.triggerUse(ws, request);
         this.triggerEvent(EVENT_TYPE.CONNECTION, { ws, request });
