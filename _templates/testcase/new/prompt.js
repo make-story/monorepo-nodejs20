@@ -1,16 +1,18 @@
 // $ hygen package new hello
 module.exports = {
   prompt: async ({ prompter, args }) => {
-    const { path1 } = await prompter.prompt({
-      type: 'input',
-      name: 'path1',
-      message: 'Path1의 값을 입력해주세요.',
-    });
-    const { path2 } = await prompter.prompt({
-      type: 'input',
-      name: 'path2',
-      message: 'Path2의 값을 입력해주세요.',
-    });
+    const { path1, path2 } = await prompter.prompt([
+      {
+        type: 'input',
+        name: 'path1',
+        message: 'Path1의 값을 입력해주세요.',
+      },
+      {
+        type: 'input',
+        name: 'path2',
+        message: 'Path2의 값을 입력해주세요.',
+      },
+    ]);
     const category = await prompter.select({
       type: 'input',
       name: 'category',
