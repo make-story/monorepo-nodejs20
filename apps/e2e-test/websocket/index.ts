@@ -2,10 +2,22 @@
  * Express Server <-> WebSocket
  * https://github.com/websockets/ws/blob/HEAD/doc/ws.md
  */
-import * as http from 'node:http';
+//import * as URL from 'node:url';
 import WebSocket, { WebSocketType, WebSocketServer } from 'ws'; // https://www.npmjs.com/package/ws#external-https-server
 import createPathMatch from 'path-match';
-import { MiddlewareOptions, CallbackMap, KeysOf, ValuesOf } from './type';
+import {
+  ClientRequest,
+  IncomingMessage,
+  HTTPServer,
+  HTTPSServer,
+  MiddlewareOptions,
+  CallbackMap,
+  KeysOf,
+  ValuesOf,
+  RouteParams,
+  RoutePayload,
+  RouteHandler,
+} from './type';
 
 export { type WebSocketType };
 
@@ -33,7 +45,7 @@ class WebSocketMiddleware {
   private routes: Map<string, Set<Function>> = new Map();
   private interval: ReturnType<typeof setTimeout> | null = null;
 
-  constructor(server: http.Server, {}: MiddlewareOptions = {}) {
+  constructor(server: HTTPServer | HTTPSServer, {}: MiddlewareOptions = {}) {
     this.wss = new WebSocket.Server({ server });
     this.setupSocket();
   }
@@ -42,11 +54,12 @@ class WebSocketMiddleware {
     Object.assign(ws, {
       test: () => {
         console.log('test');
+        // ...
       },
     });
   }
 
-  private setupClient(ws: WebSocketType, request: http.IncomingMessage) {
+  private setupClient(ws: WebSocketType, request: IncomingMessage) {
     //console.log('WebSocketMiddleware > setupClient');
 
     // https://github.com/websockets/ws/blob/HEAD/doc/ws.md#event-message
@@ -82,13 +95,13 @@ class WebSocketMiddleware {
     // https://github.com/websockets/ws/blob/HEAD/doc/ws.md#event-unexpected-response
     ws.on(
       'unexpected-response',
-      (request: http.ClientRequest, response: http.IncomingMessage) => {
+      (request: ClientRequest, response: IncomingMessage) => {
         // ...
       },
     );
 
     // https://github.com/websockets/ws/blob/HEAD/doc/ws.md#event-upgrade
-    ws.on('upgrade', (response: http.IncomingMessage) => {
+    ws.on('upgrade', (response: IncomingMessage) => {
       // ...
     });
   }
@@ -122,16 +135,13 @@ class WebSocketMiddleware {
 
     // 신규 클라이언트 연결
     // https://github.com/websockets/ws/blob/HEAD/doc/ws.md#event-connection
-    this.wss.on(
-      'connection',
-      (ws: WebSocketType, request: http.IncomingMessage) => {
-        ws.isAlive = true;
-        this.assignWebSocket(ws);
-        this.setupClient(ws, request);
-        this.triggerUse(ws, request);
-        this.triggerEvent(EVENT_TYPE.CONNECTION, { ws, request });
-      },
-    );
+    this.wss.on('connection', (ws: WebSocketType, request: IncomingMessage) => {
+      ws.isAlive = true;
+      this.assignWebSocket(ws);
+      this.setupClient(ws, request);
+      this.triggerUse(ws, request);
+      this.triggerEvent(EVENT_TYPE.CONNECTION, { ws, request });
+    });
 
     // 연결 종료
     // https://github.com/websockets/ws/blob/HEAD/doc/ws.md#event-close
@@ -202,7 +212,7 @@ class WebSocketMiddleware {
     this.routes.clear();
   }
 
-  public use(routePath: string, handler: Function) {
+  public use(routePath: string, handler: RouteHandler) {
     // 라우팅 설정 추가
     if (!this.routes.has(routePath)) {
       this.routes.set(routePath, new Set());
@@ -210,7 +220,7 @@ class WebSocketMiddleware {
     this.routes.get(routePath)?.add(handler);
   }
 
-  private triggerUse(ws: WebSocketType, request: http.IncomingMessage) {
+  private triggerUse(ws: WebSocketType, request: IncomingMessage) {
     const {
       complete,
       socket, // Socket
@@ -222,17 +232,32 @@ class WebSocketMiddleware {
       statusMessage,
     } = request;
 
+    // node:url 모듈 URL.parse() 제거됨 - 기존코드참고: https://github.com/nodejs/node/blob/v20.2.0/lib/url.js#L194
+    //console.log(headers.host); // 'localhost:9030'
+    //console.log(headers.origin); // 'http://localhost:3000'
+    //console.log(headers['user-agent']);
+    const urlParsed = new URL(url || '', headers.origin);
+    const pathname = urlParsed?.pathname || url;
+    const query = Object.fromEntries(urlParsed.searchParams.entries());
+    /*const query = new Proxy(new URLSearchParams(urlParsed.search), {
+      get: (searchParams, prop) => searchParams.get(prop as string),
+    });*/
+
     // request 경로에 해당하는 handler 실행
     this.routes.forEach((set, routePath, map) => {
       const match = pathMatch(routePath);
-      const params: boolean | { [key: string]: string | string[] | undefined } =
-        match(url);
-
-      if (!params) {
+      const routeParams: boolean | RouteParams = match(pathname);
+      if (!routeParams) {
         return;
       }
+      const payload: RoutePayload = {
+        params: routeParams as RouteParams, // params 는 Express Route parameters 네이밍과 동일하게 함
+        pathname: pathname as string,
+        query,
+      };
+
       set.forEach(handler => {
-        handler?.(request, ws); // Express Route 파라미터 순서와 비슷하게 함 (학습효과 최소화)
+        handler?.(request, ws, payload); // Express Route 파라미터 순서와 비슷하게 함
       });
     });
   }

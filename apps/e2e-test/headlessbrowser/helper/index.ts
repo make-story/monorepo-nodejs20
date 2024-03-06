@@ -3,7 +3,7 @@
  * https://playwright.dev/docs/library
  * https://playwright.dev/docs/api/class-playwright
  */
-import { test, expect } from '@playwright/test';
+import { test, expect, request } from '@playwright/test';
 
 //test.describe.configure({ mode: 'serial' });
 
