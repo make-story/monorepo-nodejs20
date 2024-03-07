@@ -16,7 +16,7 @@ import { WebSocketType, RoutePayload, IncomingMessage } from '#/websocket/type';
 import { loggingEvent } from '#/headlessbrowser/helper/event/logging';
 
 import { stringToBoolean } from '#/utils/string';
-import temp from '#/headlessbrowser/testcase/temp';
+import temp from '#/testcase/temp';
 
 /**
  * 테스트 케이스 실행

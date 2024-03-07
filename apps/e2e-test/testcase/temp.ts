@@ -15,21 +15,31 @@ import {
 import { WebSocketType, RoutePayload, IncomingMessage } from '#/websocket/type';
 import { messageRules } from '#/headlessbrowser/utils/index';
 
-export default async function ({
-  browser,
-  context,
-  page,
-  ws,
-  params,
-  query,
-}: {
+interface TestFunctionParams {
   browser: Browser;
   context: BrowserContext;
   page: Page;
   ws: WebSocketType;
   params: RoutePayload['params'];
   query: RoutePayload['query'];
-}) {
+}
+type TestFunction = ({
+  browser,
+  context,
+  page,
+  ws,
+  params,
+  query,
+}: TestFunctionParams) => Promise<any>;
+
+const test: TestFunction = async ({
+  browser,
+  context,
+  page,
+  ws,
+  params,
+  query,
+}) => {
   /**
    * 테스트 케이스
    */
@@ -40,4 +50,6 @@ export default async function ({
   } catch (error) {
     ws?.send(messageRules('catch', JSON.stringify(error)));
   }
-}
+};
+
+export default test;

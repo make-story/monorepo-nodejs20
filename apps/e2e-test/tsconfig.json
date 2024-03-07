@@ -2,6 +2,8 @@
   "extends": "@makestory/config/tsconfig.server.json",
   "compilerOptions": {
     "outDir": "dist",
+    "allowJs": true,
+    "checkJs": true,
     "paths": {
       "#/*": ["./*"],
       "@/*": ["./src/*"]
