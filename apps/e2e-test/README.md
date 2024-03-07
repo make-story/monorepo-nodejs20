@@ -88,11 +88,21 @@ Webkit 17.4 (playwright build v1967) downloaded to /Users/sung-minyu/Library/Cac
 
 손쉬운 테스트 코드 생성
 
-- Playwright 제공
-  https://playwright.dev/docs/codegen-intro
+### Playwright 제공
 
-- 크롬 확장프로그램
-  https://chromewebstore.google.com/detail/deploysentinel-recorder/geggbdbnidkhbnbjoganapfhkpgkndfo
+https://playwright.dev/docs/codegen-intro
+
+https://playwright.dev/docs/codegen#recording-a-test
+
+```bash
+$ npx playwright codegen https://playwright.dev/
+
+$ npx playwright codegen --device="iPhone 13" https://playwright.dev/
+```
+
+### 크롬 확장프로그램
+
+https://chromewebstore.google.com/detail/deploysentinel-recorder/geggbdbnidkhbnbjoganapfhkpgkndfo
 
 ## GitHub Actions CI
 
