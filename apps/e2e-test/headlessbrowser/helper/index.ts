@@ -18,13 +18,15 @@ import { test, expect } from '@playwright/test';
 
 //test.describe.configure({ mode: 'serial' });
 
-const setup = async () => {
+export const setup = async () => {
   // https://playwright.dev/docs/api/class-browsertype#browser-type-launch
   const browser = await chromium.launch({ headless: false });
   // https://playwright.dev/docs/api/class-browser#browser-new-context
   const context = await browser.newContext({});
   // https://playwright.dev/docs/api/class-browser#browser-new-page
   const page = await context.newPage();
+
+  return { browser, context, page };
 };
 
 test.beforeAll(async ({ browser }) => {

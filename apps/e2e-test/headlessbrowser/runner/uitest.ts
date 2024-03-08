@@ -21,7 +21,7 @@ import temp from '#/testcase/temp';
 /**
  * 테스트 케이스 실행
  */
-const running = async (
+const runner = async (
   request: IncomingMessage,
   ws: WebSocketType,
   { params, query }: RoutePayload,
@@ -65,4 +65,4 @@ const running = async (
   ws.close();
 };
 
-export { running };
+export { runner };

@@ -138,6 +138,33 @@ https://playwright.dev/docs/ci-intro
 - 테스트 케이스(Test Case)는 특정 목적 또는 테스트 조건의 확인을 위해 개발된 입력 값, 실행 사전 조건, 예상 결과 및 실행 사후 조건 등을 포함은 내용의 집합
 - 테스트(Test)란 한 개 이상의 테스트 케이스의 집합
 
+네이밍 관련  
+https://docs.aws.amazon.com/ko_kr/cloud9/latest/user-guide/build-run-debug.html
+
+- 러너(runner): 실행기
+- 런(run): 실행
+
+## tsconfig.json
+
+테스트케이스가 TypeScript(.ts) 파일이 아닌 JavaScript(.js) 파일로 작성될 수 있음
+
+```json
+{
+  "extends": "@makestory/config/tsconfig.server.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "allowJs": true, //  자바스크립트 파일 컴파일 허용 여부
+    "checkJs": true, // js 파일의 오류 검사 여부
+    "paths": {
+      "#/*": ["./*"],
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["**/*.ts", "**/*.tsx", "**/*.d.ts"],
+  "exclude": ["node_modules"]
+}
+```
+
 ## WebSocket Server/Client
 
 `MDN` 참고  
