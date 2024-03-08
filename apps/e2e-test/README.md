@@ -98,6 +98,30 @@ https://playwright.dev/docs/codegen#recording-a-test
 $ npx playwright codegen https://playwright.dev/
 
 $ npx playwright codegen --device="iPhone 13" https://playwright.dev/
+
+$ npx playwright codegen --color-scheme=dark playwright.dev
+
+# 세션정보 저장 - save cookies / localStorage
+# 해당 명령 사용할 경우, .gitignore 에 저장파일 설정 (예: auth.json)
+$ npx playwright codegen github.com/microsoft/playwright --save-storage=auth.json
+```
+
+package.json 에 scripts 추가하여 활용
+
+```json
+{
+  "scripts": {
+    "playwright": "playwright",
+    "codegen:pc": "playwright codegen",
+    "codegen:mobile": "playwright codegen --device='iPhone 13'"
+  }
+}
+```
+
+```bash
+$ yarn codegen:pc https://playwright.dev/
+
+$ yarn codegen:mobile https://playwright.dev/
 ```
 
 ### 크롬 확장프로그램

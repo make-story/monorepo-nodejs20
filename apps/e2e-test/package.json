@@ -14,7 +14,9 @@
     "start:prd": "NODE_ENV=production node dist/server.js",
     "ts-node:cli": "ts-node --project tsconfig.cli.json",
     "ts-node:server": "ts-node --project tsconfig.json server.ts",
-    "playwright": "playwright"
+    "playwright": "playwright",
+    "codegen:pc": "playwright codegen",
+    "codegen:mobile": "playwright codegen --device='iPhone 13'"
   },
   "dependencies": {
     "@makestory/config": "*",

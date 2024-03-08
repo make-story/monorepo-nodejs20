@@ -1,6 +1,9 @@
 #
 .turbo
 
+# Playwright
+auth.json
+
 # Logs
 logs
 *.log
