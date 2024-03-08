@@ -118,6 +118,11 @@ package.json 에 scripts 추가하여 활용
 }
 ```
 
+- --device='Galaxy S9+' 경우 크롬 실행
+- --device='iPhone 13' 경우 사파리 실행
+
+node_modules/playwright-core/types/types.d.ts
+
 ```bash
 $ yarn codegen:pc https://playwright.dev/
 
