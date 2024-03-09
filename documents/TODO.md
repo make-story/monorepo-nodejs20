@@ -21,22 +21,26 @@
     - https://npmtrends.com/classnames-vs-clsx
     - clsx 는 React 에서 클래스 이름을 조건부로 적용하는 데 매우 유용한 라이브러리
   - tailwind-merge
-- GraphQL - 기능보완 및 테스트
-  - Apollo (API 상태관리 활용 가능)
-- Oauth - 기능보완 및 테스트
-  - JWT
-  - next-auth
-  - 토큰 갱신 기준 적용 (서버사이드에서 갱신, 클라이언트사이드에서 갱신)
 - CLI 템플릿
   - Hygen 도구 활용
   - packages 생성 템플릿 추가
   - apps 생성 템플릿 추가
+  - e2e 테스트케이스 템플릿 추가
 - Redux Toolkit Thunk 사용 예
   - https://redux-toolkit.js.org/usage/usage-guide#async-requests-with-createasyncthunk
 - 유연한 컴포넌트 설계 방법론 예제
   - Render Props 패턴
   - 합성 컴포넌트 패턴 (Compound Component Pattern)
 - 사용자훅, HOC 실무활용 예제
+
+## 기능보완 및 테스트
+
+- GraphQL - 기능보완 및 테스트
+  - Apollo (API 상태관리 활용 가능)
+- Oauth - 기능보완 및 테스트
+  - JWT
+  - next-auth
+  - 토큰 갱신 기준 적용 (서버사이드에서 갱신, 클라이언트사이드에서 갱신)
 
 ## 완료
 
