@@ -18,6 +18,23 @@ import { test, expect } from '@playwright/test';
 
 //test.describe.configure({ mode: 'serial' });
 
+class HeadlessBrowser {
+  #arr: any[] = [];
+  constructor(options = {}) {
+    this.#arr.push(options);
+    console.log('arr', this.#arr);
+  }
+}
+
+class UITest extends HeadlessBrowser {
+  constructor(options = {}) {
+    super(options);
+  }
+}
+
+new UITest({ test: 1 });
+new UITest({ test: 2 });
+
 export const setup = async () => {
   // https://playwright.dev/docs/api/class-browsertype#browser-type-launch
   const browser = await chromium.launch({ headless: false });

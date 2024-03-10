@@ -17,7 +17,7 @@ import { messageRules } from '#/headlessbrowser/utils/index';
 
 interface TestFunctionParams {
   browser: Browser;
-  context: BrowserContext;
+  context?: BrowserContext;
   page: Page;
   ws: WebSocketType;
   params: RoutePayload['params'];
@@ -44,7 +44,7 @@ const test: TestFunction = async ({
    * 테스트 케이스
    */
   try {
-    await context.route('**.jpg', route => route.abort());
+    //await context.route('**.jpg', route => route.abort());
     await page.goto('https://example.com/');
     assert((await page.title()) === 'Example Domain');
   } catch (error) {

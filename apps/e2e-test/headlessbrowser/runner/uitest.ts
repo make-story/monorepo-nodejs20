@@ -2,7 +2,7 @@
  * UI Test 실행
  */
 import assert from 'node:assert';
-import {
+import playwright, {
   chromium,
   firefox,
   webkit,
@@ -14,10 +14,10 @@ import {
 
 import { WebSocketType, RoutePayload, IncomingMessage } from '#/websocket/type';
 import { loggingEvent } from '#/headlessbrowser/helper/event/logging';
-
 import { stringToBoolean } from '#/utils/string';
 import temp from '#/testcase/temp';
-
+import { globalBrowserContext } from '#/headlessbrowser/helper/browser';
+import { createChromeDevtoolsProtocol } from '#/headlessbrowser/helper/devtools';
 /**
  * 테스트 케이스 실행
  */
@@ -32,30 +32,38 @@ const runner = async (
    * - 소켓이 종료 또는 이슈가 발생하면, 테스트도 중단되어야 한다.
    */
   let { device = 'mobile', testcase = 'product' } = params; // /:device/:testcase
-  let { headless = true, emulate } = query; // ?headless=true
+  let { headless = true, timestamp } = query; // ?headless=true
   headless = stringToBoolean(headless);
 
   /**
    * 브라우저 셋업
    */
-  // https://playwright.dev/docs/api/class-browsertype#browser-type-launch
-  const browser = await chromium.launch({ headless: false });
-  // https://playwright.dev/docs/api/class-browser#browser-new-context
-  const context = await browser.newContext({
-    ...devices['iPhone 11'],
-  });
-  // https://playwright.dev/docs/api/class-browser#browser-new-page
+  const { browser, context } = await globalBrowserContext;
   const page = await context.newPage();
+
+  /**
+   * CDP
+   */
+  const client = await createChromeDevtoolsProtocol({ page });
+  await client.send('Emulation.setUserAgentOverride', {
+    userAgent: devices['iPhone 11'].userAgent,
+  });
+  await client.send('Emulation.setDeviceMetricsOverride', {
+    width: devices['iPhone 11'].viewport.width,
+    height: devices['iPhone 11'].viewport.height,
+    mobile: true,
+    deviceScaleFactor: 0,
+  });
 
   /**
    * 로깅전달 공통 이벤트
    */
-  loggingEvent({ browser, context, page }, ws);
+  loggingEvent({ browser, page }, ws);
 
   /**
    * 테스트 케이스
    */
-  temp({ browser, context, page, ws, params, query });
+  temp({ browser, page, ws, params, query });
 
   /**
    * 종료
@@ -65,4 +73,4 @@ const runner = async (
   ws.close();
 };
 
-export { runner };
+export default runner;

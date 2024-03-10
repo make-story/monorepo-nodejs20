@@ -34,9 +34,10 @@ root 경로에 \_templates 폴더가 생성
 $ hygen init self
 ```
 
-## 템플릿 생성
+## 초기설정 활용하여 템플릿 생성
 
 ```bash
+# 초기환경(init) 생성하면, _template/generator/new/ 폴더가 있으며, 아래 명령어 실행가능
 $ hygen generator new [생성하고 싶은 템플릿 명]
 $ hygen [생성된 템플릿 명] new [name]
 ```
@@ -48,7 +49,7 @@ $ hygen generator new awesome-generator
 # _template/awesome-generator/new/hello.ejs.t 생성됨
 ```
 
-\_templates/awesome-generator/new/hello.ejs.t
+"\_templates/awesome-generator/new/hello.ejs.t " 파일 내부 코드 참고
 
 ````javascript
 ---
@@ -75,7 +76,7 @@ $ hygen awesome-generator new hello
 ## 입력 상호작용 추가 - CLI
 
 프롬프트는 제너레이터 폴더 루트에 prompt.js 라는 이름으로 생성  
-prompt.js 는 예약어처럼 미리 등록된 파일 이름으로,  
+`prompt.js 는 예약어처럼 미리 등록된 파일 이름`으로,  
 생성 후 별도로 import하거나 설정해주는 등의 동작을 필요로 하지 않습니다.
 
 \_templates/app/new/prompt.js

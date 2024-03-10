@@ -19,7 +19,7 @@ import WebSocketMiddleware, {
 } from '#/websocket/index';
 import { ROUTE_PATH_API, ROUTE_PATH_WEB_SOCKET } from '#/constant/route';
 import testcaseRouter from '#/routes/testcase';
-import { runner } from '#/headlessbrowser/runner/uitest';
+import uitestRunner from '#/headlessbrowser/runner/uitest';
 
 /**
  * node 예외처리
@@ -117,4 +117,4 @@ webSocketMiddleware.on(
     console.log('MESSAGE', message);
   },
 );
-webSocketMiddleware.use(ROUTE_PATH_WEB_SOCKET.UI_TEST, runner);
+webSocketMiddleware.use(ROUTE_PATH_WEB_SOCKET.UI_TEST, uitestRunner);

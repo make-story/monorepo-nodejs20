@@ -26,12 +26,6 @@
   - packages 생성 템플릿 추가
   - apps 생성 템플릿 추가
   - e2e 테스트케이스 템플릿 추가
-- Redux Toolkit Thunk 사용 예
-  - https://redux-toolkit.js.org/usage/usage-guide#async-requests-with-createasyncthunk
-- 유연한 컴포넌트 설계 방법론 예제
-  - Render Props 패턴
-  - 합성 컴포넌트 패턴 (Compound Component Pattern)
-- 사용자훅, HOC 실무활용 예제
 
 ## 기능보완 및 테스트
 
@@ -41,6 +35,17 @@
   - JWT
   - next-auth
   - 토큰 갱신 기준 적용 (서버사이드에서 갱신, 클라이언트사이드에서 갱신)
+
+## 예제
+
+- Redux Toolkit Thunk 사용 예
+  - https://redux-toolkit.js.org/usage/usage-guide#async-requests-with-createasyncthunk
+- 유연한 컴포넌트 설계 방법론 예제
+  - Render Props 패턴
+    - BaseLayout
+    - Modal
+  - 합성 컴포넌트 패턴 (Compound Component Pattern)
+- 사용자훅, HOC 실무활용 예제
 
 ## 완료
 

@@ -63,6 +63,8 @@ https://shorttrack.tistory.com/7
 
 https://playwright.dev/docs/release-notes#breaking-changes-playwright-no-longer-downloads-browsers-automatically
 
+https://playwright.dev/docs/library#browser-downloads
+
 package.json
 
 ```json

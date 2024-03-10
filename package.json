@@ -19,6 +19,7 @@
     "lint": "yarn workspaces run lint --color",
     "typecheck": "yarn workspaces run typecheck",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "hygen": "hygen",
     "turbo:build": "turbo build",
     "turbo:dev": "turbo dev",
     "turbo:lint": "turbo lint",
