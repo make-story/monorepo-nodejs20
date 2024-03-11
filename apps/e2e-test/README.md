@@ -44,6 +44,27 @@ https://docs.aws.amazon.com/ko_kr/cloud9/latest/user-guide/build-run-debug.html
 - 러너(runner): 실행기
 - 런(run): 실행
 
+## tsconfig.json
+
+테스트케이스가 TypeScript(.ts) 파일이 아닌 JavaScript(.js) 파일로 작성될 수 있음
+
+```json
+{
+  "extends": "@makestory/config/tsconfig.server.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "allowJs": true, //  자바스크립트 파일 컴파일 허용 여부
+    "checkJs": true, // js 파일의 오류 검사 여부
+    "paths": {
+      "#/*": ["./*"],
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["**/*.ts", "**/*.tsx", "**/*.d.ts"],
+  "exclude": ["node_modules"]
+}
+```
+
 ## Playwright
 
 https://www.npmjs.com/package/@playwright/test
@@ -53,11 +74,6 @@ https://www.sktenterprise.com/bizInsight/blogDetail/dev/5536
 cypress 와 비교  
 https://eleks.com/research/playwright-vs-cypress/
 https://shorttrack.tistory.com/7
-
-- 성능
-- 다양한 브라우저 지원
-- 병렬처리
-- 멀티 Tab 지원
 
 ## 브라우저 다운로드 실행
 
@@ -154,24 +170,3 @@ https://playwright.dev/docs/test-components#how-can-i-use-router
 ## GitHub Actions CI
 
 https://playwright.dev/docs/ci-intro
-
-## tsconfig.json
-
-테스트케이스가 TypeScript(.ts) 파일이 아닌 JavaScript(.js) 파일로 작성될 수 있음
-
-```json
-{
-  "extends": "@makestory/config/tsconfig.server.json",
-  "compilerOptions": {
-    "outDir": "dist",
-    "allowJs": true, //  자바스크립트 파일 컴파일 허용 여부
-    "checkJs": true, // js 파일의 오류 검사 여부
-    "paths": {
-      "#/*": ["./*"],
-      "@/*": ["./src/*"]
-    }
-  },
-  "include": ["**/*.ts", "**/*.tsx", "**/*.d.ts"],
-  "exclude": ["node_modules"]
-}
-```

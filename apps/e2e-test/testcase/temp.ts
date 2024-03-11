@@ -44,9 +44,18 @@ const test: TestFunction = async ({
    * 테스트 케이스
    */
   try {
-    //await context.route('**.jpg', route => route.abort());
-    await page.goto('https://example.com/');
-    assert((await page.title()) === 'Example Domain');
+    await page.goto('https://stg.lotteon.com/m/product/LO2270148792');
+
+    // element, selector 제어
+    // https://playwright.dev/docs/handles#element-handles
+    // https://playwright.dev/docs/handles#locator-vs-elementhandle
+    // https://playwright.dev/docs/other-locators#css-locator
+
+    // Mock API (더미API) 테스트
+    // https://playwright.dev/docs/mock#mock-api-requests
+
+    // Waiting
+    // https://playwright.dev/docs/navigations#waiting-for-navigation
   } catch (error) {
     ws?.send(messageRules('catch', JSON.stringify(error)));
   }
