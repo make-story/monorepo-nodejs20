@@ -63,7 +63,7 @@ const runner = async (
   /**
    * 테스트 케이스
    */
-  temp({ browser, page, ws, params, query });
+  temp({ browser, page, ws });
 
   /**
    * 종료
