@@ -29,6 +29,15 @@ const loggingContext = (context: BrowserContext, ws: WebSocketType) => {
 };
 const loggingPage = (page: Page, ws: WebSocketType) => {
   /**
+   * page 로드 완료
+   */
+  const load = () => {
+    // 메시지 전송
+    ws.send(messageRules('load', '페이지 로드 완료!'));
+  };
+  page.once('load', () => load);
+
+  /**
    * 리소스 요청건
    */
   const request = (request: Request) => {
@@ -173,14 +182,17 @@ const loggingPage = (page: Page, ws: WebSocketType) => {
   page.on('console', consoleMessage);
 };
 
-export const loggingEvent = (
-  {
-    browser,
-    context,
-    page,
-  }: { browser?: Browser; context?: BrowserContext; page?: Page } = {},
-  ws: WebSocketType,
-) => {
+export const loggingEvent = ({
+  browser,
+  context,
+  page,
+  ws,
+}: {
+  browser?: Browser;
+  context?: BrowserContext;
+  page?: Page;
+  ws: WebSocketType;
+}) => {
   browser && loggingBrowser(browser, ws);
   context && loggingContext(context, ws);
   page && loggingPage(page, ws);

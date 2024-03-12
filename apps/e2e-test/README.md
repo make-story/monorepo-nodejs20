@@ -1,4 +1,4 @@
-# E2E 테스트 - Playwright
+# E2E 테스트 - Playwright, Node.js
 
 Playwright 기반 E2E 테스트
 

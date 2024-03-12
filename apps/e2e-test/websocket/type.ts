@@ -39,18 +39,18 @@ export interface CallbackMap {
 }
 
 // 라우트 이벤트
-export type RouteParams = { [key: string]: string | string[] | undefined };
-export type RouteQuery = { [key: string]: string };
+export type RouteParams = {
+  [key: string]: string | string[] | undefined | null;
+}; // /:device/:testcase
+export type RouteQuery = { [key: string]: string | undefined | null }; // ?headless=true
 export interface RoutePayload {
-  params: RouteParams;
-  pathname: string;
-  query: RouteQuery;
+  request?: IncomingMessage;
+  ws?: WebSocketType;
+  params?: RouteParams;
+  pathname?: string;
+  query?: RouteQuery;
 }
-export type RouteHandler = (
-  request: IncomingMessage,
-  ws: WebSocketType,
-  payload: RoutePayload,
-) => any;
+export type RouteHandler = (payload: RoutePayload) => any;
 
 // interface key 리스트를 타입으로 변환
 export type KeysOf<T> = {

@@ -4,17 +4,21 @@
 import path from 'node:path';
 import express, { Request, NextFunction, Response } from 'express';
 
+import { getDirectoryFile } from '#/utils/fileSystem';
+
 const router = express.Router();
 
 router.get(
-  'list',
+  '/list',
   (request: Request, response: Response, next: NextFunction) => {
-    console.log('request!!!!', request.baseUrl);
-    // 테스트케이스 리스트 반환
-    // ...
+    const { file } = getDirectoryFile('headlessbrowser/testcase', {
+      isFileExtension: false,
+    });
 
     //return next();
-    return response.json([]);
+    return response.json({
+      data: file,
+    });
   },
 );
 

@@ -16,16 +16,18 @@ import playwright, {
 interface CreateBrowserContextParam {
   browserType: 'chromium' | 'webkit';
   headless?: boolean;
+  devtools?: boolean;
   [key: string]: any;
 }
 export const createBrowserContext = async (
-  { browserType, headless }: CreateBrowserContextParam = {
+  { browserType, headless, devtools }: CreateBrowserContextParam = {
     browserType: 'chromium',
     headless: false,
+    devtools: true,
   },
 ) => {
   // https://playwright.dev/docs/api/class-browsertype#browser-type-launch
-  const browser = await playwright[browserType].launch({ headless });
+  const browser = await playwright[browserType].launch({ headless, devtools });
   // https://playwright.dev/docs/api/class-browser#browser-new-context
   /*const context = await browser.newContext({
     ...devices['iPhone 11'],

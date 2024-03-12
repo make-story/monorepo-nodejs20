@@ -251,13 +251,15 @@ class WebSocketMiddleware {
         return;
       }
       const payload: RoutePayload = {
+        request,
+        ws,
         params: routeParams as RouteParams, // params 는 Express Route parameters 네이밍과 동일하게 함
         pathname: pathname as string,
         query,
       };
 
       set.forEach(handler => {
-        handler?.(request, ws, payload); // Express Route 파라미터 순서와 비슷하게 함
+        handler?.(payload);
       });
     });
   }

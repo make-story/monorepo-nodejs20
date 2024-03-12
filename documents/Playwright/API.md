@@ -16,3 +16,7 @@ https://playwright.dev/docs/other-locators#css-locator
 # 목데이터(Mock API)
 
 https://playwright.dev/docs/mock#mock-api-requests
+
+# API 요청/응답 인터셉터
+
+https://medium.com/@jetti.dinesh/how-to-perform-api-intercept-using-playwright-17f25dcd5889
