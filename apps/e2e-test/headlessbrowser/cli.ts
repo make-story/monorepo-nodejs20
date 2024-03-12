@@ -13,10 +13,11 @@ import { isArgv, getArgv } from '#/utils/process';
  * UITest
  */
 if (process.argv.includes(`--uitest`)) {
-  const headless = getArgv('headless');
   const device = getArgv('device');
+  const group = getArgv('group');
   const testcase = getArgv('testcase');
   const browser = getArgv('browser');
+  const headless = getArgv('headless');
 
   // playwright 기본 명령으로 테스트케이스 실행
   /*const message = childProcess.execSync('playwright test --ui', {
@@ -27,7 +28,7 @@ if (process.argv.includes(`--uitest`)) {
   (async () => {
     try {
       await uitestRunner({
-        params: { device, testcase },
+        params: { device, group, testcase },
         query: { headless, browser },
       });
     } catch (error) {
