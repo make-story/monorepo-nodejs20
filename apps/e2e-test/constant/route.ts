@@ -6,5 +6,5 @@ export const ROUTE_PATH_API = {
 };
 
 export const ROUTE_PATH_WEB_SOCKET = {
-  UI_TEST: '/uitest/:device/:testcase',
+  UI_TEST: '/uitest/:device/:category/:testcase',
 };

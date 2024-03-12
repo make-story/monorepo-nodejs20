@@ -41,14 +41,14 @@ export interface CallbackMap {
 // 라우트 이벤트
 export type RouteParams = {
   [key: string]: string | string[] | undefined | null;
-}; // /:device/:testcase
-export type RouteQuery = { [key: string]: string | undefined | null }; // ?headless=true
+};
+export type RouteQuery = { [key: string]: string | undefined | null };
 export interface RoutePayload {
   request?: IncomingMessage;
   ws?: WebSocketType;
-  params?: RouteParams;
+  params?: RouteParams; // 대부분 필수값 (/:device/:category/:testcase)
+  query?: RouteQuery; // 대부분 옵션값 (?headless=true)
   pathname?: string;
-  query?: RouteQuery;
 }
 export type RouteHandler = (payload: RoutePayload) => any;
 

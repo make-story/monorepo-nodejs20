@@ -36,17 +36,16 @@ const runner: RouteHandler = async ({
    */
   let {
     device: deviceType = 'mobile',
-    group: groupType,
+    category: categoryType,
     testcase: testcaseType,
-  } = params; // /:device/:group/:testcase
+  } = params; // /:device/:category/:testcase
   let { browser: browserType = 'chromium', headless = true, timestamp } = query; // ?headless=true
   const { file: testcaseList } = getDirectoryFile(
-    'headlessbrowser/testcase/group/product',
+    `headlessbrowser/testcase/${categoryType || 'product'}`,
     {
       isFileExtension: false,
     },
   );
-  headless = stringToBoolean(headless);
 
   // 유효성 확인
   if (!testcaseType || !testcaseList.includes(testcaseType as string)) {
@@ -60,20 +59,22 @@ const runner: RouteHandler = async ({
   if (!browserType || !['chromium', 'webkit'].includes(browserType)) {
     browserType = 'chromium';
   }
+  headless = stringToBoolean(headless);
   if (typeof headless !== 'boolean') {
     headless = false; // TODO: 수정필요!
   }
 
+  let browser, context;
   try {
     /**
      * 브라우저 셋업
      */
-    const { browser, context } = await globalBrowserContext;
-    /*const { browser, context } = await createBrowserContext({
+    ({ browser, context } = await globalBrowserContext);
+    /*({ browser, context } = await createBrowserContext({
       browserType: (browserType as 'chromium', 'webkit'),
       headless,
       devtools: !headless,
-    });*/
+    }));*/
     const page = await context.newPage();
 
     /**
@@ -99,7 +100,7 @@ const runner: RouteHandler = async ({
      * 테스트 케이스
      */
     const { default: testcase } = await import(
-      `../testcase/group/product/${testcaseType}`
+      `../testcase/${categoryType || 'product'}/${testcaseType}`
     );
     await testcase({ browser, page, ws });
   } catch (error) {
@@ -108,8 +109,8 @@ const runner: RouteHandler = async ({
     /**
      * 종료
      */
-    //await context.close();
-    //await browser.close();
+    context && (await context.close());
+    browser && (await browser.close());
     ws?.close();
   }
 };

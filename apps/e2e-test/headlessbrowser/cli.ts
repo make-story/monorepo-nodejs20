@@ -14,7 +14,7 @@ import { isArgv, getArgv } from '#/utils/process';
  */
 if (process.argv.includes(`--uitest`)) {
   const device = getArgv('device');
-  const group = getArgv('group');
+  const category = getArgv('category');
   const testcase = getArgv('testcase');
   const browser = getArgv('browser');
   const headless = getArgv('headless');
@@ -28,7 +28,7 @@ if (process.argv.includes(`--uitest`)) {
   (async () => {
     try {
       await uitestRunner({
-        params: { device, group, testcase },
+        params: { device, category, testcase },
         query: { headless, browser },
       });
     } catch (error) {
