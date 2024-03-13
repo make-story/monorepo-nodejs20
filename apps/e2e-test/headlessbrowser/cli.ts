@@ -4,10 +4,14 @@
  *
  * $ yarn ts-node headlessbrowser/cli.ts --uitest --device mobile --testcase main
  */
-import childProcess from 'node:child_process';
-
 import uitestRunner from '#/headlessbrowser/runner/uitest';
 import { isArgv, getArgv } from '#/utils/process';
+
+const nodeVersion = +process.versions.node.split('.')[0];
+if (nodeVersion < 20) {
+  console.log('Node.js 버전확인이 필요합니다.');
+  process.exit();
+}
 
 /**
  * UITest
@@ -27,6 +31,7 @@ if (process.argv.includes(`--uitest`)) {
 
   (async () => {
     try {
+      // await 실행필요: finally 에서 프로세스 종료
       await uitestRunner({
         params: { device, category, testcase },
         query: { headless, browser },

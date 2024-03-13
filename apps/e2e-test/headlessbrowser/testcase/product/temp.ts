@@ -61,11 +61,14 @@ const temp: TestCaseFunction = async ({
     const mainApiData = await (await mainApiResponsePromise).json();
     //console.log('mainApiData', mainApiData?.data?.basicInfo);
 
+    // TODO: 특정 element 위치 찾고, 해당 타겟으로 스크롤 이동
+    // ...
+
     // 스와이프
     await page.waitForTimeout(2000);
     if (await page.locator('#innerImgClickDisable').isVisible()) {
       // 슬라이드 정보
-      // ...
+      //await page.$$eval(device === 'pc' ? '#header ul.lst_home a' : 'header nav a', nodes => nodes.map(node => node.href));
 
       // 위치 정보
       const box = await page.locator('#innerImgClickDisable').boundingBox();
