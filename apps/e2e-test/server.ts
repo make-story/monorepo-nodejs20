@@ -38,7 +38,6 @@ process.on('uncaughtException', error => {
  */
 dotenv.config();
 console.log('NODE_ENV', process.env.NODE_ENV);
-console.log('APP_ENV', process.env.APP_ENV);
 const isProd: boolean = process.env.NODE_ENV === 'production';
 const port = isProd && process.env.PORT ? process.env.PORT : 9030;
 
@@ -91,7 +90,7 @@ app.once('error', error => {
 
 // 서버 실행
 const server = app.listen(port, () =>
-  console.log(`[server] Server running on port ${port}`),
+  console.log(`[server] localhost:${port}`),
 );
 
 /**
