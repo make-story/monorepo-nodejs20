@@ -29,7 +29,8 @@ const temp: TestCaseFunction = async ({
     });
     await page.waitForLoadState();
 
-    // 중앙팝업 (TODO: 중앙팝업 노출케이스에 안보이는 경우 확인)
+    // 중앙팝업
+    // TODO: 중앙팝업 노출케이스에 안보이는 경우 확인
     if (
       await page
         .locator('#modals-container [data-modal="adobePop"]')
@@ -39,13 +40,15 @@ const temp: TestCaseFunction = async ({
       await page.locator('#modals-container .popupClose').click();
     }
 
-    // 앱설치 유도 팝업 (TODO: 앱설치 유도 팝업 노출케이스에 안보이는 경우 확인)
+    // 앱설치 유도 팝업
+    // TODO: 앱설치 유도 팝업 노출케이스에 안보이는 경우 확인
     if (await page.locator('.popContents').isVisible()) {
       await page.waitForTimeout(1000);
       await page.locator('.btnNoProblem').click();
     }
 
-    // 앱전용 상품 팝업 (TODO: 앱전용 상품 팝업 노출케이스에 안보이는 경우 확인)
+    // 앱전용 상품 팝업
+    // TODO: 앱전용 상품 팝업 노출케이스에 안보이는 경우 확인
     if (
       await page.locator('[data-modal="AppExclusiveProductPopup"]').isVisible()
     ) {
@@ -58,9 +61,11 @@ const temp: TestCaseFunction = async ({
     }
 
     // Main API 응답 가져오기 (상품종류 등 확인)
+    // TODO: API 응답 정보 중 잘못된 정보가 있는지 검사
     const mainApiData = await (await mainApiResponsePromise).json();
     //console.log('mainApiData', mainApiData?.data?.basicInfo);
 
+    // 타겟 스크롤 이동
     // TODO: 특정 element 위치 찾고, 해당 타겟으로 스크롤 이동
     // ...
 

@@ -1,3 +1,5 @@
+# Next.js 14
+
 # Next.js 예제 (redux, styled-components 등 적용예제)
 
 https://github.com/vercel/next.js/tree/canary/examples
@@ -133,7 +135,7 @@ fetch('https://...', { next: { revalidate: 10 } }); // revalidate second 마다 
 fetch('https://...', { cache: 'no-store' }); // 매 요청시마다 새로
 ```
 
-## Data Fetch 패턴
+## 서버사이드 Data Fetch
 
 https://nextjs.org/docs/app/building-your-application/data-fetching/fetching-caching-and-revalidating
 
