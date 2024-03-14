@@ -7,12 +7,14 @@ import path from 'node:path';
 import { parse } from 'node:url';
 import os from 'node:os';
 import cluster from 'node:cluster';
+
 import express, { Request, NextFunction, Response } from 'express';
 import dotenv from 'dotenv'; // Node.js 20 이상 내장됨 ($ node --env-file .env)
 import { json, text, urlencoded } from 'body-parser';
 import cookieParser from 'cookie-parser';
 //import { createProxyMiddleware } from 'http-proxy-middleware';
 import cors from 'cors';
+import helmet from 'helmet';
 
 import WebSocketMiddleware, {
   EVENT_TYPE as WEBSOCKET_EVENT_TYPE,
@@ -53,6 +55,7 @@ app.set('trust proxy', 1);
 
 // Express 미들웨어
 // https://expressjs.com/ko/resources/middleware.html
+app.use(helmet());
 app.use([json(), urlencoded({ extended: false }), text(), cookieParser()]);
 app.use(
   cors({
