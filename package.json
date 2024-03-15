@@ -20,6 +20,7 @@
     "typecheck": "yarn workspaces run typecheck",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "hygen": "hygen",
+    "turbo:clean": "turbo daemon clean",
     "turbo:build": "turbo build",
     "turbo:dev": "turbo dev",
     "turbo:lint": "turbo lint",
