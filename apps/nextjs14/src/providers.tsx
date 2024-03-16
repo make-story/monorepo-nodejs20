@@ -14,7 +14,7 @@ import { FetchProvider } from '@makestory/fetch-manager';
 
 import { AuthProvider } from '@/common/store/auth/index';
 import { makeStore, AppStore } from '@/store';
-//import { initializeCounter } from '@/service/store/counter';
+//import { initializeCounter } from '@/example/store/counter';
 
 export const Providers = ({
   children,

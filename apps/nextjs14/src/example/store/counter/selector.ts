@@ -3,4 +3,4 @@
  */
 import type { RootState } from '@/store';
 
-export const selectCount = (state: RootState) => state.service.counter.value;
+export const selectCount = (state: RootState) => state.example.counter.value;

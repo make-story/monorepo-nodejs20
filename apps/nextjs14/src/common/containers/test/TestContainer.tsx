@@ -17,7 +17,7 @@ import {
   AccordionTrigger,
 } from '@/common/components/test/shadcn/Accordion/index';
 
-export default function TestCommonContainer({
+export default function TestContainer({
   serverData,
 }: PropsWithChildren<{ serverData?: any }>) {
   const dispatch = useAppDispatch();

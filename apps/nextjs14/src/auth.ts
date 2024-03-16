@@ -1,7 +1,6 @@
 /**
  * NextAuth 설정
  */
-//import { authenticate } from '@/services/authService';
 import axios from 'axios';
 import NextAuth from 'next-auth';
 import type { AuthOptions } from 'next-auth';

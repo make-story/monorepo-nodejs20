@@ -7,8 +7,8 @@ import {
 } from 'react';
 import { NextComponentType } from 'next';
 
-import useHook1 from '@/service/hooks/example1/useIntersectionObserver';
-import useHook2 from '@/service/hooks/example2/useScrollPersist';
+import useHook1 from '#/src/example/hooks/example1/useIntersectionObserver';
+import useHook2 from '#/src/example/hooks/example2/useScrollPersist';
 
 /**
  * Test HOC

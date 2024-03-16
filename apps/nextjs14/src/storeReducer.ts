@@ -7,7 +7,7 @@ import {
 import { PersistPartial } from 'redux-persist/lib/persistReducer';
 
 import common from '@/common/store/reducer';
-import service from '@/service/store/reducer';
+import example from '#/src/example/store/reducer';
 import { rtkQuery as commonRtkQuery } from '@/common/api/index';
 
 /**
@@ -16,7 +16,7 @@ import { rtkQuery as commonRtkQuery } from '@/common/api/index';
 export const reducer = combineReducers({
   // Redux
   common,
-  service,
+  example,
   // RTK Query
   ...commonRtkQuery.reducer,
 });

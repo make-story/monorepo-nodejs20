@@ -1,12 +1,12 @@
 'use client';
 
-import TestServiceContainer from '@/service/containers/test/TestServiceContainer';
+import TestContainer from '#/src/example/containers/test/TestContainer';
 
 function Page() {
   return (
     <>
       <h2>TEST PAGE</h2>
-      <TestServiceContainer />
+      <TestContainer />
     </>
   );
 }

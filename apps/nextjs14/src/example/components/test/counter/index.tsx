@@ -12,7 +12,7 @@ import {
   increment,
   incrementByAmount,
   selectCount,
-} from '@/service/store/counter';
+} from '#/src/example/store/counter';
 
 const Counter = () => {
   const dispatch = useAppDispatch();
