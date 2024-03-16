@@ -7,7 +7,7 @@ import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import { InitialSliceState } from './type';
 
 const initialState: InitialSliceState = {
-  default: false, // 화면 기본 로딩바 (전역에서 동작하는, 페이지 화면을 꽉채우는 로딩)
+  default: [], // 화면 기본 로딩바 (전역에서 동작하는, 페이지 화면을 꽉채우는 로딩, 여러 곳에서 동시 호출할 수 있기 때문에 default 는 배열형태)
 };
 
 // https://redux-toolkit.js.org/api/createSlice
@@ -16,10 +16,19 @@ export const slice = createSlice({
   initialState,
   reducers: {
     setStartLoading: (state, { payload }: PayloadAction<string>) => {
-      state[payload] = true;
+      if (Array.isArray(state[payload])) {
+        state[payload] = [...(state[payload] as boolean[]), true];
+      } else {
+        state[payload] = true;
+      }
     },
     setFinishLoading: (state, { payload }: PayloadAction<string>) => {
-      state[payload] = true;
+      if (Array.isArray(state[payload])) {
+        //(state[payload] as boolean[]).shift();
+        state[payload] = (state[payload] as boolean[]).slice(1);
+      } else {
+        state[payload] = false;
+      }
     },
   },
   // 비동기 액션 (Thunk 활용)
