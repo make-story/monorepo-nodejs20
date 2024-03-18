@@ -43,15 +43,21 @@ https://fe-developers.kakaoent.com/2022/220505-how-page-part-use-atomic-design-s
 아토믹 디자인을 기반 했으나, 구성 요소 분리 기준의 모호함에 따라,  
 'Dennis Reiman' 의 'Atomic Design is messy, here’s what I prefer' 글 내용 참고하여 재정의
 
-- elements (atom)
+- elements
+  - (atom)
   - 예: TestButton, TestIcon
-- modules (molecules, organism)
+  - 프레젠테이션 컴포넌트 추천
+    - (데이터 호출, 데이터 가공, 이벤트 처리, 상태변경 등은 컨테이너 컴포넌트에서 처리)
+- modules
+  - (molecules, organism)
   - 예: TestHeader, TestSection, TestAside, TestArticle, TestFooter
   - Render Props 패턴 추천
   - 제어 컴포넌트 패턴 (Controlled Props Pattern) 추천
 - templates
-  - 예: TestPage (Next.js page 단위)
+  - (Next.js page 단위)
+  - 예: TestPage
   - 합성 컴포넌트 패턴 (Compound Component Pattern) 추천
 - layouts
-  - 예: BaseLayout (Next.js layout 단위)
+  - (Next.js layout 단위)
+  - 예: BaseLayout
   - 합성 컴포넌트 패턴 (Compound Component Pattern) 추천
