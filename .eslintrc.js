@@ -36,7 +36,7 @@ module.exports = {
             from: '**/*',
             except: ['**/node_modules/**', '**/common/**', '**/src/store.*'],
             message:
-              '\n의존성 규칙에 어긋나는 참조입니다. (common 에서 외부 폴더(기능/서비스)를 참조할 수 없습니다.)',
+              '\n의존성 규칙에 어긋나는 참조입니다. - common 에서 외부 폴더(기능/서비스)를 참조할 수 없습니다.',
           },
         ],
         zones: [
@@ -44,7 +44,7 @@ module.exports = {
             target: '**/components/**',
             from: '**/containers/**',
             message:
-              '\n의존성 규칙에 어긋나는 참조입니다. (components 에서 containers 를 참조할 수 없습니다.)',
+              '\n의존성 규칙에 어긋나는 참조입니다. - components 에서 containers 를 참조할 수 없습니다. (container 하위에 component 가 존재해야 합니다.)',
           },
         ],
         zones: [
@@ -52,7 +52,7 @@ module.exports = {
             target: '**/app/**',
             from: '**/api/**',
             message:
-              '\n의존성 규칙에 어긋나는 참조입니다. (app 에서 api 를 참조할 수 없습니다.)',
+              '\n의존성 규칙에 어긋나는 참조입니다. - app 에서 api 를 직접 참조할 수 없습니다. (추상화된 함수 또는 사용자훅을 통해 사용 가능합니다.)',
           },
         ],
       },
