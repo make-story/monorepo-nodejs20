@@ -141,6 +141,25 @@ https://github.com/vercel/turbo/tree/main/examples/basic
 README.md
 ```
 
+## 비즈니스 로직, 표현(마크업) 로직
+
+비즈니스 로직
+
+- 컨테이너 컴포넌트
+  - 하위(자식) 디자인시스템 컴포넌트 (@makestory/ui)
+- 합성 컴포넌트
+- 사용자훅
+
+표현 로직
+
+- 프레젠테이션 컴포넌트
+- 디자인 시스템
+  - @makestory/ui
+    - elements
+    - layouts
+    - modules
+    - templates
+
 ## 계층간 의존성 제어 (Dependency diagram)
 
 https://www.kimcoder.io/blog/clean-frontend-architecture
