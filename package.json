@@ -5,13 +5,26 @@
   "version": "1.0.0",
   "author": "",
   "license": "ISC",
-  "description": "Node.js v20.10.0 | Next.js 14.0.3",
+  "description": "nohoist 사용을 위해서는 yarn 1.4.2 이상 필요 / Node.js v20.10.0 / Next.js 14.0.3",
   "workspaces": {
     "packages": [
       "apps/*",
       "packages/*"
     ],
-    "nohoist": []
+    "nohoist": [
+      "@types",
+      "@types/**",
+      "**/@types/**",
+      "next",
+      "next/**",
+      "**/next/**",
+      "react",
+      "react/**",
+      "**/react/**",
+      "react-dom",
+      "react-dom/**",
+      "**/react-dom"
+    ]
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
