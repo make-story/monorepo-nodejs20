@@ -5,9 +5,10 @@
  * $ yarn add eslint
  *
  * ESLint 와 Prettier 충돌 해결
- * eslint-config-prettier : eslint에서 prettier와 겹치는 포매팅룰을 삭제합니다.
- * eslint-plugin-prettier : eslint에 prettier의 포매팅 기능을 추가합니다.
- * eslint-config-pretteir로 eslint의 원래 포매팅 기능을 없애버리고, eslint-plugin-prettier로 prettier의 포매팅 기능을 사용합니다.
+ * https://prettier.io/docs/en/integrating-with-linters.html
+ * eslint-config-prettier : eslint 에서 prettier 와 겹치는 포매팅룰을 삭제합니다.
+ * eslint-plugin-prettier : eslint 에 prettier 의 포매팅 기능을 추가합니다.
+ * eslint-config-prettier 로 eslint의 원래 포매팅 기능을 없애버리고, eslint-plugin-prettier 로 prettier의 포매팅 기능을 사용합니다.
  *
  * 'eslint-config-next' 포함된 패키지
  * https://github.com/vercel/next.js/blob/canary/packages/eslint-config-next/package.json
@@ -16,16 +17,16 @@
  * eslint-import-resolver-node, eslint-import-resolver-typescript, eslint-plugin-import
  * eslint-plugin-jsx-a11y, eslint-plugin-react, eslint-plugin-react-hooks
  */
+//const path = require('node:path');
 
 module.exports = {
   root: true,
-  //parser: '@typescript-eslint/parser',
+  parser: '@typescript-eslint/parser',
   /*parserOptions: {
     project: ['tsconfig.json'],
   },*/
   plugins: ['import'],
   extends: [
-    'next/babel',
     'next/core-web-vitals',
     'plugin:import/recommended',
     'plugin:import/typescript',
@@ -89,18 +90,17 @@ module.exports = {
     ],
   },
   settings: {
-    /*'import/parser': {
-      'typescript-eslint-parser': ['.ts', '.tsx'],
-    },*/
-    /*'import/resolver': {
-      node: {
-        extensions: ['.ts', '.tsx', '.js', '.jsx'],
-      },
-    },*/
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx'],
+    },
     'import/resolver': {
       typescript: {
-        project: '.',
+        project: '**/tsconfig.json',
       },
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
+      //caseSensitive: false,
     },
   },
 };
