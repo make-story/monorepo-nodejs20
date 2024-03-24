@@ -2,6 +2,7 @@
   "name": "@makestory/e2e-test",
   "version": "1.0.0",
   "private": true,
+  "description": "playwright install 헤드리스 브라우저 설치해야 함",
   "bin": {
     "clitest": "./cli.js"
   },
@@ -15,6 +16,7 @@
     "ts-node:cli": "ts-node --project tsconfig.cli.json",
     "ts-node:server": "ts-node --project tsconfig.json server.ts",
     "playwright": "playwright",
+    "install": "playwright install",
     "codegen:pc": "playwright codegen",
     "codegen:mobile": "playwright codegen --device='iPhone 13'"
   },
@@ -25,12 +27,15 @@
     "@makestory/logging-manager": "*",
     "@makestory/utils": "*",
     "@playwright/test": "^1.41.2",
+    "@types/cookie-parser": "^1.4.7",
+    "@types/cors": "^2.8.17",
     "@types/dotenv-flow": "^3.3.3",
     "@types/express": "^4.17.21",
     "@types/node": "^20.11.16",
     "@types/ws": "^8.5.10",
     "axios": "1.6.5",
     "concurrently": "^8.2.2",
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",
     "dotenv-flow": "^4.1.0",

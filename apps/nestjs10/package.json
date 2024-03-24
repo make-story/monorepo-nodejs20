@@ -1,5 +1,5 @@
 {
-  "name": "@makestory/nextjs10",
+  "name": "@makestory/nestjs10",
   "private": true,
   "version": "1.0.0",
   "scripts": {

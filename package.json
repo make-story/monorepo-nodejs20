@@ -12,18 +12,11 @@
       "packages/*"
     ],
     "nohoist": [
-      "@types",
-      "@types/**",
-      "**/@types/**",
-      "next",
-      "next/**",
-      "**/next/**",
-      "react",
-      "react/**",
-      "**/react/**",
-      "react-dom",
-      "react-dom/**",
-      "**/react-dom"
+      "**/e2e-test/**",
+      "**/micro-frontend/**",
+      "**/nestjs10/**",
+      "**/nextjs14/**",
+      "**/storybook/**"
     ]
   },
   "scripts": {
