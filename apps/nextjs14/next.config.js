@@ -6,7 +6,7 @@
  */
 const path = require('node:path');
 // @module-federation/nextjs-mf 활용하여 마이크로프론트 제공
-const NextFederationPlugin = require('@module-federation/nextjs-mf');
+//const NextFederationPlugin = require('@module-federation/nextjs-mf');
 
 const remotes = isServer => {
   const location = isServer ? 'ssr' : 'chunks';
@@ -25,6 +25,7 @@ const nextConfig = {
     '@makestory/fetch-manager',
     '@makestory/logging-manager',
     '@makestory/utils',
+    '@makestory/ui',
   ],
   experimental: {
     modularizelmports: {

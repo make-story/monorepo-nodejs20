@@ -15,6 +15,7 @@ import playwright, {
 
 import { loggingEvent } from '#/headlessbrowser/helper/event/logging';
 import {
+  BROWSER_TYPE,
   createBrowserContext,
   globalBrowserContext,
 } from '#/headlessbrowser/helper/browser';
@@ -39,7 +40,11 @@ const runner: RouteHandler = async ({
     category: categoryType,
     testcase: testcaseType,
   } = params; // /:device/:category/:testcase
-  let { browser: browserType = 'chromium', headless = true, timestamp } = query; // ?headless=true
+  let {
+    browser: browserType = BROWSER_TYPE.CHROMIUM,
+    headless = true,
+    timestamp,
+  } = query; // ?headless=true
   const { file: testcaseList } = getDirectoryFile(
     `headlessbrowser/testcase/${categoryType || 'product'}`,
     {
@@ -47,7 +52,9 @@ const runner: RouteHandler = async ({
     },
   );
 
-  // 유효성 확인
+  /**
+   * 유효성 확인
+   */
   if (!testcaseType || !testcaseList.includes(testcaseType as string)) {
     if (ws) {
       ws?.close();
@@ -56,8 +63,8 @@ const runner: RouteHandler = async ({
     }
     return;
   }
-  if (!browserType || !['chromium', 'webkit'].includes(browserType)) {
-    browserType = 'chromium';
+  if (!browserType) {
+    browserType = BROWSER_TYPE.CHROMIUM;
   }
   headless = stringToBoolean(headless);
   if (typeof headless !== 'boolean') {
@@ -69,27 +76,33 @@ const runner: RouteHandler = async ({
     /**
      * 브라우저 셋업
      */
-    ({ browser, context } = await globalBrowserContext);
-    /*({ browser, context } = await createBrowserContext({
-      browserType: (browserType as 'chromium', 'webkit'),
+    //({ browser, context } = await globalBrowserContext);
+    ({ browser, context } = await createBrowserContext({
+      browserType:
+        browserType as (typeof BROWSER_TYPE)[keyof typeof BROWSER_TYPE],
       headless,
-      devtools: !headless,
-    }));*/
+      devtools: true,
+    }));
+    if (!browser || !context) {
+      return;
+    }
     const page = await context.newPage();
 
     /**
      * CDP
      */
-    const client = await createChromeDevtoolsProtocol({ page });
-    await client.send('Emulation.setUserAgentOverride', {
-      userAgent: devices['iPhone 11'].userAgent,
-    });
-    await client.send('Emulation.setDeviceMetricsOverride', {
-      width: devices['iPhone 11'].viewport.width,
-      height: devices['iPhone 11'].viewport.height,
-      mobile: true,
-      deviceScaleFactor: 0,
-    });
+    if (browserType === BROWSER_TYPE.CHROMIUM) {
+      const client = await createChromeDevtoolsProtocol({ page });
+      await client.send('Emulation.setUserAgentOverride', {
+        userAgent: devices['iPhone 11'].userAgent,
+      });
+      await client.send('Emulation.setDeviceMetricsOverride', {
+        width: devices['iPhone 11'].viewport.width,
+        height: devices['iPhone 11'].viewport.height,
+        mobile: true,
+        deviceScaleFactor: 0,
+      });
+    }
 
     /**
      * 로깅전달 공통 이벤트

@@ -12,7 +12,7 @@ import {
 
 const TestCaseRun = (props: PropsWithChildren) => {
   const isHeadlessControl = useRef(false);
-  const socket = useRef(null);
+  const socket = useRef<any>(null);
   const [dropdownOpen, setRunButtonOpen] = useState(false);
 
   const onStart = useCallback(() => {
@@ -98,38 +98,40 @@ const TestCaseRun = (props: PropsWithChildren) => {
   }, []);*/
 
   useEffect(() => {
+    // 컴포넌트가 언마운트될 때 WebSocket 연결 종료
+    return () => {
+      socket?.current?.close();
+    };
+  }, []);
+
+  const onTest = () => {
     // WebSocket 서버 주소
-    const socket = new WebSocket(
-      `ws://localhost:9030/uitest/mobile/product/temp?headless=true&timestamp=${Date.now()}`,
+    socket.current = new WebSocket(
+      `ws://localhost:9030/uitest/mobile/product/temp?headless=false&timestamp=${Date.now()}`,
     );
 
     // 연결이 열렸을 때의 이벤트 핸들러
-    socket.addEventListener('open', event => {
+    socket.current.addEventListener('open', (event: any) => {
       console.log('WebSocket 연결이 열렸습니다.', event);
 
       // 메시지 전송 예제
-      socket.send('안녕하세요, WebSocket!');
+      socket.current.send('안녕하세요, WebSocket!');
     });
 
     // 메시지를 수신했을 때의 이벤트 핸들러
-    socket.addEventListener('message', event => {
+    socket.current.addEventListener('message', (event: any) => {
       console.log('서버로부터 메시지 수신:', event.data);
     });
 
     // 연결이 닫혔을 때의 이벤트 핸들러
-    socket.addEventListener('close', event => {
+    socket.current.addEventListener('close', (event: any) => {
       console.log('WebSocket 연결이 닫혔습니다.', event);
     });
-
-    // 컴포넌트가 언마운트될 때 WebSocket 연결 종료
-    return () => {
-      socket.close();
-    };
-  }, []);
+  };
 
   return (
     <>
-      <button onClick={onStop}>Button</button>
+      <button onClick={onTest}>Button</button>
     </>
   );
 };

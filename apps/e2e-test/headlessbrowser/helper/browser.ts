@@ -13,8 +13,13 @@ import playwright, {
   selectors,
 } from 'playwright';
 
+export const BROWSER_TYPE = {
+  CHROMIUM: 'chromium',
+  WEBKIT: 'webkit',
+} as const;
+
 interface CreateBrowserContextParam {
-  browserType: 'chromium' | 'webkit';
+  browserType: (typeof BROWSER_TYPE)[keyof typeof BROWSER_TYPE];
   headless?: boolean;
   devtools?: boolean;
   [key: string]: any;
@@ -26,18 +31,28 @@ export const createBrowserContext = async (
     devtools: true,
   },
 ) => {
-  // https://playwright.dev/docs/api/class-browsertype#browser-type-launch
-  const browser = await playwright[browserType].launch({ headless, devtools });
-  // https://playwright.dev/docs/api/class-browser#browser-new-context
-  /*const context = await browser.newContext({
+  let browser, context;
+
+  try {
+    // https://playwright.dev/docs/api/class-browsertype#browser-type-launch
+    browser = await playwright[browserType].launch({
+      headless,
+      devtools,
+    });
+    // https://playwright.dev/docs/api/class-browser#browser-new-context
+    /*const context = await browser.newContext({
     ...devices['iPhone 11'],
   });*/
-  const context = await browser.newContext();
-  // https://playwright.dev/docs/api/class-browser#browser-new-page
-  //const page = await browser.newPage(); // context 가 아닌, browser 로 newPage 호출할 경우, 새 브라우저 컨텍스트에서 새 페이지를 만듭니다.
-  //const pageOne = await context.newPage();
-  //const pageTwo = await context.newPage();
-  //const allPages = context.pages();
+    context = await browser.newContext();
+    // https://playwright.dev/docs/api/class-browser#browser-new-page
+    //const page = await browser.newPage(); // context 가 아닌, browser 로 newPage 호출할 경우, 새 브라우저 컨텍스트에서 새 페이지를 만듭니다.
+    //const pageOne = await context.newPage();
+    //const pageTwo = await context.newPage();
+    //const allPages = context.pages();
+  } catch (error) {
+    console.error(error);
+  }
+
   return {
     browser,
     context,

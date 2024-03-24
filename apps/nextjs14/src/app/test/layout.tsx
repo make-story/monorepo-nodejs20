@@ -8,10 +8,5 @@
 import { ReactNode } from 'react';
 
 export default function RootLayout({ children }: { children: ReactNode }) {
-  return (
-    <>
-      <h1>Lauout</h1>
-      {children}
-    </>
-  );
+  return <>{children}</>;
 }
