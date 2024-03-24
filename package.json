@@ -35,7 +35,7 @@
     "nestjs10": "yarn workspace @makestory/nestjs10",
     "nextjs14": "yarn workspace @makestory/nextjs14",
     "storybook": "yarn workspace @makestory/storybook",
-    "dev": "concurrently \"yarn storybook dev\" \"yarn nextjs14 dev:server\" \"yarn e2e-test dev:server\"",
+    "dev": "concurrently \"yarn storybook dev\" \"yarn nextjs14 dev\" \"yarn e2e-test dev\"",
     "publish-packages": "changeset version --snapshot && changeset publish"
   },
   "dependencies": {
