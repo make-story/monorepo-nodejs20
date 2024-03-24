@@ -23,12 +23,6 @@ const config = {
       },
     },
     extend: {
-      borderWidth: px0_10,
-      fontSize: px0_100,
-      lineHeight: px0_100,
-      minWidth: px0_200,
-      minHeight: px0_200,
-      spacing: px0_200,
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
