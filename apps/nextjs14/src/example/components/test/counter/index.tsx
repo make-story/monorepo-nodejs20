@@ -6,13 +6,14 @@
 import { useEffect, useState } from 'react';
 import { LOG_LEVEL, LOG_GROUP_KEY, logger } from '@makestory/logging-manager';
 
-import { useAppSelector, useAppDispatch } from '@/store';
 import {
   decrement,
   increment,
   incrementByAmount,
   selectCount,
 } from '#/src/example/store/counter';
+
+import { useAppSelector, useAppDispatch } from '@/store';
 
 const Counter = () => {
   const dispatch = useAppDispatch();

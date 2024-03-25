@@ -12,11 +12,8 @@
       "packages/*"
     ],
     "nohoist": [
-      "**/e2e-test/**",
-      "**/micro-frontend/**",
-      "**/nestjs10/**",
-      "**/nextjs14/**",
-      "**/storybook/**"
+      "**/nextjs14",
+      "**/nextjs14/**"
     ]
   },
   "scripts": {

@@ -7,7 +7,6 @@
       "#/*": ["./*"],
       "@/*": ["./src/*"]
     },
-    "jsx": "preserve",
     "plugins": [
       {
         "name": "next"

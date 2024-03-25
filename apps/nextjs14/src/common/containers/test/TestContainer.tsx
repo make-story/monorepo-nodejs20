@@ -2,7 +2,9 @@
  * [example]
  */
 'use client';
+
 import { PropsWithChildren, useEffect } from 'react';
+
 import { useAppDispatch } from '@/store';
 import { setServerData } from '@/common/store/product/index';
 import Product from '@/common/components/test/product/Product';

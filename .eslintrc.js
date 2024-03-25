@@ -36,13 +36,26 @@ module.exports = {
     'import/order': [
       'error',
       {
+        'newlines-between': 'always',
         groups: [
           ['builtin', 'external'],
           'internal',
           ['parent', 'sibling'],
           'index',
         ],
-        'newlines-between': 'always',
+        pathGroups: [
+          {
+            pattern: '#/**',
+            group: 'external',
+            position: 'after',
+          },
+          {
+            pattern: '@/**',
+            group: 'external',
+            position: 'after',
+          },
+        ],
+        pathGroupsExcludedImportTypes: ['react'],
       },
     ],
     'no-restricted-imports': [
@@ -98,7 +111,7 @@ module.exports = {
     'import/resolver': {
       typescript: {
         // tsconfig.json 에 paths 설정(예: "@/*": ["./src/*"])이 있을 경우, 아래 설정 필수
-        project: '**/tsconfig.json',
+        project: ['**/tsconfig.json'],
       },
       node: {
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
