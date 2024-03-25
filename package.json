@@ -12,7 +12,6 @@
       "packages/*"
     ],
     "nohoist": [
-      "**/nextjs14",
       "**/nextjs14/**"
     ]
   },
