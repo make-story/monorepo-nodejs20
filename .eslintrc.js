@@ -97,6 +97,7 @@ module.exports = {
     },
     'import/resolver': {
       typescript: {
+        // tsconfig.json 에 paths 설정(예: "@/*": ["./src/*"])이 있을 경우, 아래 설정 필수
         project: '**/tsconfig.json',
       },
       node: {
