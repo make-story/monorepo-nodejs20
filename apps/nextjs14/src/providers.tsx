@@ -11,7 +11,6 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { SessionProvider } from 'next-auth/react';
 import { FetchProvider } from '@makestory/fetch-manager';
-
 import { AuthProvider } from '@/common/store/auth/index';
 import { makeStore, AppStore } from '@/store';
 //import { initializeCounter } from '@/example/store/counter';
