@@ -61,24 +61,26 @@ module.exports = {
     'import/no-restricted-paths': [
       'error',
       {
+        // "zones" 가 여러개 있을 경우, Lint 가 작동안함, 사용예: zones: [ ...규칙 여러개 작성 ]
         zones: [
           {
             target: '**/common/**',
             from: '**/*',
-            except: ['**/node_modules/**', '**/common/**', '**/src/store.*'],
+            except: [
+              '**/node_modules/**',
+              '**/packages/**',
+              '**/common/**',
+              '**/src/store.*',
+            ],
             message:
               '\n의존성 규칙에 어긋나는 참조입니다. - common 에서 외부 폴더(기능/서비스)를 참조할 수 없습니다.',
           },
-        ],
-        zones: [
           {
             target: '**/components/**',
             from: '**/containers/**',
             message:
               '\n의존성 규칙에 어긋나는 참조입니다. - components 에서 containers 를 참조할 수 없습니다. (container 하위에 component 가 존재해야 합니다.)',
           },
-        ],
-        zones: [
           {
             target: '**/app/**',
             from: '**/api/**',
