@@ -7,6 +7,8 @@
 
 ## Module Federation
 
+`study.git/아키텍처_설계_전략/MicroFrontend/ModuleFederation.md` 참고!
+
 https://github.com/module-federation/module-federation-examples/tree/master/nextjs-v13
 
 https://www.npmjs.com/package/@module-federation/nextjs-mf
@@ -34,6 +36,8 @@ injectScript({
 ```
 
 ## 커스텀엘리먼트 + 쉐도우돔 (+ 특점 컴포넌트 빌드 결과물)
+
+`study.git/아키텍처_설계_전략/MicroFrontend/마이크로프론트엔드_웹컴포넌트.md` 참고!
 
 ```javascript
 class CurrentTimeElement extends HTMLElement {

@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "preinstall": "node -e \"if(process.env.npm_execpath.indexOf('yarn') === -1) throw new Error('use Yarn, no NPM')\"",
-    "dev": "NODE_OPTIONS='--inspect' NEXT_PRIVATE_LOCAL_WEBPACK=true next dev",
+    "dev": "NODE_OPTIONS='--inspect' next dev",
     "dev:turbo": "NODE_OPTIONS='--inspect' next dev --turbo",
     "dev:server": "NODE_OPTIONS='--inspect' NODE_ENV=${NODE_ENV:=development} PORT=9040 PORT_SSL=443 ts-node --project tsconfig.server.json server.ts",
     "build": "next build && tsc --project tsconfig.server.json && tsc-alias -p tsconfig.server.json",
@@ -20,7 +20,6 @@
     "prettier": "prettier --check ./src"
   },
   "dependencies": {
-    "@apollo/client": "^3.9.5",
     "@makestory/config": "*",
     "@makestory/event-manager": "*",
     "@makestory/fetch-manager": "*",
