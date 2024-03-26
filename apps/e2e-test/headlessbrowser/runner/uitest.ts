@@ -3,7 +3,7 @@
  * CLI, GUI(websocket 호출) 사용
  */
 import assert from 'node:assert';
-import playwright, {
+import {
   chromium,
   firefox,
   webkit,
@@ -17,7 +17,6 @@ import { loggingEvent } from '#/headlessbrowser/helper/event/logging';
 import {
   BROWSER_TYPE,
   createBrowserContext,
-  globalBrowserContext,
 } from '#/headlessbrowser/helper/browser';
 import { createChromeDevtoolsProtocol } from '#/headlessbrowser/helper/devtools';
 import { RouteHandler } from '#/websocket/type';
@@ -37,16 +36,12 @@ const runner: RouteHandler = async ({
    */
   let {
     device: deviceType = 'mobile',
-    category: categoryType,
+    category: categoryType = 'product',
     testcase: testcaseType,
   } = params; // /:device/:category/:testcase
-  let {
-    browser: browserType = BROWSER_TYPE.CHROMIUM,
-    headless = true,
-    timestamp,
-  } = query; // ?headless=true
+  let { browser: browserType, headless = true, timestamp } = query; // ?headless=true
   const { file: testcaseList } = getDirectoryFile(
-    `headlessbrowser/testcase/${categoryType || 'product'}`,
+    `headlessbrowser/testcase/${categoryType}`,
     {
       isFileExtension: false,
     },
@@ -63,12 +58,15 @@ const runner: RouteHandler = async ({
     }
     return;
   }
-  if (!browserType) {
+  if (
+    !browserType ||
+    !Object.values(BROWSER_TYPE).includes(browserType as any)
+  ) {
     browserType = BROWSER_TYPE.CHROMIUM;
   }
   headless = stringToBoolean(headless);
   if (typeof headless !== 'boolean') {
-    headless = false; // TODO: 수정필요!
+    headless = false;
   }
 
   let browser, context;
@@ -76,7 +74,6 @@ const runner: RouteHandler = async ({
     /**
      * 브라우저 셋업
      */
-    //({ browser, context } = await globalBrowserContext);
     ({ browser, context } = await createBrowserContext({
       browserType:
         browserType as (typeof BROWSER_TYPE)[keyof typeof BROWSER_TYPE],
@@ -93,15 +90,17 @@ const runner: RouteHandler = async ({
      */
     if (browserType === BROWSER_TYPE.CHROMIUM) {
       const client = await createChromeDevtoolsProtocol({ page });
-      await client.send('Emulation.setUserAgentOverride', {
-        userAgent: devices['iPhone 11'].userAgent,
-      });
-      await client.send('Emulation.setDeviceMetricsOverride', {
-        width: devices['iPhone 11'].viewport.width,
-        height: devices['iPhone 11'].viewport.height,
-        mobile: true,
-        deviceScaleFactor: 0,
-      });
+      if (deviceType === 'mobile') {
+        await client.send('Emulation.setUserAgentOverride', {
+          userAgent: devices['iPhone 11'].userAgent,
+        });
+        await client.send('Emulation.setDeviceMetricsOverride', {
+          width: devices['iPhone 11'].viewport.width,
+          height: devices['iPhone 11'].viewport.height,
+          mobile: true,
+          deviceScaleFactor: 0,
+        });
+      }
     }
 
     /**
@@ -113,7 +112,7 @@ const runner: RouteHandler = async ({
      * 테스트 케이스
      */
     const { default: testcase } = await import(
-      `../testcase/${categoryType || 'product'}/${testcaseType}`
+      `../testcase/${categoryType}/${testcaseType}`
     );
     await testcase({ browser, page, ws });
   } catch (error) {

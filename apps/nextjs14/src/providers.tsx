@@ -36,6 +36,7 @@ export const Providers = ({
           <PersistGate persistor={storeRef.current.__persistor!} loading={null}>
             {() => (
               <>
+                {/* fetch-manager */}
                 <FetchProvider<AppStore> store={storeRef.current!}>
                   {children}
                 </FetchProvider>

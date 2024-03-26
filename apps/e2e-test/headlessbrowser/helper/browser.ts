@@ -59,4 +59,4 @@ export const createBrowserContext = async (
   };
 };
 
-export const globalBrowserContext = createBrowserContext(); // 하나의 브라우저 컨텍스트를 Node 스레드에서 공유
+//export const globalBrowserContext = createBrowserContext(); // 하나의 브라우저 컨텍스트를 Node 스레드에서 공유

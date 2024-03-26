@@ -33,6 +33,7 @@ module.exports = {
     'prettier',
   ],
   rules: {
+    'import/default': 'warn',
     'import/order': [
       'error',
       {
