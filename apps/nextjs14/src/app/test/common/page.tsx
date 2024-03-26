@@ -1,6 +1,6 @@
 'use client';
 
-import TestContainer from '#/src/common/containers/test/TestContainer';
+import TestContainer from '@/common/containers/test/TestContainer';
 
 function Page() {
   return (

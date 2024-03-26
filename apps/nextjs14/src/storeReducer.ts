@@ -6,8 +6,7 @@ import {
 } from '@reduxjs/toolkit';
 import { PersistPartial } from 'redux-persist/lib/persistReducer';
 
-import example from '#/src/example/store/reducer';
-
+import example from '@/example/store/reducer';
 import common from '@/common/store/reducer';
 import { rtkQuery as commonRtkQuery } from '@/common/api/index';
 

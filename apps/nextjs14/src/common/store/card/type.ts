@@ -3,7 +3,7 @@ export interface User {
   username: string;
 }
 
-export interface AuthContextValue {
+export interface CardContextValue {
   user: User | null;
   setUser(user: User): void;
 }

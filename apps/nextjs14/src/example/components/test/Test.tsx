@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 
-import withHoc1 from '#/src/example/hocs/example/withHoc';
+import withHoc1 from '@/example/hocs/example/withHoc';
 
 const testData = [
   {

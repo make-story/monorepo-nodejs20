@@ -11,8 +11,7 @@ import {
   increment,
   incrementByAmount,
   selectCount,
-} from '#/src/example/store/counter';
-
+} from '@/example/store/counter';
 import { useAppSelector, useAppDispatch } from '@/store';
 
 const Counter = () => {

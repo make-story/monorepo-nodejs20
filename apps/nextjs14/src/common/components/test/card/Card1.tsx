@@ -3,14 +3,14 @@
  */
 'use client';
 
-import { useContextAuth } from '@/common/store/auth';
+import { useContextCard } from '@/common/store/card';
 
-const Auth = () => {
-  const { user, setUser } = useContextAuth();
+const Card1 = () => {
+  const { user, setUser } = useContextCard();
 
   return (
     <>
-      <h2>Context API Test</h2>
+      <h2>Card1 - Context API Test</h2>
       <div>
         <span>{!!user && `${user.id} / ${user.username}`}</span>
       </div>
@@ -44,4 +44,4 @@ const Auth = () => {
   );
 };
 
-export default Auth;
+export default Card1;

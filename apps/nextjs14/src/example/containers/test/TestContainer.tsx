@@ -3,9 +3,9 @@
  */
 'use client';
 
-import Card from '#/src/example/components/test/card/index';
-import Counter from '#/src/example/components/test/counter/index';
-import Webview from '#/src/example/components/test/webview/index';
+import Counter from '@/example/components/test/counter/index';
+import Webview from '@/example/components/test/webview/index';
+import Card from '@/example/components/test/card/index';
 
 function TestContainer() {
   return (

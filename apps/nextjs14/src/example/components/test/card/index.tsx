@@ -5,8 +5,6 @@
 import styled from 'styled-components';
 import Link from 'next/link';
 
-import { useContextAuth } from '@/common/store/auth';
-
 const FlexContainer = styled.div`
   display: flex;
   align-items: center;
@@ -41,12 +39,9 @@ const StyledLink = styled(Link)`
 `;
 
 export default function Cards() {
-  const { user } = useContextAuth();
-
   return (
     <>
       <h1>Style Components Test</h1>
-      <div>{!!user?.id && user.id}</div>
       <FlexContainer>
         <Card>
           <StyledLink href='/'>Page &rarr;</StyledLink>
