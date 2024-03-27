@@ -17,7 +17,9 @@
     "start:server:prd": "NODE_ENV=production node _dist/server.js",
     "lint": "next lint",
     "eslint": "eslint ./",
-    "prettier": "prettier --check ./src"
+    "eslint:debug": "eslint ./ --debug",
+    "eslint:fix": "eslint ./ --fix",
+    "prettier": "prettier ./src --check"
   },
   "dependencies": {
     "@makestory/config": "*",

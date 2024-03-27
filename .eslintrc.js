@@ -25,13 +25,33 @@ module.exports = {
   /*parserOptions: {
     project: ['tsconfig.json'],
   },*/
+
+  // 프로젝트에 자바스크립트 파일과 타입스크립트 파일이 공존한다면 자바스크립트 파일을 기준으로 기본 설정을 하고,
+  // 타입스크립트 파일을 위한 설정은 overrides 옵션에 명시할 수 있습니다.
+  /*overrides: [
+    {
+      files: ['*.ts', '*.tsx', '*.js'],
+      parser: '@typescript-eslint/parser',
+    },
+  ],*/
+
+  // 플러그인은 일련의 규칙(rules) 집합이며, 플러그인을 추가하여도 규칙(rules)은 적용되지 않습니다.
+  // (규칙을 적용하기 위해서는 추가한 플러그인 중, 사용할 규칙을 추가해주어야 적용이 됩니다.)
   plugins: ['import'],
+
+  // 패키지들이나 룰들을 모아서 설정으로 만든 것
+  // eslint-plugin-* 패키지의 설정은 extends 에서 plugin:패키지네임/설정네임으로 사용할 수 있는데
+  // eslint-config-* 패키지의 설정은 바로 '*' (예를 들어, 'eslint-config-prettier' 의 경우 'prettier' 만 입력)를 써주기만 하면 된다.
   extends: [
     'next/core-web-vitals',
     'plugin:import/recommended',
     'plugin:import/typescript',
+    'plugin:tailwindcss/recommended',
     'prettier',
   ],
+
+  // 직접 lint rule 을 적용하는 부분
+  // extends 로 자동으로 설정된 rules 중에, 특정 rule을 끄거나, erorr를 warning으로 나오도록 변경하는 등 설정을 바꿀 수 있다.
   rules: {
     'import/default': 'warn',
     'import/order': [
@@ -105,6 +125,8 @@ module.exports = {
       },
     ],
   },
+
+  // 일부 ESLint 플러그인은 추가적인 설정이 가능
   settings: {
     'import/parsers': {
       '@typescript-eslint/parser': ['.ts', '.tsx'],

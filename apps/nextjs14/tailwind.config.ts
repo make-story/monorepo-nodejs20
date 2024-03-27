@@ -7,6 +7,8 @@ const px0_200 = { ...Array.from(Array(201)).map((_, i) => `${i}px`) };
 
 const config = {
   darkMode: ['class'],
+  // https://tailwindcss.com/docs/content-configuration
+  // css 파일은 절대 넣지 않도록 주의
   content: [
     './pages/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
