@@ -1,5 +1,6 @@
 /** @type {import("prettier").Config} */
 module.exports = {
+  //plugins: ['prettier-plugin-tailwindcss'],
   arrowParens: 'avoid', // 화살표 함수 괄호
   bracketSpacing: true, // 대괄호 사이에 공백여부
   endOfLine: 'auto', // OS별 줄넘김 LF, CRLF

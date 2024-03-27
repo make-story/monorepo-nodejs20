@@ -16,6 +16,7 @@ const config = {
     './src/**/*.{ts,tsx}',
   ],
   prefix: '',
+  // theme.extend.colors 가 아닌 theme.colors 에 추가하게 되면 기존 색상을 덮어쓰게 된다.
   theme: {
     container: {
       center: true,
@@ -25,6 +26,10 @@ const config = {
       },
     },
     extend: {
+      // 테일윈드는 text-sm: 14px, text-base: 16px, text-lg: 18px 을 제공, 15px 추가
+      fontSize: {
+        '15px': '15px', // text-15px
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',

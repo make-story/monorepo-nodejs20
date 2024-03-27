@@ -16,6 +16,8 @@
  * @typescript-eslint/parser
  * eslint-import-resolver-node, eslint-import-resolver-typescript, eslint-plugin-import
  * eslint-plugin-jsx-a11y, eslint-plugin-react, eslint-plugin-react-hooks
+ *
+ * [주의!] plugin, extend 에 추가되는 것들은 필히! NPM 설치가 되어 있어야 한다!
  */
 //const path = require('node:path');
 
@@ -36,7 +38,7 @@ module.exports = {
   ],*/
 
   // 플러그인은 일련의 규칙(rules) 집합이며, 플러그인을 추가하여도 규칙(rules)은 적용되지 않습니다.
-  // (규칙을 적용하기 위해서는 추가한 플러그인 중, 사용할 규칙을 추가해주어야 적용이 됩니다.)
+  // (규칙을 적용하기 위해서는 추가한 플러그인 중, 사용할 규칙을 rules 에 추가해주어야 적용이 됩니다.)
   plugins: ['import'],
 
   // 패키지들이나 룰들을 모아서 설정으로 만든 것
