@@ -1,6 +1,6 @@
 /**
- * preview.ts는 preview (미리보기) 화면에 대한 설정을 적용할 수 있습니다.
- * preview.ts 내부에 CSS를 import하거나 Javascript를 로드할 수 있음
+ * preview.ts 는 preview (미리보기) 화면에 대한 설정을 적용할 수 있습니다.
+ * preview.ts 내부에 CSS를 import 하거나 JavaScript 를 로드할 수 있음
  */
 import type { Preview } from '@storybook/react';
 

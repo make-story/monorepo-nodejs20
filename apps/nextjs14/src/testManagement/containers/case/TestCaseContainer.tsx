@@ -19,8 +19,20 @@ const TestCaseContainer = (props: PropsWithChildren) => {
    */
   // 웹소켓 사용자훅
   const useTestCaseWebSoket = () => {};
+
+  /**
+   * 화면 디자인 & 마크업 작업
+   * 부트스트랩 등 UI 라이브러리 예시 참고하여 만들어보자!
+   *
+   * https://www.radix-ui.com/primitives/docs/components/accordion
+   * https://ant.design/components/overview
+   * https://react-bootstrap.netlify.app/docs/components/accordion
+   */
   return (
     <>
+      <button className='text-white px-4 sm:px-8 py-2 sm:py-3 bg-sky-700 hover:bg-sky-800 text-15px'>
+        aa
+      </button>
       <Select>
         <SelectTrigger className='w-[280px]'>
           <SelectValue placeholder='Select a timezone' />
