@@ -1,6 +1,6 @@
 /**
  * 중첩 레이아웃(특정폴더/layout.tsx)
- * 특정 경로 내부에 추가(layout.tsx)하여 레이아웃을 중첩시킬 수 있음
+ * 특정 경로 내부에 추가(layout.tsx)하여 레이아웃을 중첩할 수 있음
  * https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts#nesting-layouts
  */
 

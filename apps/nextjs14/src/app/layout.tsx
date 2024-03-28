@@ -1,5 +1,6 @@
 /**
- * 루트 레이아웃(app/layout.tsx)은 기본적으로 서버 컴포넌트이며 클라이언트 컴포넌트로 설정할 수 없습니다.
+ * 루트 레이아웃(app/layout.tsx, 필수)은 기본적으로 서버 컴포넌트이며 클라이언트 컴포넌트로 설정할 수 없습니다.
+ * 루트 레이아웃에는 html 및 body 태그가 포함되어야 합니다.
  * (기존 Next.js pages 라우트 방식에서 루트 레이아웃은 _app.js 및 _document.js 파일을 대체)
  * https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts#root-layout-required
  */
